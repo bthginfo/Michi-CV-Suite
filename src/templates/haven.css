@@ -1,0 +1,240 @@
+/* Haven — a warm, sage personal profile beside a generous career column. */
+.template-haven {
+  --cv-side-width: 268px;
+  --cv-side-bg: #e5ece4;
+  --cv-side-ink: #283e32;
+  --cv-side-muted: #4b6153;
+  --cv-ink: #243c31;
+  --cv-muted: #4d5e54;
+  --cv-paper: #fffefa;
+  --cv-main-pad: 33px;
+  --cv-side-pad: 29px;
+  --cv-top-pad: 41px;
+  --haven-accent: color-mix(in srgb, var(--cv-accent) 70%, #3b604b);
+  --haven-rule: color-mix(in srgb, var(--cv-accent) 17%, #d5dfd2);
+  color: var(--cv-ink);
+  background: var(--cv-paper);
+  font-size: 12.4px;
+  line-height: 1.49;
+  letter-spacing: 0;
+}
+.template-haven:not(.sidebar-exhausted) {
+  background: linear-gradient(90deg, var(--cv-side-bg) 0, var(--cv-side-bg) var(--cv-side-width), var(--cv-paper) var(--cv-side-width));
+}
+.template-haven .cv-sidebar {
+  color: var(--cv-side-ink);
+  background: var(--cv-side-bg);
+}
+.template-haven .cv-main { padding-top: 45px; }
+.template-haven .cv-sidebar-profile { margin-bottom: 27px; }
+.template-haven .cv-photo {
+  width: 184px;
+  height: 182px;
+  margin: 0 0 26px;
+  border: 0;
+  background: #cddbc9;
+  color: #34533d;
+  box-shadow: none;
+}
+.template-haven .cv-photo.photo-rounded { border-radius: 22px; }
+.template-haven .cv-photo.photo-circle { width: 182px; height: 182px; border-radius: 50%; }
+.template-haven .cv-photo.photo-square { border-radius: 0; }
+.template-haven .cv-initials {
+  color: #3d5b45;
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 60px;
+  font-weight: 450;
+  line-height: 1;
+  letter-spacing: -.035em;
+  opacity: .8;
+}
+.template-haven .cv-sidebar-identity { margin: 0 0 25px; padding: 0; }
+.template-haven .cv-sidebar-identity .cv-name {
+  color: var(--cv-side-ink);
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 39px;
+  line-height: 1.07;
+  font-weight: 650;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.template-haven .cv-sidebar-identity .cv-role {
+  color: var(--cv-side-muted);
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 12.3px;
+  line-height: 1.52;
+  font-weight: 500;
+  letter-spacing: 0;
+  margin: 13px 0 0;
+  padding: 0;
+  text-transform: none;
+}
+.template-haven .cv-contact {
+  margin: 0;
+  padding: 20px 0 0;
+  border-top: 1px solid #c5d2c3;
+  gap: 12px;
+  color: var(--cv-side-muted);
+  font-size: 11.4px;
+  line-height: 1.55;
+  font-weight: 400;
+}
+.template-haven .cv-contact-row { align-items: flex-start; gap: 9px; }
+.template-haven .cv-contact-icon { color: #3b5f48; }
+.template-haven .cv-contact-icon svg { width: 14px; height: 14px; stroke-width: 1.6; }
+.template-haven .cv-contact a { color: inherit; text-underline-offset: 3px; }
+.template-haven .cv-main .cv-summary {
+  color: var(--cv-muted);
+  font-family: var(--cv-font);
+  font-size: 12.4px;
+  line-height: 1.62;
+  padding: 0 0 11px;
+  margin: 0;
+}
+.template-haven .cv-section-heading { padding: 23px 0 12px; }
+.template-haven .section-heading-inner {
+  color: var(--haven-accent);
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -.02em;
+  text-transform: none;
+  gap: 9px;
+}
+.template-haven .cv-section-icon { width: 18px; min-width: 18px; height: 21px; color: var(--haven-accent); }
+.template-haven .cv-section-icon svg { width: 16px; height: 16px; stroke-width: 1.6; }
+.template-haven .cv-section-rule { margin-left: 5px; background: var(--haven-rule); }
+.template-haven .cv-main .cv-entry-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 16px 0 0;
+  margin: 0;
+}
+.template-haven .cv-main .cv-section-heading + .cv-entry-header { padding-top: 0; }
+.template-haven .cv-main .cv-period {
+  color: var(--haven-accent);
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 10.4px;
+  line-height: 1.45;
+  font-weight: 550;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .015em;
+  padding: 0;
+}
+.template-haven .cv-main .cv-entry-heading,
+.template-haven .cv-main .cv-entry-field.field-heading {
+  color: var(--cv-ink);
+  font-family: var(--cv-font);
+  font-size: 13.2px;
+  line-height: 1.44;
+  font-weight: 700;
+  letter-spacing: -.012em;
+  padding: 0;
+}
+.template-haven .cv-main .cv-entry-field {
+  color: #3d5547;
+  font-family: var(--cv-font);
+  font-size: 12.4px;
+  line-height: 1.5;
+  font-weight: 550;
+  padding: 3px 0 4px;
+  margin: 0;
+}
+.template-haven .cv-main .cv-entry-field.field-period { color: var(--haven-accent); font-size: 10.4px; font-weight: 550; }
+.template-haven .cv-main .cv-body-line {
+  color: var(--cv-muted);
+  font-family: var(--cv-font);
+  font-size: 12.3px;
+  line-height: 1.49;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 2px 0;
+  gap: 8px;
+}
+.template-haven .cv-main .cv-body-line.line-continuation.kind-experience { padding-left: 11px; }
+.template-haven .cv-bullet { width: 3px; min-width: 3px; height: 3px; margin-top: 7.5px; background: var(--haven-accent); }
+.template-haven .cv-sidebar .cv-section-heading { padding: 23px 0 11px; }
+.template-haven .cv-sidebar .section-heading-inner {
+  color: var(--cv-side-ink);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.4;
+  letter-spacing: -.01em;
+  text-transform: none;
+  gap: 8px;
+}
+.template-haven .cv-sidebar .cv-section-icon { color: #49684e; width: 17px; min-width: 17px; height: 19px; }
+.template-haven .cv-sidebar .cv-section-icon svg { width: 15px; height: 15px; }
+.template-haven .cv-sidebar .cv-section-rule { background: #a8bba5; opacity: .8; }
+.template-haven .cv-sidebar .cv-entry-header { gap: 3px; padding: 13px 0 0; }
+.template-haven .cv-sidebar .cv-section-heading + .cv-entry-header { padding-top: 0; }
+.template-haven .cv-sidebar .cv-entry-heading,
+.template-haven .cv-sidebar .cv-entry-field.field-heading { color: var(--cv-side-ink); font-size: 11.8px; line-height: 1.48; font-weight: 650; }
+.template-haven .cv-sidebar .cv-entry-field,
+.template-haven .cv-sidebar .cv-body-line { color: var(--cv-side-muted); font-size: 11.5px; line-height: 1.55; padding-block: 2px; }
+.template-haven .cv-sidebar .cv-period,
+.template-haven .cv-sidebar .cv-entry-field.field-period { color: #506951; font-size: 10px; font-weight: 500; }
+.template-haven .cv-sidebar .cv-summary { color: var(--cv-side-muted); font-size: 11.5px; line-height: 1.55; }
+.template-haven .cv-sidebar .cv-entry-image img { max-height: 180px; }
+.template-haven .cv-running-head { color: var(--cv-ink); border-bottom-color: #cbd9c7; margin-inline: 33px; padding-top: 29px; font-size: 14px; }
+.template-haven .cv-running-head > :last-child { color: var(--cv-muted); font-size: 10px; line-height: 1.45; }
+.template-haven.is-continuation .cv-main,
+.template-haven.is-continuation .cv-sidebar { padding-top: 23px; }
+.template-haven .cv-footer {
+  left: calc(var(--cv-side-width) + var(--cv-main-pad));
+  right: var(--cv-main-pad);
+  border-top-color: #d5dfd2;
+  color: #526752;
+  font-size: 9px;
+  bottom: 25px;
+}
+.template-haven.sidebar-exhausted .cv-footer { left: 43px; right: 43px; }
+.template-haven.sidebar-exhausted .cv-running-head { margin-inline: 43px; }
+.template-haven .cv-sidebar ::selection { background: #aec8a5; color: #213a2c; }
+.template-haven .cv-main ::selection { background: #d5e4cf; color: #213a2c; }
+.template-haven.font-serif .cv-main .cv-body-line,
+.template-haven.font-serif .cv-main .cv-entry-field,
+.template-haven.font-serif .cv-main .cv-summary { font-size: 14.7px; line-height: 1.4; }
+.template-haven.font-serif .cv-main .cv-entry-heading,
+.template-haven.font-serif .cv-main .cv-entry-field.field-heading { font-size: 16px; }
+.template-haven.font-serif .cv-sidebar .cv-body-line,
+.template-haven.font-serif .cv-sidebar .cv-entry-field,
+.template-haven.font-serif .cv-sidebar .cv-summary { font-size: 13.5px; line-height: 1.43; }
+.template-haven.font-serif .cv-sidebar .cv-entry-heading,
+.template-haven.font-serif .cv-sidebar .cv-entry-field.field-heading { font-size: 14px; }
+.template-haven.font-mono .cv-main .cv-body-line,
+.template-haven.font-mono .cv-main .cv-entry-field,
+.template-haven.font-mono .cv-main .cv-summary { font-size: 12.1px; line-height: 1.53; }
+.template-haven.font-mono .cv-main .cv-entry-heading,
+.template-haven.font-mono .cv-main .cv-entry-field.field-heading { font-size: 12.5px; }
+.template-haven.font-serif .cv-main .cv-entry-field.field-period,
+.template-haven.font-mono .cv-main .cv-entry-field.field-period { font-size: 10.4px; }
+.template-haven.font-serif .cv-sidebar .cv-entry-field.field-period { font-size: 10px; }
+.template-haven.density-compact .cv-main .cv-section-heading { padding: 18px 0 10px; }
+.template-haven.density-compact .cv-main .cv-entry-header { padding-top: 12px; }
+.template-haven.density-compact .cv-main .cv-section-heading + .cv-entry-header { padding-top: 0; }
+.template-haven.density-compact .cv-main .cv-body-line { padding-block: 1px; line-height: 1.45; }
+.template-haven.density-compact .cv-sidebar .cv-section-heading { padding: 19px 0 10px; }
+.template-haven.density-compact .cv-sidebar .cv-entry-header { padding-top: 10px; }
+.template-haven.density-compact .cv-sidebar .cv-section-heading + .cv-entry-header { padding-top: 0; }
+.template-haven.density-compact .cv-lane-content > .cv-section-heading:first-child { padding-top: 0; }
+.template-haven.font-serif.density-compact .cv-main .cv-body-line { line-height: 1.37; }
+
+/* Gallery: sidebar carries the real name; the career column starts high. */
+.mini-haven { background: #fffefa; color: #283e32; }
+.mini-haven .mini-band { display: none; }
+.mini-haven .mini-side { inset: 0 auto 0 0; width: 34%; padding: 12px 7px; color: #283e32; background: #e5ece4; }
+.mini-haven .mini-photo { width: 31px; height: 31px; margin: 0 0 8px; background: #c5d6c0; border-radius: 6px; }
+.mini-haven .mini-side-name { display: block; width: 100%; height: auto; margin: 0 0 8px; padding: 0; color: #283e32; background: transparent; font-family: 'DM Sans Variable', 'DM Sans', sans-serif; font-size: 7px; font-weight: 650; line-height: 1.1; letter-spacing: -.025em; opacity: 1; overflow-wrap: normal; word-break: normal; }
+.mini-haven .mini-side-lines i { height: 1px; margin: 4px 0; background: #839d7d; opacity: .75; }
+.mini-haven .mini-side-lines i:nth-child(4n + 1) { margin-top: 8px; background: #4e6d48; height: 2px; width: 76%; }
+.mini-haven .mini-main { inset: 0 0 0 34%; padding: 13px 10px; }
+.mini-haven .mini-name,
+.mini-haven .mini-role { display: none; }
+.mini-haven .mini-lines { margin: 0; }
+.mini-haven .mini-lines i { height: 1px; margin: 5px 0; background: #a4b19e; opacity: .8; }
+.mini-haven .mini-lines i:nth-child(4n + 1) { height: 3px; width: 67%; margin-top: 11px; background: var(--mini-accent); opacity: .9; }
+.mini-haven .mini-lines i:first-child { margin-top: 0; }

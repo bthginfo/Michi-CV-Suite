@@ -1,0 +1,772 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-19T14:45:47.964730Z",
+  "title": "Design System: Michi CV Suite",
+  "extensions": {
+    "colorMeta": {
+      "studio-bg": {
+        "role": "neutral",
+        "displayName": "Studio Background Navy",
+        "tonalRamp": [
+          "oklch(15% 0.03501 263.23)",
+          "oklch(27% 0.03501 263.23)",
+          "oklch(39% 0.03501 263.23)",
+          "oklch(51% 0.03501 263.23)",
+          "oklch(63% 0.03501 263.23)",
+          "oklch(75% 0.03501 263.23)",
+          "oklch(87% 0.03501 263.23)",
+          "oklch(95% 0.03501 263.23)"
+        ]
+      },
+      "studio-surface": {
+        "role": "neutral",
+        "displayName": "Studio Panel Navy",
+        "tonalRamp": [
+          "oklch(15% 0.04065 260.82)",
+          "oklch(27% 0.04065 260.82)",
+          "oklch(39% 0.04065 260.82)",
+          "oklch(51% 0.04065 260.82)",
+          "oklch(63% 0.04065 260.82)",
+          "oklch(75% 0.04065 260.82)",
+          "oklch(87% 0.04065 260.82)",
+          "oklch(95% 0.04065 260.82)"
+        ]
+      },
+      "studio-raised": {
+        "role": "neutral",
+        "displayName": "Studio Raised Navy",
+        "tonalRamp": [
+          "oklch(15% 0.04730 261.22)",
+          "oklch(27% 0.04730 261.22)",
+          "oklch(39% 0.04730 261.22)",
+          "oklch(51% 0.04730 261.22)",
+          "oklch(63% 0.04730 261.22)",
+          "oklch(75% 0.04730 261.22)",
+          "oklch(87% 0.04730 261.22)",
+          "oklch(95% 0.04730 261.22)"
+        ]
+      },
+      "studio-text": {
+        "role": "neutral",
+        "displayName": "Studio Light Text",
+        "tonalRamp": [
+          "oklch(15% 0.01617 262.75)",
+          "oklch(27% 0.01617 262.75)",
+          "oklch(39% 0.01617 262.75)",
+          "oklch(51% 0.01617 262.75)",
+          "oklch(63% 0.01617 262.75)",
+          "oklch(75% 0.01617 262.75)",
+          "oklch(87% 0.01617 262.75)",
+          "oklch(95% 0.01617 262.75)"
+        ]
+      },
+      "studio-muted": {
+        "role": "neutral",
+        "displayName": "Studio Muted Blue Gray",
+        "tonalRamp": [
+          "oklch(15% 0.04637 260.37)",
+          "oklch(27% 0.04637 260.37)",
+          "oklch(39% 0.04637 260.37)",
+          "oklch(51% 0.04637 260.37)",
+          "oklch(63% 0.04637 260.37)",
+          "oklch(75% 0.04637 260.37)",
+          "oklch(87% 0.04637 260.37)",
+          "oklch(95% 0.04637 260.37)"
+        ]
+      },
+      "studio-accent": {
+        "role": "primary",
+        "displayName": "Studio Selection Blue",
+        "tonalRamp": [
+          "oklch(15% 0.08157 270.02)",
+          "oklch(27% 0.08157 270.02)",
+          "oklch(39% 0.08157 270.02)",
+          "oklch(51% 0.08157 270.02)",
+          "oklch(63% 0.08157 270.02)",
+          "oklch(75% 0.08157 270.02)",
+          "oklch(87% 0.08157 270.02)",
+          "oklch(95% 0.08157 270.02)"
+        ]
+      },
+      "studio-primary": {
+        "role": "primary",
+        "displayName": "Studio Primary Button Blue",
+        "tonalRamp": [
+          "oklch(15% 0.07239 270.16)",
+          "oklch(27% 0.07239 270.16)",
+          "oklch(39% 0.07239 270.16)",
+          "oklch(51% 0.07239 270.16)",
+          "oklch(63% 0.07239 270.16)",
+          "oklch(75% 0.07239 270.16)",
+          "oklch(87% 0.07239 270.16)",
+          "oklch(95% 0.07239 270.16)"
+        ]
+      },
+      "studio-primary-hover": {
+        "role": "primary",
+        "displayName": "Studio Primary Hover Blue",
+        "tonalRamp": [
+          "oklch(15% 0.04851 270.03)",
+          "oklch(27% 0.04851 270.03)",
+          "oklch(39% 0.04851 270.03)",
+          "oklch(51% 0.04851 270.03)",
+          "oklch(63% 0.04851 270.03)",
+          "oklch(75% 0.04851 270.03)",
+          "oklch(87% 0.04851 270.03)",
+          "oklch(95% 0.04851 270.03)"
+        ]
+      },
+      "studio-primary-ink": {
+        "role": "neutral",
+        "displayName": "Studio Primary Dark Ink",
+        "tonalRamp": [
+          "oklch(15% 0.05078 263.68)",
+          "oklch(27% 0.05078 263.68)",
+          "oklch(39% 0.05078 263.68)",
+          "oklch(51% 0.05078 263.68)",
+          "oklch(63% 0.05078 263.68)",
+          "oklch(75% 0.05078 263.68)",
+          "oklch(87% 0.05078 263.68)",
+          "oklch(95% 0.05078 263.68)"
+        ]
+      },
+      "studio-secondary-ink": {
+        "role": "neutral",
+        "displayName": "Studio Secondary Light Ink",
+        "tonalRamp": [
+          "oklch(15% 0.02843 263.42)",
+          "oklch(27% 0.02843 263.42)",
+          "oklch(39% 0.02843 263.42)",
+          "oklch(51% 0.02843 263.42)",
+          "oklch(63% 0.02843 263.42)",
+          "oklch(75% 0.02843 263.42)",
+          "oklch(87% 0.02843 263.42)",
+          "oklch(95% 0.02843 263.42)"
+        ]
+      },
+      "studio-input": {
+        "role": "neutral",
+        "displayName": "Studio Search Navy",
+        "tonalRamp": [
+          "oklch(15% 0.03795 260.41)",
+          "oklch(27% 0.03795 260.41)",
+          "oklch(39% 0.03795 260.41)",
+          "oklch(51% 0.03795 260.41)",
+          "oklch(63% 0.03795 260.41)",
+          "oklch(75% 0.03795 260.41)",
+          "oklch(87% 0.03795 260.41)",
+          "oklch(95% 0.03795 260.41)"
+        ]
+      },
+      "studio-input-ink": {
+        "role": "neutral",
+        "displayName": "Studio Search Light Ink",
+        "tonalRamp": [
+          "oklch(15% 0.03006 267.20)",
+          "oklch(27% 0.03006 267.20)",
+          "oklch(39% 0.03006 267.20)",
+          "oklch(51% 0.03006 267.20)",
+          "oklch(63% 0.03006 267.20)",
+          "oklch(75% 0.03006 267.20)",
+          "oklch(87% 0.03006 267.20)",
+          "oklch(95% 0.03006 267.20)"
+        ]
+      },
+      "studio-line": {
+        "role": "neutral",
+        "displayName": "Studio Quiet Divider",
+        "tonalRamp": [
+          "oklch(15% 0.00000 0.00)",
+          "oklch(27% 0.00000 0.00)",
+          "oklch(39% 0.00000 0.00)",
+          "oklch(51% 0.00000 0.00)",
+          "oklch(63% 0.00000 0.00)",
+          "oklch(75% 0.00000 0.00)",
+          "oklch(87% 0.00000 0.00)",
+          "oklch(95% 0.00000 0.00)"
+        ]
+      },
+      "studio-line-strong": {
+        "role": "neutral",
+        "displayName": "Studio Strong Divider",
+        "tonalRamp": [
+          "oklch(15% 0.00000 0.00)",
+          "oklch(27% 0.00000 0.00)",
+          "oklch(39% 0.00000 0.00)",
+          "oklch(51% 0.00000 0.00)",
+          "oklch(63% 0.00000 0.00)",
+          "oklch(75% 0.00000 0.00)",
+          "oklch(87% 0.00000 0.00)",
+          "oklch(95% 0.00000 0.00)"
+        ]
+      },
+      "paper-white": {
+        "role": "neutral",
+        "displayName": "White Paper",
+        "tonalRamp": [
+          "oklch(15% 0.00000 0.00)",
+          "oklch(27% 0.00000 0.00)",
+          "oklch(39% 0.00000 0.00)",
+          "oklch(51% 0.00000 0.00)",
+          "oklch(63% 0.00000 0.00)",
+          "oklch(75% 0.00000 0.00)",
+          "oklch(87% 0.00000 0.00)",
+          "oklch(95% 0.00000 0.00)"
+        ]
+      },
+      "paper-ivory": {
+        "role": "neutral",
+        "displayName": "Folio Ivory Paper",
+        "tonalRamp": [
+          "oklch(15% 0.00694 88.64)",
+          "oklch(27% 0.00694 88.64)",
+          "oklch(39% 0.00694 88.64)",
+          "oklch(51% 0.00694 88.64)",
+          "oklch(63% 0.00694 88.64)",
+          "oklch(75% 0.00694 88.64)",
+          "oklch(87% 0.00694 88.64)",
+          "oklch(95% 0.00694 88.64)"
+        ]
+      },
+      "paper-warm": {
+        "role": "neutral",
+        "displayName": "Haven Warm White Paper",
+        "tonalRamp": [
+          "oklch(15% 0.00537 95.10)",
+          "oklch(27% 0.00537 95.10)",
+          "oklch(39% 0.00537 95.10)",
+          "oklch(51% 0.00537 95.10)",
+          "oklch(63% 0.00537 95.10)",
+          "oklch(75% 0.00537 95.10)",
+          "oklch(87% 0.00537 95.10)",
+          "oklch(95% 0.00537 95.10)"
+        ]
+      },
+      "paper-cream": {
+        "role": "neutral",
+        "displayName": "Copper Cream Paper",
+        "tonalRamp": [
+          "oklch(15% 0.00854 84.57)",
+          "oklch(27% 0.00854 84.57)",
+          "oklch(39% 0.00854 84.57)",
+          "oklch(51% 0.00854 84.57)",
+          "oklch(63% 0.00854 84.57)",
+          "oklch(75% 0.00854 84.57)",
+          "oklch(87% 0.00854 84.57)",
+          "oklch(95% 0.00854 84.57)"
+        ]
+      },
+      "atlas-accent": {
+        "role": "primary",
+        "displayName": "Atlas Accent",
+        "tonalRamp": [
+          "oklch(15% 0.07268 191.22)",
+          "oklch(27% 0.07268 191.22)",
+          "oklch(39% 0.07268 191.22)",
+          "oklch(51% 0.07268 191.22)",
+          "oklch(63% 0.07268 191.22)",
+          "oklch(75% 0.07268 191.22)",
+          "oklch(87% 0.07268 191.22)",
+          "oklch(95% 0.07268 191.22)"
+        ]
+      },
+      "atlas-rail": {
+        "role": "neutral",
+        "displayName": "Atlas Midnight Navy",
+        "tonalRamp": [
+          "oklch(15% 0.04616 248.76)",
+          "oklch(27% 0.04616 248.76)",
+          "oklch(39% 0.04616 248.76)",
+          "oklch(51% 0.04616 248.76)",
+          "oklch(63% 0.04616 248.76)",
+          "oklch(75% 0.04616 248.76)",
+          "oklch(87% 0.04616 248.76)",
+          "oklch(95% 0.04616 248.76)"
+        ]
+      },
+      "folio-accent": {
+        "role": "primary",
+        "displayName": "Folio Accent",
+        "tonalRamp": [
+          "oklch(15% 0.10275 41.69)",
+          "oklch(27% 0.10275 41.69)",
+          "oklch(39% 0.10275 41.69)",
+          "oklch(51% 0.10275 41.69)",
+          "oklch(63% 0.10275 41.69)",
+          "oklch(75% 0.10275 41.69)",
+          "oklch(87% 0.10275 41.69)",
+          "oklch(95% 0.10275 41.69)"
+        ]
+      },
+      "folio-rail": {
+        "role": "neutral",
+        "displayName": "Folio Light Clay",
+        "tonalRamp": [
+          "oklch(15% 0.01882 75.32)",
+          "oklch(27% 0.01882 75.32)",
+          "oklch(39% 0.01882 75.32)",
+          "oklch(51% 0.01882 75.32)",
+          "oklch(63% 0.01882 75.32)",
+          "oklch(75% 0.01882 75.32)",
+          "oklch(87% 0.01882 75.32)",
+          "oklch(95% 0.01882 75.32)"
+        ]
+      },
+      "signal-accent": {
+        "role": "primary",
+        "displayName": "Signal Accent",
+        "tonalRamp": [
+          "oklch(15% 0.08939 200.90)",
+          "oklch(27% 0.08939 200.90)",
+          "oklch(39% 0.08939 200.90)",
+          "oklch(51% 0.08939 200.90)",
+          "oklch(63% 0.08939 200.90)",
+          "oklch(75% 0.08939 200.90)",
+          "oklch(87% 0.08939 200.90)",
+          "oklch(95% 0.08939 200.90)"
+        ]
+      },
+      "signal-rail": {
+        "role": "neutral",
+        "displayName": "Signal Dark Teal",
+        "tonalRamp": [
+          "oklch(15% 0.05002 207.26)",
+          "oklch(27% 0.05002 207.26)",
+          "oklch(39% 0.05002 207.26)",
+          "oklch(51% 0.05002 207.26)",
+          "oklch(63% 0.05002 207.26)",
+          "oklch(75% 0.05002 207.26)",
+          "oklch(87% 0.05002 207.26)",
+          "oklch(95% 0.05002 207.26)"
+        ]
+      },
+      "signal-band": {
+        "role": "neutral",
+        "displayName": "Signal Navy Band",
+        "tonalRamp": [
+          "oklch(15% 0.04905 248.21)",
+          "oklch(27% 0.04905 248.21)",
+          "oklch(39% 0.04905 248.21)",
+          "oklch(51% 0.04905 248.21)",
+          "oklch(63% 0.04905 248.21)",
+          "oklch(75% 0.04905 248.21)",
+          "oklch(87% 0.04905 248.21)",
+          "oklch(95% 0.04905 248.21)"
+        ]
+      },
+      "meridian-accent": {
+        "role": "primary",
+        "displayName": "Meridian Accent",
+        "tonalRamp": [
+          "oklch(15% 0.05908 329.80)",
+          "oklch(27% 0.05908 329.80)",
+          "oklch(39% 0.05908 329.80)",
+          "oklch(51% 0.05908 329.80)",
+          "oklch(63% 0.05908 329.80)",
+          "oklch(75% 0.05908 329.80)",
+          "oklch(87% 0.05908 329.80)",
+          "oklch(95% 0.05908 329.80)"
+        ]
+      },
+      "meridian-rail": {
+        "role": "neutral",
+        "displayName": "Meridian Warm Greige",
+        "tonalRamp": [
+          "oklch(15% 0.00911 78.28)",
+          "oklch(27% 0.00911 78.28)",
+          "oklch(39% 0.00911 78.28)",
+          "oklch(51% 0.00911 78.28)",
+          "oklch(63% 0.00911 78.28)",
+          "oklch(75% 0.00911 78.28)",
+          "oklch(87% 0.00911 78.28)",
+          "oklch(95% 0.00911 78.28)"
+        ]
+      },
+      "index-accent": {
+        "role": "primary",
+        "displayName": "Index Accent",
+        "tonalRamp": [
+          "oklch(15% 0.19991 266.05)",
+          "oklch(27% 0.19991 266.05)",
+          "oklch(39% 0.19991 266.05)",
+          "oklch(51% 0.19991 266.05)",
+          "oklch(63% 0.19991 266.05)",
+          "oklch(75% 0.19991 266.05)",
+          "oklch(87% 0.19991 266.05)",
+          "oklch(95% 0.19991 266.05)"
+        ]
+      },
+      "haven-accent": {
+        "role": "primary",
+        "displayName": "Haven Accent",
+        "tonalRamp": [
+          "oklch(15% 0.05404 153.55)",
+          "oklch(27% 0.05404 153.55)",
+          "oklch(39% 0.05404 153.55)",
+          "oklch(51% 0.05404 153.55)",
+          "oklch(63% 0.05404 153.55)",
+          "oklch(75% 0.05404 153.55)",
+          "oklch(87% 0.05404 153.55)",
+          "oklch(95% 0.05404 153.55)"
+        ]
+      },
+      "haven-rail": {
+        "role": "neutral",
+        "displayName": "Haven Pale Sage",
+        "tonalRamp": [
+          "oklch(15% 0.01299 141.81)",
+          "oklch(27% 0.01299 141.81)",
+          "oklch(39% 0.01299 141.81)",
+          "oklch(51% 0.01299 141.81)",
+          "oklch(63% 0.01299 141.81)",
+          "oklch(75% 0.01299 141.81)",
+          "oklch(87% 0.01299 141.81)",
+          "oklch(95% 0.01299 141.81)"
+        ]
+      },
+      "copper-accent": {
+        "role": "primary",
+        "displayName": "Copper Accent",
+        "tonalRamp": [
+          "oklch(15% 0.09427 50.23)",
+          "oklch(27% 0.09427 50.23)",
+          "oklch(39% 0.09427 50.23)",
+          "oklch(51% 0.09427 50.23)",
+          "oklch(63% 0.09427 50.23)",
+          "oklch(75% 0.09427 50.23)",
+          "oklch(87% 0.09427 50.23)",
+          "oklch(95% 0.09427 50.23)"
+        ]
+      },
+      "copper-rail": {
+        "role": "neutral",
+        "displayName": "Copper Espresso",
+        "tonalRamp": [
+          "oklch(15% 0.02261 46.00)",
+          "oklch(27% 0.02261 46.00)",
+          "oklch(39% 0.02261 46.00)",
+          "oklch(51% 0.02261 46.00)",
+          "oklch(63% 0.02261 46.00)",
+          "oklch(75% 0.02261 46.00)",
+          "oklch(87% 0.02261 46.00)",
+          "oklch(95% 0.02261 46.00)"
+        ]
+      },
+      "noir-accent": {
+        "role": "primary",
+        "displayName": "Noir Accent",
+        "tonalRamp": [
+          "oklch(15% 0.04072 257.42)",
+          "oklch(27% 0.04072 257.42)",
+          "oklch(39% 0.04072 257.42)",
+          "oklch(51% 0.04072 257.42)",
+          "oklch(63% 0.04072 257.42)",
+          "oklch(75% 0.04072 257.42)",
+          "oklch(87% 0.04072 257.42)",
+          "oklch(95% 0.04072 257.42)"
+        ]
+      },
+      "noir-rail": {
+        "role": "neutral",
+        "displayName": "Noir Charcoal",
+        "tonalRamp": [
+          "oklch(15% 0.01020 260.70)",
+          "oklch(27% 0.01020 260.70)",
+          "oklch(39% 0.01020 260.70)",
+          "oklch(51% 0.01020 260.70)",
+          "oklch(63% 0.01020 260.70)",
+          "oklch(75% 0.01020 260.70)",
+          "oklch(87% 0.01020 260.70)",
+          "oklch(95% 0.01020 260.70)"
+        ]
+      },
+      "lumen-accent": {
+        "role": "primary",
+        "displayName": "Lumen Accent",
+        "tonalRamp": [
+          "oklch(15% 0.10547 293.39)",
+          "oklch(27% 0.10547 293.39)",
+          "oklch(39% 0.10547 293.39)",
+          "oklch(51% 0.10547 293.39)",
+          "oklch(63% 0.10547 293.39)",
+          "oklch(75% 0.10547 293.39)",
+          "oklch(87% 0.10547 293.39)",
+          "oklch(95% 0.10547 293.39)"
+        ]
+      },
+      "summit-accent": {
+        "role": "primary",
+        "displayName": "Summit Accent",
+        "tonalRamp": [
+          "oklch(15% 0.11374 75.87)",
+          "oklch(27% 0.11374 75.87)",
+          "oklch(39% 0.11374 75.87)",
+          "oklch(51% 0.11374 75.87)",
+          "oklch(63% 0.11374 75.87)",
+          "oklch(75% 0.11374 75.87)",
+          "oklch(87% 0.11374 75.87)",
+          "oklch(95% 0.11374 75.87)"
+        ]
+      },
+      "summit-rail": {
+        "role": "neutral",
+        "displayName": "Summit Slate Navy",
+        "tonalRamp": [
+          "oklch(15% 0.04164 253.43)",
+          "oklch(27% 0.04164 253.43)",
+          "oklch(39% 0.04164 253.43)",
+          "oklch(51% 0.04164 253.43)",
+          "oklch(63% 0.04164 253.43)",
+          "oklch(75% 0.04164 253.43)",
+          "oklch(87% 0.04164 253.43)",
+          "oklch(95% 0.04164 253.43)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "studio-title": {
+        "displayName": "Studio Title",
+        "purpose": "Context-pane headings."
+      },
+      "studio-label": {
+        "displayName": "Studio Label",
+        "purpose": "Compact control labels."
+      },
+      "studio-button": {
+        "displayName": "Studio Button",
+        "purpose": "Shell action labels."
+      },
+      "cv-body": {
+        "displayName": "Cv Body",
+        "purpose": "Shared baseline main CV reading type; templates may override."
+      },
+      "cv-sidebar": {
+        "displayName": "Cv Sidebar",
+        "purpose": "Shared baseline sidebar CV reading type; templates may override."
+      },
+      "atlas-name": {
+        "displayName": "Atlas Name",
+        "purpose": "Template identity in its documented main, top-band or sidebar position."
+      },
+      "folio-name": {
+        "displayName": "Folio Name",
+        "purpose": "Template identity in its documented main, top-band or sidebar position."
+      },
+      "signal-name": {
+        "displayName": "Signal Name",
+        "purpose": "Template identity in its documented main, top-band or sidebar position."
+      },
+      "meridian-name": {
+        "displayName": "Meridian Name",
+        "purpose": "Template identity in its documented main, top-band or sidebar position."
+      },
+      "index-name": {
+        "displayName": "Index Name",
+        "purpose": "Template identity in its documented main, top-band or sidebar position."
+      },
+      "haven-name": {
+        "displayName": "Haven Name",
+        "purpose": "Template identity in its documented main, top-band or sidebar position."
+      },
+      "copper-name": {
+        "displayName": "Copper Name",
+        "purpose": "Template identity in its documented main, top-band or sidebar position."
+      },
+      "noir-name": {
+        "displayName": "Noir Name",
+        "purpose": "Template identity in its documented main, top-band or sidebar position."
+      },
+      "lumen-name": {
+        "displayName": "Lumen Name",
+        "purpose": "Template identity in its documented main, top-band or sidebar position."
+      },
+      "summit-name": {
+        "displayName": "Summit Name",
+        "purpose": "Template identity in its documented main, top-band or sidebar position."
+      }
+    },
+    "shadows": [
+      {
+        "name": "paper",
+        "value": "0 12px 70px #0005, 0 2px 7px #0004",
+        "purpose": "Screen-only separation of A4 paper from the workspace; removed in export."
+      },
+      {
+        "name": "modal",
+        "value": "0 32px 100px #0007",
+        "purpose": "Active editing dialog."
+      },
+      {
+        "name": "primary-action",
+        "value": "0 2px 6px #0001, 0 1px 0 #ffffff25 inset",
+        "purpose": "Subtle shell primary action depth."
+      },
+      {
+        "name": "selected-template",
+        "value": "0 0 0 2px #a8bfff0c, 0 5px 18px #0003",
+        "purpose": "Selected gallery thumbnail."
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-state",
+        "value": "background .18s, color .18s, border-color .18s, box-shadow .18s, transform .18s",
+        "purpose": "Shell button state transition."
+      },
+      {
+        "name": "pane-in",
+        "value": "pane-in .22s ease",
+        "purpose": "Opacity and a 6px horizontal entrance."
+      },
+      {
+        "name": "modal-in",
+        "value": "modal-in .2s ease",
+        "purpose": "Opacity, 9px vertical entrance and scale .985 to 1."
+      },
+      {
+        "name": "paper-reveal",
+        "value": "paper-reveal .3s ease",
+        "purpose": "Opacity .5 to 1 and 5px vertical entrance."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}",
+        "purpose": "Remove motion when requested by the user agent."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide-pane",
+        "value": "min-width:1550px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "max-width:1190px"
+      },
+      {
+        "name": "compact-topbar",
+        "value": "max-width:960px"
+      },
+      {
+        "name": "mobile",
+        "value": "max-width:749px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Pale blue action for PDF download, saving a dialog or copying a share link.",
+      "html": "<button class=\"ds-primary\" type=\"button\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3\"/></svg>PDF herunterladen</button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:37px;padding:10px 15px;border:1px solid transparent;border-radius:8px;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif;font-size:11px;line-height:1.25;font-weight:550;white-space:nowrap;cursor:pointer;transition:background .18s,color .18s,border-color .18s,box-shadow .18s,transform .18s;color:#142039;background:#bccdff;border-color:#d2ddff;box-shadow:0 2px 6px #0001,0 1px 0 #ffffff25 inset}.ds-primary:hover:not(:disabled){background:#d1ddff;box-shadow:0 3px 16px #b4c7ff15;transform:translateY(-1px)}.ds-primary:focus-visible{outline:2px solid var(--accent,#b4c7ff);outline-offset:4px;}.ds-primary:disabled{opacity:.35;cursor:default}@media(prefers-reduced-motion:reduce){.ds-primary{transition:none}}"
+    },
+    {
+      "name": "Secondary action",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Bordered secondary action in the navy working shell.",
+      "html": "<button class=\"ds-secondary\" type=\"button\">Abbrechen</button>",
+      "css": ".ds-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:37px;padding:10px 15px;border:1px solid transparent;border-radius:8px;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif;font-size:11px;line-height:1.25;font-weight:550;white-space:nowrap;cursor:pointer;transition:background .18s,color .18s,border-color .18s,box-shadow .18s,transform .18s;color:#cbd5e8;border-color:#ffffff16;background:#ffffff03}.ds-secondary:hover:not(:disabled){border-color:#ffffff28;background:#ffffff09}.ds-secondary:focus-visible{outline:2px solid var(--accent,#b4c7ff);outline-offset:4px;}.ds-secondary:disabled{opacity:.35;cursor:default}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none}}"
+    },
+    {
+      "name": "Icon action",
+      "kind": "button",
+      "refersTo": "icon-button",
+      "description": "Labeled line-icon action; shown at its desktop size.",
+      "html": "<button class=\"ds-icon\" type=\"button\" aria-label=\"Eintrag bearbeiten\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m16 3 5 5M4 20l4-1L21 6a2.1 2.1 0 0 0-3-3L5 16z\"/></svg></button>",
+      "css": ".ds-icon{width:33px;height:33px;display:inline-flex;align-items:center;justify-content:center;color:#9cacc5;background:transparent;border:0;border-radius:7px;cursor:pointer;transition:background .18s,color .18s,transform .18s}.ds-icon:hover{background:#ffffff09;color:#edf3ff}.ds-icon:active{transform:scale(.94)}.ds-icon:focus-visible{outline:2px solid var(--accent,#b4c7ff);outline-offset:4px;}@media(prefers-reduced-motion:reduce){.ds-icon{transition:none}}"
+    },
+    {
+      "name": "Icon search",
+      "kind": "input",
+      "refersTo": "icon-search",
+      "description": "German searchable symbol input in the shared icon library.",
+      "html": "<label class=\"ds-search\"><span>Symbole suchen</span><input type=\"search\" placeholder=\"Symbol suchen, z. B. Fahrzeug, Team, Foto …\" /></label>",
+      "css": ".ds-search{display:block;width:360px;max-width:100%;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif;color:#b2bfd5;font-size:11px}.ds-search>span{display:block;margin-bottom:7px}.ds-search input{display:block;box-sizing:border-box;width:100%;min-height:44px;border:1px solid #ffffff1a;border-radius:8px;background:#091324;color:#e1eaff;padding:12px 14px;font:inherit;font-size:12px;line-height:1.5}.ds-search input::placeholder{color:#8fa1bd}.ds-search input:focus-visible{outline:none;border-color:#8da8ef;box-shadow:0 0 0 3px #a8bfff10}"
+    },
+    {
+      "name": "Navigation rail item",
+      "kind": "nav",
+      "refersTo": "nav-item",
+      "description": "Icon and label in the desktop navigation rail, with the selected edge marker.",
+      "html": "<nav class=\"ds-rail\" aria-label=\"Studio\"><button class=\"ds-nav ds-nav-active\" type=\"button\" aria-current=\"page\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m16 3 5 5M4 20l4-1L21 6a2.1 2.1 0 0 0-3-3L5 16z\"/></svg><span>Inhalte</span></button></nav>",
+      "css": ".ds-rail{width:76px;padding:8px;background:#0d1729}.ds-nav{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;gap:8px;padding:11px 3px 9px;border:0;border-radius:10px;color:#7c8eac;background:transparent;cursor:pointer;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif}.ds-nav>span{font-size:9px;font-weight:500}.ds-nav:hover{color:#cad6ed;background:#ffffff04}.ds-nav-active{color:#b8ccff;background:#a8bfff0b}.ds-nav-active:before{content:\"\";position:absolute;width:2px;height:22px;left:-8px;top:11px;background:#aec4ff;border-radius:0 3px 3px 0}.ds-nav:focus-visible{outline:2px solid var(--accent,#b4c7ff);outline-offset:4px;}"
+    },
+    {
+      "name": "Symbol category chip",
+      "kind": "chip",
+      "refersTo": "category-chip",
+      "description": "Wrapping German icon category filters, selected and idle.",
+      "html": "<div class=\"ds-categories\" aria-label=\"Symbolkategorien\"><button type=\"button\" class=\"ds-chip ds-chip-selected\" aria-pressed=\"true\">Alle</button><button type=\"button\" class=\"ds-chip\" aria-pressed=\"false\">Technik &amp; Werkzeuge</button></div>",
+      "css": ".ds-categories{display:flex;flex-wrap:wrap;gap:6px}.ds-chip{padding:7px 9px;min-height:33px;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif;font-size:10px;line-height:1.4;color:#a0b2cc;border:1px solid #ffffff12;border-radius:6px;background:transparent;cursor:pointer}.ds-chip:hover{background:#ffffff08;color:#e4ecfb}.ds-chip-selected{background:#b6c9ff13;border-color:#aec6ff55;color:#ccdaff}.ds-chip:focus-visible{outline:2px solid var(--accent,#b4c7ff);outline-offset:4px;}"
+    },
+    {
+      "name": "Atlas template card",
+      "kind": "card",
+      "refersTo": "template-card",
+      "description": "A thumbnail preserves the actual sidebar material and name position; selection adds a pale blue border.",
+      "html": "<button class=\"ds-template\" type=\"button\" aria-pressed=\"true\"><span class=\"ds-mini\"><span class=\"ds-mini-side\"><i class=\"ds-mini-photo\"></i><i></i><i></i><i></i><i></i></span><span class=\"ds-mini-main\"><strong>Michael Meier</strong><b></b><i></i><i></i><i></i><i></i><i></i></span></span><span class=\"ds-template-name\">Atlas</span></button>",
+      "css": ".ds-template{width:128px;border:0;padding:0;text-align:left;background:transparent;color:#d2dfff;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif;cursor:pointer}.ds-mini{box-sizing:border-box;position:relative;display:block;width:100%;height:154px;border:3px solid #b6c9ff;border-radius:5px;overflow:hidden;background:#fff;box-shadow:0 0 0 2px #a8bfff0c,0 5px 18px #0003;transition:border-color .18s,transform .18s}.ds-template:hover .ds-mini{transform:translateY(-2px)}.ds-template:focus-visible{outline:2px solid var(--accent,#b4c7ff);outline-offset:4px;}.ds-mini-side{position:absolute;left:0;top:0;bottom:0;width:30.5%;padding:13px 7px;background:#14293d}.ds-mini-side i{display:block;height:1px;margin-top:8px;background:#9cb5c4}.ds-mini-side .ds-mini-photo{width:25px;height:25px;margin:0 auto 12px;border-radius:50%;background:#416074}.ds-mini-main{position:absolute;left:30.5%;right:0;top:0;padding:15px 10px}.ds-mini-main strong{display:block;color:#183044;font-size:12px;font-weight:750;line-height:1.02;letter-spacing:-.035em}.ds-mini-main b{display:block;height:2px;background:#1e6b68;margin:5px 0 14px}.ds-mini-main i{display:block;height:1px;background:#a8b5bc;margin-top:8px}.ds-template-name{display:block;font-size:11px;font-weight:500;margin-top:8px;padding-left:1px}@media(prefers-reduced-motion:reduce){.ds-mini{transition:none}}"
+    },
+    {
+      "name": "Editable section icon",
+      "kind": "custom",
+      "refersTo": "printed-icon",
+      "description": "An Atlas section icon is directly actionable in edit mode; SVG inherits wrapper color.",
+      "html": "<div class=\"ds-heading\"><button class=\"ds-printed\" type=\"button\" aria-label=\"Berufserfahrung: Symbol ändern oder entfernen\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16\"/><rect x=\"2\" y=\"6\" width=\"20\" height=\"14\" rx=\"2\"/></svg></button><span>Berufserfahrung</span><i></i></div>",
+      "css": ".ds-heading{display:flex;align-items:center;gap:10px;min-height:17px;padding:12px;background:#fff;color:#183044;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif;font-size:11px;font-weight:750;line-height:1.4;letter-spacing:.075em;text-transform:uppercase}.ds-heading>i{height:1px;background:#d6e0e5;flex:1;min-width:10px;margin-left:2px}.ds-printed{position:relative;display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;min-width:19px;padding:0;background:transparent;border:0;border-radius:3px;color:var(--cv-accent,#1e6b68);cursor:pointer}.ds-printed svg{width:16px;height:16px;color:inherit;stroke-width:1.8}.ds-printed:hover{background:color-mix(in srgb,var(--cv-accent,#1e6b68) 15%,transparent);box-shadow:0 0 0 4px color-mix(in srgb,var(--cv-accent,#1e6b68) 15%,transparent)}.ds-printed:focus-visible{outline:2px solid var(--cv-accent,#1e6b68);outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "One real CV, ten distinct document designs",
+    "overview": "The dark navy studio is an Operate surface: a compact working environment around the editable or read-only CV. The document leads visually. Pale blue actions, quiet dividers and tonal panels support editing, selection and export. The ten paper designs have their own identities rather than sharing one recolored composition.\n\nThe binding direction is the user's request for modern, researched CVs with useful sidebars and directly editable icons, followed by the explicit choice of a mixed collection of ten. The direction seed (`9a28fb6a`, reroll `0`) corroborates the workflow; none of its random world cards was selected as the product's visual identity. No build-path preference is inferred. This is a record of implemented source, not a new design choice.",
+    "keyCharacteristics": [
+      "A restrained navy shell and a large, real A4 artifact.",
+      "Ten original compositions with distinct identity positions, typography and sidebar materials.",
+      "Genuine contact and section content in the secondary lane.",
+      "Native HTML, CSS and consistent Lucide SVG line icons; real initials until a portrait is uploaded.",
+      "Direct editing with the same measured document geometry in preview, public view and PDF."
+    ],
+    "rules": [
+      {
+        "name": "The Document Palette Rule",
+        "body": "Keep a template's paper, ink and sidebar relationship intact when changing its accent. Index derives its rail from `color-mix(in srgb, var(--cv-accent) 86%, #142d7a)`; Lumen derives its pale planes from the chosen accent. Neither is a fixed extra primitive.",
+        "section": "colors"
+      },
+      {
+        "name": "The Inherited Icon Rule",
+        "body": "Section SVGs inherit their surrounding icon wrapper color so sidebar-specific light or dark section colors control contrast. Do not reintroduce a global child SVG color that overrides those wrappers. Contact icon colors have template-specific treatments. Folio contact hover retains its inherited readable text color and adds an underline.",
+        "section": "colors"
+      },
+      {
+        "name": "The Reading Font Rule",
+        "body": "The sans/serif/mono control changes reading typography through `--cv-font` and template overrides. It does not uniformly replace the display face: Folio, Meridian, Copper and Noir retain their editorial identity. Respect each template's overrides rather than globally assigning the selected font to every descendant.",
+        "section": "typography"
+      },
+      {
+        "name": "The Same Paper Rule",
+        "body": "Preview, read-only and PDF use the same rendered A4 DOM and styles. Keep grid behavior inside the page because export enforces `display:block!important` on the outer article. Measure with the same typography, padding and document states used for display. Do not add fixed lane heights or truncate text to meet a page count.",
+        "section": "layout"
+      }
+    ],
+    "dos": [
+      "**Do** keep the CV artifact visually dominant within the restrained navy working shell.",
+      "**Do** preserve all ten compositions and the original five persistent template IDs.",
+      "**Do** use real content in sidebars and retain editable main/sidebar placement.",
+      "**Do** keep preview, public view, measurement and PDF on the same nested A4 layout.",
+      "**Do** let sidebar section-icon wrappers control inherited glyph color and preserve visible keyboard focus.",
+      "**Do** keep removal, restoration, cleared text and portrait controls consistent across saved documents.",
+      "**Do** use real initials or the user's uploaded portrait and preserve all factual CV content."
+    ],
+    "donts": [
+      "**Don't** reduce the collection to palette variations of one document composition.",
+      "**Don't** place the only document grid on the outer page article or reintroduce a preferred font-format filter.",
+      "**Don't** hide overflow in content lanes, shrink copy to force two pages or pad sidebars with repeated facts.",
+      "**Don't** print editor buttons, upload instructions, restore controls, placeholder copy or invented decorative labels.",
+      "**Don't** invent portraits, qualifications, achievements, skill levels, ratings or progress bars.",
+      "**Don't** treat exploratory world cards, an inferred build path or unverified accessibility claims as approved design truth."
+    ]
+  }
+}

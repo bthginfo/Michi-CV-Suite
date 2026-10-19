@@ -39,3 +39,9 @@ test('draft guard detects partially completed fields while ignoring blank rows a
   assert.equal(moduleDraftSignature([partial],projects),moduleDraftSignature([{...partial,id:'new-row-id'},emptyDraft()],projects));
   assert.notEqual(moduleDraftSignature([{...partial,values:{...partial.values,result:'Confirmed outcome'}}],projects),moduleDraftSignature([partial],projects));
 });
+
+test('assistant keeps meaningful body-only entries after their heading was removed',()=>{
+  const config=module('strengths');
+  const entries=toEntries([{...emptyDraft(),values:{heading:'',body:'Ein eigenes konkretes Beispiel'}},emptyDraft()],config);
+  assert.equal(entries.length,1);assert.equal(entries[0].heading,'');assert.equal(entries[0].body,'Ein eigenes konkretes Beispiel');
+});

@@ -1,0 +1,126 @@
+/* Copper — warm editorial stationery, anchored by a deep espresso right rail. */
+.template-copper {
+  --cv-side-width: 254px;
+  --cv-side-bg: #32251f;
+  --cv-side-ink: #fff3df;
+  --cv-side-muted: #ddcbbb;
+  --cv-ink: #3a2a22;
+  --cv-muted: #665449;
+  --cv-paper: #fffcf6;
+  --cv-main-pad: 34px;
+  --cv-side-pad: 28px;
+  --cv-top-pad: 44px;
+  --copper-detail: color-mix(in srgb, var(--cv-accent) 63%, #ab633f);
+  --copper-rule: color-mix(in srgb, var(--cv-accent) 23%, #e6d6c6);
+  color: var(--cv-ink);
+  background: var(--cv-paper);
+  font-size: 12.4px;
+  line-height: 1.48;
+}
+.template-copper:not(.sidebar-exhausted) {
+  background: linear-gradient(90deg, var(--cv-paper) 0, var(--cv-paper) calc(100% - var(--cv-side-width)), var(--cv-side-bg) calc(100% - var(--cv-side-width)));
+}
+.template-copper:not(.sidebar-exhausted) .cv-columns { grid-template-columns: minmax(0, 1fr) var(--cv-side-width); }
+.template-copper:not(.sidebar-exhausted) .cv-main { grid-column: 1; }
+.template-copper:not(.sidebar-exhausted) .cv-sidebar { grid-column: 2; }
+.template-copper .cv-sidebar { background: var(--cv-side-bg); color: var(--cv-side-ink); }
+.template-copper .cv-main-identity { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--copper-rule); }
+.template-copper .cv-name {
+  font-family: 'Instrument Serif', Georgia, serif;
+  color: var(--cv-ink);
+  font-size: 64px;
+  line-height: .99;
+  font-weight: 400;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.template-copper .cv-role { margin-top: 16px; max-width: 390px; color: var(--cv-muted); font-size: 13px; line-height: 1.5; font-weight: 500; letter-spacing: .005em; }
+.template-copper .cv-photo { width: 182px; height: 206px; margin: 0 auto 29px; background: #554033; color: var(--cv-side-ink); border: 0; box-shadow: none; }
+.template-copper .cv-photo.photo-rounded { border-radius: 5px; }
+.template-copper .cv-photo.photo-square { border-radius: 0; }
+.template-copper .cv-photo.photo-circle { width: 182px; height: 182px; border-radius: 50%; }
+.template-copper .cv-initials { color: #f1deca; font-family: 'Instrument Serif', Georgia, serif; font-size: 77px; line-height: 1; font-weight: 400; letter-spacing: -.025em; opacity: .85; }
+.template-copper .cv-sidebar-profile { margin-bottom: 28px; }
+.template-copper .cv-contact { gap: 14px; margin: 0; color: var(--cv-side-ink); font-size: 11px; line-height: 1.55; }
+.template-copper .cv-contact-row { gap: 10px; align-items: flex-start; }
+.template-copper .cv-contact-icon { color: #f3d6bd; margin-top: 1px; }
+.template-copper .cv-contact-icon svg { width: 14px; height: 14px; stroke-width: 1.45; }
+.template-copper .cv-contact a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.template-copper .cv-contact a:hover { color: #ffffff; }
+.template-copper .cv-main .cv-summary { font-size: 12.4px; color: var(--cv-muted); line-height: 1.57; padding-bottom: 6px; }
+.template-copper .cv-main .cv-section-heading { padding-top: 20px; padding-bottom: 12px; }
+.template-copper .cv-main .section-heading-inner { font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; line-height: 1.13; font-weight: 400; letter-spacing: -.01em; text-transform: none; color: var(--cv-ink); gap: 10px; min-height: 27px; }
+.template-copper .cv-main .cv-section-icon { width: 24px; min-width: 24px; height: 24px; color: var(--copper-detail); }
+.template-copper .cv-main .cv-section-icon svg { width: 19px; height: 19px; stroke-width: 1.45; }
+.template-copper .cv-main .cv-section-rule { margin-left: 6px; background: var(--copper-rule); }
+.template-copper .cv-main .cv-entry-header { padding-top: 11px; gap: 3px; }
+.template-copper .cv-main .cv-section-heading + .cv-entry-header { padding-top: 0; }
+.template-copper .cv-main .cv-period { display: inline-block; padding: 2px 7px; color: color-mix(in srgb, var(--copper-detail) 60%, #3a2a22); background: color-mix(in srgb, var(--copper-detail) 9%, var(--cv-paper)); font-size: 10.2px; line-height: 1.4; font-weight: 550; letter-spacing: .015em; border-radius: 3px; font-variant-numeric: tabular-nums; }
+.template-copper .cv-main .cv-entry-heading { font-size: 13.3px; line-height: 1.45; font-weight: 700; letter-spacing: -.01em; color: var(--cv-ink); }
+.template-copper .cv-main .cv-entry-field { padding: 3px 0 4px; color: var(--cv-ink); font-size: 12.3px; line-height: 1.47; font-weight: 550; }
+.template-copper .cv-main .cv-entry-field.field-period { font-size: 10.2px; line-height: 1.4; font-weight: 500; color: var(--cv-muted); }
+.template-copper .cv-main .cv-entry-field.field-heading { font-size: 13.3px; font-weight: 700; }
+.template-copper .cv-main .cv-body-line { padding: 1px 0; gap: 8px; color: var(--cv-muted); font-size: 12.3px; line-height: 1.49; font-weight: 400; }
+.template-copper .cv-main .cv-body-line.line-continuation.kind-experience { padding-left: 11px; }
+.template-copper .cv-bullet { margin-top: 7.5px; width: 3px; height: 3px; min-width: 3px; border-radius: 50%; background: var(--copper-detail); }
+.template-copper .cv-sidebar .cv-section-heading { padding-top: 25px; padding-bottom: 11px; }
+.template-copper .cv-sidebar .section-heading-inner { font-family: 'DM Sans Variable', 'DM Sans', sans-serif; color: var(--cv-side-ink); font-size: 13px; font-weight: 600; line-height: 1.4; letter-spacing: -.005em; text-transform: none; gap: 9px; }
+.template-copper .cv-sidebar .cv-section-icon { color: #f3d6bd; width: 18px; height: 20px; min-width: 18px; }
+.template-copper .cv-sidebar .cv-section-icon svg { width: 16px; height: 16px; stroke-width: 1.45; }
+.template-copper .cv-sidebar .cv-section-rule { display: none; }
+.template-copper .cv-sidebar .cv-entry-header { gap: 3px; padding-top: 15px; }
+.template-copper .cv-sidebar .cv-section-heading + .cv-entry-header { padding-top: 0; }
+.template-copper .cv-sidebar .cv-entry-heading { color: var(--cv-side-ink); font-size: 11.8px; line-height: 1.45; font-weight: 650; letter-spacing: 0; }
+.template-copper .cv-sidebar .cv-entry-field,.template-copper .cv-sidebar .cv-body-line { color: var(--cv-side-muted); font-size: 11.5px; line-height: 1.52; padding: 2px 0; }
+.template-copper .cv-sidebar .cv-entry-field.field-heading { color: var(--cv-side-ink); font-size: 11.8px; font-weight: 650; }
+.template-copper .cv-sidebar .cv-period,.template-copper .cv-sidebar .cv-entry-field.field-period { color: #dfc0a3; font-size: 10px; line-height: 1.45; font-variant-numeric: tabular-nums; }
+.template-copper .cv-sidebar .cv-summary { color: var(--cv-side-muted); font-size: 11.5px; line-height: 1.52; }
+.template-copper .cv-sidebar .cv-bullet { background: #dfc0a3; }
+.template-copper .cv-sidebar .cv-body-line.line-continuation.kind-experience { padding-left: 11px; }
+.template-copper .cv-sidebar .cv-empty-section button { color: var(--cv-side-ink); }
+.template-copper .cv-running-head { color: var(--cv-ink); border-bottom-color: var(--copper-rule); font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; font-weight: 400; letter-spacing: -.01em; }
+.template-copper:not(.sidebar-exhausted) .cv-running-head { margin-left: var(--cv-main-pad); margin-right: calc(var(--cv-side-width) + var(--cv-main-pad)); }
+.template-copper .cv-running-head > span:first-child { font-weight: 400; }
+.template-copper .cv-running-head > span:last-child { color: var(--cv-muted); font-family: 'DM Sans Variable', 'DM Sans', sans-serif; font-size: 9px; font-weight: 400; }
+.template-copper .cv-footer { left: var(--cv-main-pad); right: calc(var(--cv-side-width) + var(--cv-main-pad)); bottom: 25px; border-top-color: var(--copper-rule); color: var(--cv-muted); }
+.template-copper.sidebar-exhausted .cv-footer { left: 43px; right: 43px; }
+.template-copper .cv-main .editable { caret-color: var(--copper-detail); }
+.template-copper .cv-sidebar .editable { caret-color: var(--cv-side-ink); }
+.template-copper .cv-sidebar ::selection { background: #e1bea2; color: #32251f; }
+.template-copper .cv-main ::selection { background: #e7cbb8; color: #32251f; }
+.template-copper .cv-sidebar .cv-printed-icon:focus-visible { outline-color: #f3d6bd; }
+.template-copper .cv-sidebar button.cv-printed-icon:hover { background: #6e5241; box-shadow: 0 0 0 4px #6e5241; }
+
+/* The reading-font control leaves Copper's editorial identity intact. */
+.template-copper.font-serif .cv-main .cv-body-line,.template-copper.font-serif .cv-main .cv-entry-field,.template-copper.font-serif .cv-main .cv-summary { font-size: 14.8px; line-height: 1.36; }
+.template-copper.font-serif .cv-main .cv-entry-heading,.template-copper.font-serif .cv-main .cv-entry-field.field-heading { font-size: 15.3px; line-height: 1.36; }
+.template-copper.font-serif .cv-sidebar .cv-body-line,.template-copper.font-serif .cv-sidebar .cv-entry-field,.template-copper.font-serif .cv-sidebar .cv-summary { font-size: 13.5px; line-height: 1.4; }
+.template-copper.font-mono .cv-main .cv-body-line,.template-copper.font-mono .cv-main .cv-entry-field,.template-copper.font-mono .cv-main .cv-summary { font-size: 12.1px; line-height: 1.5; }
+.template-copper.font-mono .cv-sidebar .cv-body-line,.template-copper.font-mono .cv-sidebar .cv-entry-field,.template-copper.font-mono .cv-sidebar .cv-summary { font-size: 11.2px; line-height: 1.5; }
+.template-copper.font-serif .cv-main .cv-entry-field.field-period,.template-copper.font-mono .cv-main .cv-entry-field.field-period { font-size: 10.2px; line-height: 1.4; }
+.template-copper.font-serif .cv-sidebar .cv-entry-field.field-period,.template-copper.font-mono .cv-sidebar .cv-entry-field.field-period { font-size: 10px; line-height: 1.45; }
+.template-copper.density-compact .cv-main-identity { margin-bottom: 19px; padding-bottom: 21px; }
+.template-copper.density-compact .cv-main .cv-section-heading { padding-top: 18px; padding-bottom: 10px; }
+.template-copper.density-compact .cv-main .cv-entry-header { padding-top: 11px; }
+.template-copper.density-compact .cv-main .cv-section-heading + .cv-entry-header { padding-top: 0; }
+.template-copper.density-compact .cv-sidebar .cv-section-heading { padding-top: 21px; padding-bottom: 9px; }
+.template-copper.density-compact .cv-sidebar .cv-entry-header { padding-top: 12px; }
+.template-copper.density-compact .cv-sidebar .cv-section-heading + .cv-entry-header { padding-top: 0; }
+.template-copper.density-compact .cv-main .cv-body-line { line-height: 1.45; }
+.template-copper.font-serif.density-compact .cv-main .cv-body-line { line-height: 1.34; }
+.template-copper .cv-lane-content > .cv-section-heading:first-child { padding-top: 0; }
+
+/* Miniature mirrors the warm serif main and espresso rail on the right. */
+.mini-copper { background: #fffcf6; color: #3a2a22; }
+.mini-copper .mini-band { display: none; }
+.mini-copper .mini-side { inset: 0 0 0 auto; width: 32%; background: #32251f; padding: 13px 7px; color: #ddcbbb; }
+.mini-copper .mini-photo { width: 85%; height: 37px; margin: 0 auto 14px; background: #775b48; border-radius: 1px; }
+.mini-copper .mini-side-name { display: none; }
+.mini-copper .mini-side-lines > i { background: #d1b8a3; height: 1px; margin: 5px 0; opacity: .75; }
+.mini-copper .mini-side-lines > i:nth-child(4n + 1) { width: 75%; height: 2px; margin-top: 10px; background: #efd5bd; opacity: 1; }
+.mini-copper .mini-main { top: 0; left: 0; right: 32%; width: auto; padding: 15px 10px; }
+.mini-copper .mini-name { width: 100%; height: auto; margin: 0; background: none; color: #3a2a22; font-family: 'Instrument Serif', Georgia, serif; font-size: 19px; line-height: .98; font-weight: 400; letter-spacing: -.025em; }
+.mini-copper .mini-role { margin-top: 7px; margin-bottom: 12px; height: 3px; width: 90%; background: var(--mini-accent); }
+.mini-copper .mini-lines { padding-top: 3px; border-top: 1px solid #dcc2ad; }
+.mini-copper .mini-lines > i { height: 1px; margin: 5px 0; background: #b6a397; }
+.mini-copper .mini-lines > i:nth-child(4n + 1) { height: 2px; width: 70%; margin-top: 10px; background: var(--mini-accent); }

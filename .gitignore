@@ -7,3 +7,6 @@ dist/
 *.tsbuildinfo
 .DS_Store
 work/
+.impeccable/questions/
+.impeccable/review/
+.impeccable/mocks/

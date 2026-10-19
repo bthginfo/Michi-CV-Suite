@@ -1,13 +1,13 @@
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
 import { ArrowLeft, ArrowRight, Check, Sparkles, X } from 'lucide-react';
 
-export const TOUR_KEY = 'michi.cv.onboarding.v2';
+export const TOUR_KEY = 'michi.cv.onboarding.v3';
 type Pane = 'design' | 'content' | 'photo' | 'settings';
 const steps: { title: string; description: string; target: string; pane?: Pane; sidebar: boolean; tag: string }[] = [
-  { title: 'Dein Studio. In einer Minute zu Hause.', description: 'Hier wählst du aus fünf eigenständigen Designs. Deine Inhalte bleiben beim Wechsel vollständig erhalten. Probier gleich einen Look aus.', target: '.template-grid', pane: 'design', sidebar: true, tag: 'DEIN LOOK' },
+  { title: 'Zehn Designs. Dein eigener Stil.', description: 'Von Navy-Seitenleiste bis warmer Editorial-Typografie: Entdecke zehn eigenständige Vorlagen. Deine Inhalte bleiben beim Wechsel vollständig erhalten.', target: '.template-grid', pane: 'design', sidebar: true, tag: 'DEIN LOOK' },
   { title: 'Eine Farbe. Deine Handschrift.', description: 'Wähle einen Akzent oder mische deine eigene Farbe. Darunter kannst du Schrift und Abstände anpassen. Alles erscheint sofort im CV.', target: '.color-swatches', pane: 'design', sidebar: true, tag: 'DIE DETAILS' },
-  { title: 'Das Papier ist dein Editor.', description: 'Mit „Bearbeiten“ werden Texte direkt im Lebenslauf editierbar. Klick auf einen Text und ändere ihn. Beim Verlassen wird automatisch gespeichert.', target: '.mode-switch', sidebar: false, tag: 'DIREKT BEARBEITEN' },
-  { title: 'Mehr Persönlichkeit. Schritt für Schritt.', description: '„CV vervollständigen“ hilft dir bei Stärken, Projekten, Sprachen und weiteren Bausteinen. Kurze Fragen führen dich zu eigenen Angaben, die direkt an den passenden Platz kommen.', target: '[data-tour="assistant-content"]', pane: 'content', sidebar: true, tag: 'DEINE BAUSTEINE' },
+  { title: 'Das Papier ist dein Editor.', description: 'Mit „Bearbeiten“ kannst du Texte direkt ändern oder leeren. Klicke auf ein Symbol, um ein neues zu suchen oder es zu entfernen. Änderungen werden automatisch gespeichert.', target: '.mode-switch', sidebar: false, tag: 'DIREKT BEARBEITEN' },
+  { title: 'Mehr Persönlichkeit. Schritt für Schritt.', description: '„CV vervollständigen“ führt dich durch Stärken, Projekte, Sprachen und weitere Bausteine. In jedem Abschnitt kannst du wählen, ob er in die Hauptspalte oder Seitenleiste kommt.', target: '[data-tour="assistant-content"]', pane: 'content', sidebar: true, tag: 'DEINE BAUSTEINE' },
   { title: 'Dein Foto. Ein Klick.', description: 'Lade dein Foto hoch oder ziehe es in dieses Feld. Du kannst es jederzeit ersetzen, ausblenden und die Form ändern. Das Bild wird mit deinem CV gespeichert.', target: '.photo-dropzone', pane: 'photo', sidebar: true, tag: 'PERSÖNLICH WERDEN' },
   { title: 'Bereit für den nächsten Schritt.', description: '„Teilen“ erstellt eine feste, öffentliche Leseansicht mit klickbaren Kontaktdaten. Daneben lädst du deinen Lebenslauf im gleichen Layout als PDF herunter.', target: '.topbar-actions', sidebar: false, tag: 'TEILEN & BEWERBEN' },
   { title: 'Ein CV. Auf allen Geräten.', description: 'Deine Änderungen und Bilder werden zentral gespeichert. Melde dich auf einem anderen Gerät mit dem Passwort an und arbeite am selben Lebenslauf weiter. Ganz ohne zusätzliche Links.', target: '[data-tour="central-save"]', pane: 'settings', sidebar: true, tag: 'GUT AUFGEHOBEN' },

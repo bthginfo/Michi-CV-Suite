@@ -1,16 +1,18 @@
 # Michael Meier · CV Studio
 
-Ein persönlicher Lebenslauf-Editor mit einer dunklen Navy-Oberfläche, fünf gestalteten A4-Vorlagen und direkter Bearbeitung im Dokument.
+Ein persönlicher Lebenslauf-Editor mit einer dunklen Navy-Oberfläche, zehn gestalteten A4-Vorlagen mit echten Inhaltsspalten und direkter Bearbeitung im Dokument.
 
 **Passwort eingeben → Michaels aktueller CV öffnet sich. Auf jedem Gerät derselbe Stand.** Texte, Bilder, Gestaltung und Abschnitte werden zentral in einer eigenen Neon-Postgres-Datenbank im kostenlosen Tarif gespeichert. Es gibt keine privaten Bearbeitungslinks oder gerätegebundenen Arbeitsplätze.
 
 ## Funktionen
 
-- **Atlas, Folio, Signal, Meridian und Index:** fünf eigenständige Designs mit anpassbaren Akzentfarben, Schrift, Dichte und Fotoform.
-- Direktes Bearbeiten von Texten, Kontaktdaten, Abschnittssymbolen und Bildern; Abschnitte und Einträge ergänzen, verschieben, ausblenden oder löschen.
+- **Zehn eigenständige Designs:** Atlas, Folio, Signal, Meridian, Index, Haven, Copper, Noir, Lumen und Summit. Dunkle und helle Seitenleisten, große Namenszüge, Serif- und Sans-Typografie sowie anpassbare Akzentfarben, Schrift, Dichte und Fotoform.
+- Echte Haupt- und Seitenleisten-Inhalte mit unabhängig berechneten A4-Seitenumbrüchen. Abschnitte können automatisch platziert oder bewusst einer Spalte zugewiesen werden. Fortsetzungsseiten nutzen den Platz, wenn die Seitenleiste bereits vollständig ist.
+- Direktes Bearbeiten und Leeren von Texten, Kontaktdaten und Bildern; Abschnitte und Einträge ergänzen, verschieben, ausblenden oder löschen.
+- **Icons direkt im Canvas ändern:** Im Modus „Bearbeiten“ ein Kontakt-, Link- oder Abschnittssymbol anklicken, den kategorisierten Lucide-Katalog durchsuchen und ein Symbol auswählen. „Kein Symbol“ entfernt es. Eine Hilfe im Bearbeitungsmodus und der Inhaltsbereich ermöglichen das Wiedereinsetzen. Diese Entscheidungen werden gespeichert und gelten auch für Leselinks und PDFs.
 - **CV vervollständigen:** geführter Inhaltsassistent für Stärken, Projekte und Erfolge, Sprachen, Interessen, Ehrenamt, Zertifikate und Referenzen. Kurze Fragen, Beispiele, Vorschau und bewusste Übernahme; leere Bereiche werden weggelassen. Bereits vorhandene Angaben werden übernommen statt dupliziert.
 - Michaels Angaben aus den bereitgestellten CV-Abbildungen sind als editierbare Ausgangsbasis enthalten. Das Kurzprofil fasst die vorhandenen Tätigkeiten zusammen. Zusätzliche Stärken, Leistungen oder Qualifikationen werden nicht erfunden.
-- Ein-Klick-Foto-Upload mit Optimierung für JPG, PNG und WebP. Kein künstliches Portrait: der Editor zeigt einen klaren Fotoplatzhalter, bis ein Bild hochgeladen wird.
+- Ein-Klick-Foto-Upload mit Optimierung für JPG, PNG und WebP. Ohne Foto zeigen die Vorlagen Michaels echte Initialen mit einer klaren Upload-Hilfe im Editor. Es wird kein künstliches Porträt erfunden.
 - Sofortige lokale Entwurfssicherung plus automatische Speicherung in Postgres nach einer kurzen Bearbeitungspause. Gleichzeitige Änderungen werden gegen unbeabsichtigtes Überschreiben geschützt. Bei erneutem Öffnen und beim Zurückkehren auf ein inaktives Fenster wird ein neuerer zentraler Stand geladen, solange keine eigenen Änderungen offen sind.
 - Passwortschutz mit signierten HttpOnly-/SameSite-Cookies für sieben Tage. Das Passwort und die Datenbankzugänge bleiben auf dem Server.
 - Öffentliche, unveränderliche Leselinks mit klickbaren E-Mail-, Telefon-, Karten- und Weblinks und direkter Kontaktaufnahme. Nur diese öffentlichen Links werden geteilt.
@@ -52,7 +54,7 @@ npm run build
 node --env-file=.env.local --import tsx scripts/smoke-api.ts
 ```
 
-Die Unit-Tests prüfen Dokumentvalidierung, sichere Imports, Weblinks und signierte Sitzungen. Der API-Test prüft gegen die echte Datenbank zwei unabhängige Anmeldungen, gemeinsamen Stand, Bilder, Schreibkonflikte, sichere Altentwurfsübernahme und unveränderliche Leselinks. Schreibtests sind auf einen lokalen Server mit `qa-`-Dokument-Identifier beschränkt; danach wird der Ausgangsstand wiederhergestellt. Mit `TEST_ORIGIN=https://michi-cv-suite.vercel.app` prüft er die Produktion lesend und verändert Michaels CV nicht.
+Die Unit-Tests prüfen Dokumentvalidierung, Abwärtskompatibilität, Icon- und Spalteneinstellungen, den Erhalt angepasster Module, sichere Imports, Weblinks und signierte Sitzungen. Der API-Test prüft gegen die echte Datenbank zwei unabhängige Anmeldungen, gemeinsamen Stand, Bilder, Schreibkonflikte, sichere Altentwurfsübernahme und unveränderliche Leselinks. Schreibtests sind auf einen lokalen Server mit `qa-`-Dokument-Identifier beschränkt; danach wird der Ausgangsstand wiederhergestellt. Mit `TEST_ORIGIN=https://michi-cv-suite.vercel.app` prüft er die Produktion lesend und verändert Michaels CV nicht.
 
 Vercel ist mit diesem Repository verbunden und veröffentlicht `main` automatisch. `vercel.json` konfiguriert Build, Sicherheitsheader, API-Funktionen und das Chromium-Paket. Öffentliche Leselinks sind auf der Produktionsdomain erreichbar; Vercel-Vorschauen können separat geschützt bleiben.
 

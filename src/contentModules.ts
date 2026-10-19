@@ -80,15 +80,15 @@ export function initialDrafts(source: Source, module: Module): Draft[] {
   return [emptyDraft()];
 }
 export function toEntries(drafts: Draft[], module: Module): CVEntry[] {
-  return drafts.filter(draft => draft.values.heading?.trim()).map(draft => ({
-    id: draft.id, heading: draft.values.heading.trim(), subheading: draft.values.subheading?.trim() || '', period: draft.values.period?.trim() || '', image: draft.image,
+  return drafts.filter(draft => module.fields.some(field => draft.values[field.key]?.trim()) || draft.image).map(draft => ({
+    id: draft.id, heading: draft.values.heading?.trim() || '', subheading: draft.values.subheading?.trim() || '', period: draft.values.period?.trim() || '', image: draft.image,
     body: module.id === 'projects' ? [['Kontext', draft.values.context], ['Mein Beitrag', draft.values.contribution], ['Ergebnis', draft.values.result]].filter(([, value]) => value?.trim()).map(([label, value]) => `${label}: ${String(value || '').trim()}`).join('\n') : draft.values.body?.trim() || '',
   }));
 }
 export function insertModule(doc: CVDocument, module: Module, entries: CVEntry[], source: Source): CVDocument {
   if (!entries.length) return doc;
   const id = source.section?.id || `module-${module.id}`;
-  const section: CVSection = { id, title: source.section?.title || module.title, icon: source.section?.icon || module.icon, visible: true, kind: module.id === 'certificates' ? 'education' : module.id === 'strengths' || module.id === 'languages' || module.id === 'interests' ? 'skills' : 'custom', entries };
+  const section: CVSection = { ...source.section, id, title: source.section?.title ?? module.title, icon: source.section?.icon ?? module.icon, visible: true, kind: module.id === 'certificates' ? 'education' : module.id === 'strengths' || module.id === 'languages' || module.id === 'interests' ? 'skills' : 'custom', entries };
   const sections = doc.sections.map(item => source.embedded && item.id === source.embedded.sectionId ? { ...item, entries: item.entries.filter(entry => entry.id !== source.embedded?.entry.id) } : item);
   const existing = sections.findIndex(item => item.id === id);
   if (existing !== -1) sections[existing] = section;
