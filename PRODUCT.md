@@ -18,12 +18,14 @@ Michael edits his CV without technical knowledge. Recruiters and professional co
 
 ## Current redesign request
 
-The user explicitly rejected the five existing document designs as too basic and requests online research, substantially more beautiful modern CVs, genuine content-filled sidebars, stronger typography and intentional icon use. When asked for a direction, the user chose a mix of different styles and suggested ten instead of five; this iteration delivers ten. The editor's dark navy identity and working persistence remain. Every visible CV content icon should be clickable in edit mode to replace or remove it, with an easy way to restore an icon. Text must also be editable and removable. The new layouts should make sidebar content useful, not leave a decorative empty rail.
+The user rejected the previous ten document variants as too similar and found their second pages insufficiently designed. The replacement collection has ten structural worlds: rounded SaaS boards, a square dashboard matrix, an open magazine, an angular timeline, a Swiss poster, soft organic panels, full dark espresso paper, a horizontal ledger, an asymmetric portfolio and an architectural split. First and qualification pages must both be deliberate. The gallery offers first/second-page miniature views. The editor's dark navy identity and working persistence remain.
+
+Every visible CV content icon remains directly replaceable or removable in edit mode, with a way to restore it. Text remains editable and removable. Main/additional placement stays meaningful across compositions; an additional area need not be a literal sidebar. Real measured content determines pagination. The supplied two-page baseline is not a limit for longer custom content.
 
 ## Constraints and authorization
 
-- Deliver ten genuinely distinct document designs. Preserve the original five template IDs so existing documents and shares still open.
-- Preserve all CV facts and existing custom sections. Sidebar placement must not silently discard or duplicate content.
+- Deliver ten genuinely distinct document designs. Preserve all ten stored template IDs so existing documents and shares still open; visible names may change without changing those IDs.
+- Preserve all CV facts and existing custom sections. Main/additional placement must not silently discard or duplicate content.
 - PDF, live preview and read-only layout share the same rendering. Preserve embedded fonts, selectable text and working links.
 - Keep database/storage on free services. Never expose credentials in frontend code or source control.
 - User authorized repository updates and deployment to the connected Vercel project, michi-cv-suite.
@@ -31,4 +33,4 @@ The user explicitly rejected the five existing document designs as too basic and
 
 ## Success
 
-The ten documents are unmistakably different at thumbnail size and look substantially more designed than the previous mostly single-column layouts. Michael can click a contact or section icon, search a good icon library, replace it or choose no icon, save automatically, reload on another device and see the same result. A PDF and public link preserve the selected content and design.
+The ten documents should be unmistakably different at thumbnail size and have purposeful qualification pages with different geometry and reading structure. Michael can click a contact or section icon, search the icon library, replace it or choose no icon, save automatically, reload on another device and see the same result. A PDF and public link preserve the selected content and design.

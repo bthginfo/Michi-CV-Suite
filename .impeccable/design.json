@@ -1,588 +1,726 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-19T14:45:47.964730Z",
+  "generatedAt": "2026-10-19T18:32:48.168Z",
   "title": "Design System: Michi CV Suite",
   "extensions": {
     "colorMeta": {
       "studio-bg": {
         "role": "neutral",
-        "displayName": "Studio Background Navy",
+        "displayName": "Studio Bg",
+        "canonical": "#0b1323",
         "tonalRamp": [
-          "oklch(15% 0.03501 263.23)",
-          "oklch(27% 0.03501 263.23)",
-          "oklch(39% 0.03501 263.23)",
-          "oklch(51% 0.03501 263.23)",
-          "oklch(63% 0.03501 263.23)",
-          "oklch(75% 0.03501 263.23)",
-          "oklch(87% 0.03501 263.23)",
-          "oklch(95% 0.03501 263.23)"
+          "oklch(15% 0.0350 263.23)",
+          "oklch(26% 0.0350 263.23)",
+          "oklch(38% 0.0350 263.23)",
+          "oklch(49% 0.0350 263.23)",
+          "oklch(61% 0.0350 263.23)",
+          "oklch(72% 0.0350 263.23)",
+          "oklch(84% 0.0350 263.23)",
+          "oklch(95% 0.0350 263.23)"
         ]
       },
       "studio-surface": {
         "role": "neutral",
-        "displayName": "Studio Panel Navy",
+        "displayName": "Studio Surface",
+        "canonical": "#101b2e",
         "tonalRamp": [
-          "oklch(15% 0.04065 260.82)",
-          "oklch(27% 0.04065 260.82)",
-          "oklch(39% 0.04065 260.82)",
-          "oklch(51% 0.04065 260.82)",
-          "oklch(63% 0.04065 260.82)",
-          "oklch(75% 0.04065 260.82)",
-          "oklch(87% 0.04065 260.82)",
-          "oklch(95% 0.04065 260.82)"
+          "oklch(15% 0.0406 260.82)",
+          "oklch(26% 0.0406 260.82)",
+          "oklch(38% 0.0406 260.82)",
+          "oklch(49% 0.0406 260.82)",
+          "oklch(61% 0.0406 260.82)",
+          "oklch(72% 0.0406 260.82)",
+          "oklch(84% 0.0406 260.82)",
+          "oklch(95% 0.0406 260.82)"
         ]
       },
       "studio-raised": {
         "role": "neutral",
-        "displayName": "Studio Raised Navy",
+        "displayName": "Studio Raised",
+        "canonical": "#16233a",
         "tonalRamp": [
-          "oklch(15% 0.04730 261.22)",
-          "oklch(27% 0.04730 261.22)",
-          "oklch(39% 0.04730 261.22)",
-          "oklch(51% 0.04730 261.22)",
-          "oklch(63% 0.04730 261.22)",
-          "oklch(75% 0.04730 261.22)",
-          "oklch(87% 0.04730 261.22)",
-          "oklch(95% 0.04730 261.22)"
+          "oklch(15% 0.0473 261.22)",
+          "oklch(26% 0.0473 261.22)",
+          "oklch(38% 0.0473 261.22)",
+          "oklch(49% 0.0473 261.22)",
+          "oklch(61% 0.0473 261.22)",
+          "oklch(72% 0.0473 261.22)",
+          "oklch(84% 0.0473 261.22)",
+          "oklch(95% 0.0473 261.22)"
         ]
       },
       "studio-text": {
         "role": "neutral",
-        "displayName": "Studio Light Text",
+        "displayName": "Studio Text",
+        "canonical": "#e7edf8",
         "tonalRamp": [
-          "oklch(15% 0.01617 262.75)",
-          "oklch(27% 0.01617 262.75)",
-          "oklch(39% 0.01617 262.75)",
-          "oklch(51% 0.01617 262.75)",
-          "oklch(63% 0.01617 262.75)",
-          "oklch(75% 0.01617 262.75)",
-          "oklch(87% 0.01617 262.75)",
-          "oklch(95% 0.01617 262.75)"
+          "oklch(15% 0.0162 262.75)",
+          "oklch(26% 0.0162 262.75)",
+          "oklch(38% 0.0162 262.75)",
+          "oklch(49% 0.0162 262.75)",
+          "oklch(61% 0.0162 262.75)",
+          "oklch(72% 0.0162 262.75)",
+          "oklch(84% 0.0162 262.75)",
+          "oklch(95% 0.0162 262.75)"
         ]
       },
       "studio-muted": {
         "role": "neutral",
-        "displayName": "Studio Muted Blue Gray",
+        "displayName": "Studio Muted",
+        "canonical": "#7f90ac",
         "tonalRamp": [
-          "oklch(15% 0.04637 260.37)",
-          "oklch(27% 0.04637 260.37)",
-          "oklch(39% 0.04637 260.37)",
-          "oklch(51% 0.04637 260.37)",
-          "oklch(63% 0.04637 260.37)",
-          "oklch(75% 0.04637 260.37)",
-          "oklch(87% 0.04637 260.37)",
-          "oklch(95% 0.04637 260.37)"
+          "oklch(15% 0.0464 260.37)",
+          "oklch(26% 0.0464 260.37)",
+          "oklch(38% 0.0464 260.37)",
+          "oklch(49% 0.0464 260.37)",
+          "oklch(61% 0.0464 260.37)",
+          "oklch(72% 0.0464 260.37)",
+          "oklch(84% 0.0464 260.37)",
+          "oklch(95% 0.0464 260.37)"
         ]
       },
       "studio-accent": {
         "role": "primary",
-        "displayName": "Studio Selection Blue",
+        "displayName": "Studio Accent",
+        "canonical": "#b4c7ff",
         "tonalRamp": [
-          "oklch(15% 0.08157 270.02)",
-          "oklch(27% 0.08157 270.02)",
-          "oklch(39% 0.08157 270.02)",
-          "oklch(51% 0.08157 270.02)",
-          "oklch(63% 0.08157 270.02)",
-          "oklch(75% 0.08157 270.02)",
-          "oklch(87% 0.08157 270.02)",
-          "oklch(95% 0.08157 270.02)"
+          "oklch(15% 0.0816 270.02)",
+          "oklch(26% 0.0816 270.02)",
+          "oklch(38% 0.0816 270.02)",
+          "oklch(49% 0.0816 270.02)",
+          "oklch(61% 0.0816 270.02)",
+          "oklch(72% 0.0816 270.02)",
+          "oklch(84% 0.0816 270.02)",
+          "oklch(95% 0.0816 270.02)"
         ]
       },
       "studio-primary": {
         "role": "primary",
-        "displayName": "Studio Primary Button Blue",
+        "displayName": "Studio Primary",
+        "canonical": "#bccdff",
         "tonalRamp": [
-          "oklch(15% 0.07239 270.16)",
-          "oklch(27% 0.07239 270.16)",
-          "oklch(39% 0.07239 270.16)",
-          "oklch(51% 0.07239 270.16)",
-          "oklch(63% 0.07239 270.16)",
-          "oklch(75% 0.07239 270.16)",
-          "oklch(87% 0.07239 270.16)",
-          "oklch(95% 0.07239 270.16)"
+          "oklch(15% 0.0724 270.16)",
+          "oklch(26% 0.0724 270.16)",
+          "oklch(38% 0.0724 270.16)",
+          "oklch(49% 0.0724 270.16)",
+          "oklch(61% 0.0724 270.16)",
+          "oklch(72% 0.0724 270.16)",
+          "oklch(84% 0.0724 270.16)",
+          "oklch(95% 0.0724 270.16)"
         ]
       },
       "studio-primary-hover": {
         "role": "primary",
-        "displayName": "Studio Primary Hover Blue",
+        "displayName": "Studio Primary Hover",
+        "canonical": "#d1ddff",
         "tonalRamp": [
-          "oklch(15% 0.04851 270.03)",
-          "oklch(27% 0.04851 270.03)",
-          "oklch(39% 0.04851 270.03)",
-          "oklch(51% 0.04851 270.03)",
-          "oklch(63% 0.04851 270.03)",
-          "oklch(75% 0.04851 270.03)",
-          "oklch(87% 0.04851 270.03)",
-          "oklch(95% 0.04851 270.03)"
+          "oklch(15% 0.0485 270.03)",
+          "oklch(26% 0.0485 270.03)",
+          "oklch(38% 0.0485 270.03)",
+          "oklch(49% 0.0485 270.03)",
+          "oklch(61% 0.0485 270.03)",
+          "oklch(72% 0.0485 270.03)",
+          "oklch(84% 0.0485 270.03)",
+          "oklch(95% 0.0485 270.03)"
         ]
       },
       "studio-primary-ink": {
-        "role": "neutral",
-        "displayName": "Studio Primary Dark Ink",
+        "role": "primary",
+        "displayName": "Studio Primary Ink",
+        "canonical": "#142039",
         "tonalRamp": [
-          "oklch(15% 0.05078 263.68)",
-          "oklch(27% 0.05078 263.68)",
-          "oklch(39% 0.05078 263.68)",
-          "oklch(51% 0.05078 263.68)",
-          "oklch(63% 0.05078 263.68)",
-          "oklch(75% 0.05078 263.68)",
-          "oklch(87% 0.05078 263.68)",
-          "oklch(95% 0.05078 263.68)"
+          "oklch(15% 0.0508 263.68)",
+          "oklch(26% 0.0508 263.68)",
+          "oklch(38% 0.0508 263.68)",
+          "oklch(49% 0.0508 263.68)",
+          "oklch(61% 0.0508 263.68)",
+          "oklch(72% 0.0508 263.68)",
+          "oklch(84% 0.0508 263.68)",
+          "oklch(95% 0.0508 263.68)"
         ]
       },
-      "studio-secondary-ink": {
+      "studio-helper": {
         "role": "neutral",
-        "displayName": "Studio Secondary Light Ink",
+        "displayName": "Studio Helper",
+        "canonical": "#8da3c1",
         "tonalRamp": [
-          "oklch(15% 0.02843 263.42)",
-          "oklch(27% 0.02843 263.42)",
-          "oklch(39% 0.02843 263.42)",
-          "oklch(51% 0.02843 263.42)",
-          "oklch(63% 0.02843 263.42)",
-          "oklch(75% 0.02843 263.42)",
-          "oklch(87% 0.02843 263.42)",
-          "oklch(95% 0.02843 263.42)"
+          "oklch(15% 0.0505 256.21)",
+          "oklch(26% 0.0505 256.21)",
+          "oklch(38% 0.0505 256.21)",
+          "oklch(49% 0.0505 256.21)",
+          "oklch(61% 0.0505 256.21)",
+          "oklch(72% 0.0505 256.21)",
+          "oklch(84% 0.0505 256.21)",
+          "oklch(95% 0.0505 256.21)"
         ]
       },
-      "studio-input": {
+      "studio-field": {
         "role": "neutral",
-        "displayName": "Studio Search Navy",
+        "displayName": "Studio Field",
+        "canonical": "#0b1527",
         "tonalRamp": [
-          "oklch(15% 0.03795 260.41)",
-          "oklch(27% 0.03795 260.41)",
-          "oklch(39% 0.03795 260.41)",
-          "oklch(51% 0.03795 260.41)",
-          "oklch(63% 0.03795 260.41)",
-          "oklch(75% 0.03795 260.41)",
-          "oklch(87% 0.03795 260.41)",
-          "oklch(95% 0.03795 260.41)"
+          "oklch(15% 0.0394 261.43)",
+          "oklch(26% 0.0394 261.43)",
+          "oklch(38% 0.0394 261.43)",
+          "oklch(49% 0.0394 261.43)",
+          "oklch(61% 0.0394 261.43)",
+          "oklch(72% 0.0394 261.43)",
+          "oklch(84% 0.0394 261.43)",
+          "oklch(95% 0.0394 261.43)"
         ]
       },
-      "studio-input-ink": {
+      "studio-field-ink": {
         "role": "neutral",
-        "displayName": "Studio Search Light Ink",
+        "displayName": "Studio Field Ink",
+        "canonical": "#c4d1e7",
         "tonalRamp": [
-          "oklch(15% 0.03006 267.20)",
-          "oklch(27% 0.03006 267.20)",
-          "oklch(39% 0.03006 267.20)",
-          "oklch(51% 0.03006 267.20)",
-          "oklch(63% 0.03006 267.20)",
-          "oklch(75% 0.03006 267.20)",
-          "oklch(87% 0.03006 267.20)",
-          "oklch(95% 0.03006 267.20)"
+          "oklch(15% 0.0337 261.02)",
+          "oklch(26% 0.0337 261.02)",
+          "oklch(38% 0.0337 261.02)",
+          "oklch(49% 0.0337 261.02)",
+          "oklch(61% 0.0337 261.02)",
+          "oklch(72% 0.0337 261.02)",
+          "oklch(84% 0.0337 261.02)",
+          "oklch(95% 0.0337 261.02)"
         ]
       },
       "studio-line": {
         "role": "neutral",
-        "displayName": "Studio Quiet Divider",
+        "displayName": "Studio Line",
+        "canonical": "#ffffff0e",
         "tonalRamp": [
-          "oklch(15% 0.00000 0.00)",
-          "oklch(27% 0.00000 0.00)",
-          "oklch(39% 0.00000 0.00)",
-          "oklch(51% 0.00000 0.00)",
-          "oklch(63% 0.00000 0.00)",
-          "oklch(75% 0.00000 0.00)",
-          "oklch(87% 0.00000 0.00)",
-          "oklch(95% 0.00000 0.00)"
+          "oklch(15% 0.0000 0.00)",
+          "oklch(26% 0.0000 0.00)",
+          "oklch(38% 0.0000 0.00)",
+          "oklch(49% 0.0000 0.00)",
+          "oklch(61% 0.0000 0.00)",
+          "oklch(72% 0.0000 0.00)",
+          "oklch(84% 0.0000 0.00)",
+          "oklch(95% 0.0000 0.00)"
         ]
       },
       "studio-line-strong": {
         "role": "neutral",
-        "displayName": "Studio Strong Divider",
+        "displayName": "Studio Line Strong",
+        "canonical": "#ffffff18",
         "tonalRamp": [
-          "oklch(15% 0.00000 0.00)",
-          "oklch(27% 0.00000 0.00)",
-          "oklch(39% 0.00000 0.00)",
-          "oklch(51% 0.00000 0.00)",
-          "oklch(63% 0.00000 0.00)",
-          "oklch(75% 0.00000 0.00)",
-          "oklch(87% 0.00000 0.00)",
-          "oklch(95% 0.00000 0.00)"
+          "oklch(15% 0.0000 0.00)",
+          "oklch(26% 0.0000 0.00)",
+          "oklch(38% 0.0000 0.00)",
+          "oklch(49% 0.0000 0.00)",
+          "oklch(61% 0.0000 0.00)",
+          "oklch(72% 0.0000 0.00)",
+          "oklch(84% 0.0000 0.00)",
+          "oklch(95% 0.0000 0.00)"
         ]
       },
       "paper-white": {
         "role": "neutral",
-        "displayName": "White Paper",
+        "displayName": "Paper White",
+        "canonical": "#ffffff",
         "tonalRamp": [
-          "oklch(15% 0.00000 0.00)",
-          "oklch(27% 0.00000 0.00)",
-          "oklch(39% 0.00000 0.00)",
-          "oklch(51% 0.00000 0.00)",
-          "oklch(63% 0.00000 0.00)",
-          "oklch(75% 0.00000 0.00)",
-          "oklch(87% 0.00000 0.00)",
-          "oklch(95% 0.00000 0.00)"
+          "oklch(15% 0.0000 0.00)",
+          "oklch(26% 0.0000 0.00)",
+          "oklch(38% 0.0000 0.00)",
+          "oklch(49% 0.0000 0.00)",
+          "oklch(61% 0.0000 0.00)",
+          "oklch(72% 0.0000 0.00)",
+          "oklch(84% 0.0000 0.00)",
+          "oklch(95% 0.0000 0.00)"
         ]
       },
-      "paper-ivory": {
-        "role": "neutral",
-        "displayName": "Folio Ivory Paper",
-        "tonalRamp": [
-          "oklch(15% 0.00694 88.64)",
-          "oklch(27% 0.00694 88.64)",
-          "oklch(39% 0.00694 88.64)",
-          "oklch(51% 0.00694 88.64)",
-          "oklch(63% 0.00694 88.64)",
-          "oklch(75% 0.00694 88.64)",
-          "oklch(87% 0.00694 88.64)",
-          "oklch(95% 0.00694 88.64)"
-        ]
-      },
-      "paper-warm": {
-        "role": "neutral",
-        "displayName": "Haven Warm White Paper",
-        "tonalRamp": [
-          "oklch(15% 0.00537 95.10)",
-          "oklch(27% 0.00537 95.10)",
-          "oklch(39% 0.00537 95.10)",
-          "oklch(51% 0.00537 95.10)",
-          "oklch(63% 0.00537 95.10)",
-          "oklch(75% 0.00537 95.10)",
-          "oklch(87% 0.00537 95.10)",
-          "oklch(95% 0.00537 95.10)"
-        ]
-      },
-      "paper-cream": {
-        "role": "neutral",
-        "displayName": "Copper Cream Paper",
-        "tonalRamp": [
-          "oklch(15% 0.00854 84.57)",
-          "oklch(27% 0.00854 84.57)",
-          "oklch(39% 0.00854 84.57)",
-          "oklch(51% 0.00854 84.57)",
-          "oklch(63% 0.00854 84.57)",
-          "oklch(75% 0.00854 84.57)",
-          "oklch(87% 0.00854 84.57)",
-          "oklch(95% 0.00854 84.57)"
-        ]
-      },
-      "atlas-accent": {
+      "orbit-accent": {
         "role": "primary",
-        "displayName": "Atlas Accent",
+        "displayName": "Orbit Accent",
+        "canonical": "#2667c9",
         "tonalRamp": [
-          "oklch(15% 0.07268 191.22)",
-          "oklch(27% 0.07268 191.22)",
-          "oklch(39% 0.07268 191.22)",
-          "oklch(51% 0.07268 191.22)",
-          "oklch(63% 0.07268 191.22)",
-          "oklch(75% 0.07268 191.22)",
-          "oklch(87% 0.07268 191.22)",
-          "oklch(95% 0.07268 191.22)"
+          "oklch(15% 0.1662 258.90)",
+          "oklch(26% 0.1662 258.90)",
+          "oklch(38% 0.1662 258.90)",
+          "oklch(49% 0.1662 258.90)",
+          "oklch(61% 0.1662 258.90)",
+          "oklch(72% 0.1662 258.90)",
+          "oklch(84% 0.1662 258.90)",
+          "oklch(95% 0.1662 258.90)"
         ]
       },
-      "atlas-rail": {
+      "orbit-paper": {
         "role": "neutral",
-        "displayName": "Atlas Midnight Navy",
+        "displayName": "Orbit Paper",
+        "canonical": "#eef2f8",
         "tonalRamp": [
-          "oklch(15% 0.04616 248.76)",
-          "oklch(27% 0.04616 248.76)",
-          "oklch(39% 0.04616 248.76)",
-          "oklch(51% 0.04616 248.76)",
-          "oklch(63% 0.04616 248.76)",
-          "oklch(75% 0.04616 248.76)",
-          "oklch(87% 0.04616 248.76)",
-          "oklch(95% 0.04616 248.76)"
+          "oklch(15% 0.0091 258.34)",
+          "oklch(26% 0.0091 258.34)",
+          "oklch(38% 0.0091 258.34)",
+          "oklch(49% 0.0091 258.34)",
+          "oklch(61% 0.0091 258.34)",
+          "oklch(72% 0.0091 258.34)",
+          "oklch(84% 0.0091 258.34)",
+          "oklch(95% 0.0091 258.34)"
+        ]
+      },
+      "orbit-ink": {
+        "role": "neutral",
+        "displayName": "Orbit Ink",
+        "canonical": "#172d4a",
+        "tonalRamp": [
+          "oklch(15% 0.0602 255.93)",
+          "oklch(26% 0.0602 255.93)",
+          "oklch(38% 0.0602 255.93)",
+          "oklch(49% 0.0602 255.93)",
+          "oklch(61% 0.0602 255.93)",
+          "oklch(72% 0.0602 255.93)",
+          "oklch(84% 0.0602 255.93)",
+          "oklch(95% 0.0602 255.93)"
+        ]
+      },
+      "grid-accent": {
+        "role": "primary",
+        "displayName": "Grid Accent",
+        "canonical": "#df9d25",
+        "tonalRamp": [
+          "oklch(15% 0.1458 76.32)",
+          "oklch(26% 0.1458 76.32)",
+          "oklch(38% 0.1458 76.32)",
+          "oklch(49% 0.1458 76.32)",
+          "oklch(61% 0.1458 76.32)",
+          "oklch(72% 0.1458 76.32)",
+          "oklch(84% 0.1458 76.32)",
+          "oklch(95% 0.1458 76.32)"
+        ]
+      },
+      "grid-paper": {
+        "role": "neutral",
+        "displayName": "Grid Paper",
+        "canonical": "#f1f3f5",
+        "tonalRamp": [
+          "oklch(15% 0.0034 247.86)",
+          "oklch(26% 0.0034 247.86)",
+          "oklch(38% 0.0034 247.86)",
+          "oklch(49% 0.0034 247.86)",
+          "oklch(61% 0.0034 247.86)",
+          "oklch(72% 0.0034 247.86)",
+          "oklch(84% 0.0034 247.86)",
+          "oklch(95% 0.0034 247.86)"
+        ]
+      },
+      "grid-ink": {
+        "role": "neutral",
+        "displayName": "Grid Ink",
+        "canonical": "#171d26",
+        "tonalRamp": [
+          "oklch(15% 0.0197 258.35)",
+          "oklch(26% 0.0197 258.35)",
+          "oklch(38% 0.0197 258.35)",
+          "oklch(49% 0.0197 258.35)",
+          "oklch(61% 0.0197 258.35)",
+          "oklch(72% 0.0197 258.35)",
+          "oklch(84% 0.0197 258.35)",
+          "oklch(95% 0.0197 258.35)"
         ]
       },
       "folio-accent": {
         "role": "primary",
         "displayName": "Folio Accent",
+        "canonical": "#a65e42",
         "tonalRamp": [
-          "oklch(15% 0.10275 41.69)",
-          "oklch(27% 0.10275 41.69)",
-          "oklch(39% 0.10275 41.69)",
-          "oklch(51% 0.10275 41.69)",
-          "oklch(63% 0.10275 41.69)",
-          "oklch(75% 0.10275 41.69)",
-          "oklch(87% 0.10275 41.69)",
-          "oklch(95% 0.10275 41.69)"
+          "oklch(15% 0.1027 41.69)",
+          "oklch(26% 0.1027 41.69)",
+          "oklch(38% 0.1027 41.69)",
+          "oklch(49% 0.1027 41.69)",
+          "oklch(61% 0.1027 41.69)",
+          "oklch(72% 0.1027 41.69)",
+          "oklch(84% 0.1027 41.69)",
+          "oklch(95% 0.1027 41.69)"
         ]
       },
-      "folio-rail": {
+      "folio-paper": {
         "role": "neutral",
-        "displayName": "Folio Light Clay",
+        "displayName": "Folio Paper",
+        "canonical": "#fcfaf5",
         "tonalRamp": [
-          "oklch(15% 0.01882 75.32)",
-          "oklch(27% 0.01882 75.32)",
-          "oklch(39% 0.01882 75.32)",
-          "oklch(51% 0.01882 75.32)",
-          "oklch(63% 0.01882 75.32)",
-          "oklch(75% 0.01882 75.32)",
-          "oklch(87% 0.01882 75.32)",
-          "oklch(95% 0.01882 75.32)"
+          "oklch(15% 0.0069 88.64)",
+          "oklch(26% 0.0069 88.64)",
+          "oklch(38% 0.0069 88.64)",
+          "oklch(49% 0.0069 88.64)",
+          "oklch(61% 0.0069 88.64)",
+          "oklch(72% 0.0069 88.64)",
+          "oklch(84% 0.0069 88.64)",
+          "oklch(95% 0.0069 88.64)"
+        ]
+      },
+      "folio-ink": {
+        "role": "neutral",
+        "displayName": "Folio Ink",
+        "canonical": "#302a24",
+        "tonalRamp": [
+          "oklch(15% 0.0138 67.23)",
+          "oklch(26% 0.0138 67.23)",
+          "oklch(38% 0.0138 67.23)",
+          "oklch(49% 0.0138 67.23)",
+          "oklch(61% 0.0138 67.23)",
+          "oklch(72% 0.0138 67.23)",
+          "oklch(84% 0.0138 67.23)",
+          "oklch(95% 0.0138 67.23)"
+        ]
+      },
+      "vector-accent": {
+        "role": "primary",
+        "displayName": "Vector Accent",
+        "canonical": "#4168d5",
+        "tonalRamp": [
+          "oklch(15% 0.1734 266.02)",
+          "oklch(26% 0.1734 266.02)",
+          "oklch(38% 0.1734 266.02)",
+          "oklch(49% 0.1734 266.02)",
+          "oklch(61% 0.1734 266.02)",
+          "oklch(72% 0.1734 266.02)",
+          "oklch(84% 0.1734 266.02)",
+          "oklch(95% 0.1734 266.02)"
+        ]
+      },
+      "vector-ink": {
+        "role": "neutral",
+        "displayName": "Vector Ink",
+        "canonical": "#182b4b",
+        "tonalRamp": [
+          "oklch(15% 0.0639 260.25)",
+          "oklch(26% 0.0639 260.25)",
+          "oklch(38% 0.0639 260.25)",
+          "oklch(49% 0.0639 260.25)",
+          "oklch(61% 0.0639 260.25)",
+          "oklch(72% 0.0639 260.25)",
+          "oklch(84% 0.0639 260.25)",
+          "oklch(95% 0.0639 260.25)"
         ]
       },
       "signal-accent": {
         "role": "primary",
         "displayName": "Signal Accent",
+        "canonical": "#e34732",
         "tonalRamp": [
-          "oklch(15% 0.08939 200.90)",
-          "oklch(27% 0.08939 200.90)",
-          "oklch(39% 0.08939 200.90)",
-          "oklch(51% 0.08939 200.90)",
-          "oklch(63% 0.08939 200.90)",
-          "oklch(75% 0.08939 200.90)",
-          "oklch(87% 0.08939 200.90)",
-          "oklch(95% 0.08939 200.90)"
+          "oklch(15% 0.1961 30.86)",
+          "oklch(26% 0.1961 30.86)",
+          "oklch(38% 0.1961 30.86)",
+          "oklch(49% 0.1961 30.86)",
+          "oklch(61% 0.1961 30.86)",
+          "oklch(72% 0.1961 30.86)",
+          "oklch(84% 0.1961 30.86)",
+          "oklch(95% 0.1961 30.86)"
         ]
       },
-      "signal-rail": {
+      "signal-ink": {
         "role": "neutral",
-        "displayName": "Signal Dark Teal",
+        "displayName": "Signal Ink",
+        "canonical": "#202124",
         "tonalRamp": [
-          "oklch(15% 0.05002 207.26)",
-          "oklch(27% 0.05002 207.26)",
-          "oklch(39% 0.05002 207.26)",
-          "oklch(51% 0.05002 207.26)",
-          "oklch(63% 0.05002 207.26)",
-          "oklch(75% 0.05002 207.26)",
-          "oklch(87% 0.05002 207.26)",
-          "oklch(95% 0.05002 207.26)"
-        ]
-      },
-      "signal-band": {
-        "role": "neutral",
-        "displayName": "Signal Navy Band",
-        "tonalRamp": [
-          "oklch(15% 0.04905 248.21)",
-          "oklch(27% 0.04905 248.21)",
-          "oklch(39% 0.04905 248.21)",
-          "oklch(51% 0.04905 248.21)",
-          "oklch(63% 0.04905 248.21)",
-          "oklch(75% 0.04905 248.21)",
-          "oklch(87% 0.04905 248.21)",
-          "oklch(95% 0.04905 248.21)"
-        ]
-      },
-      "meridian-accent": {
-        "role": "primary",
-        "displayName": "Meridian Accent",
-        "tonalRamp": [
-          "oklch(15% 0.05908 329.80)",
-          "oklch(27% 0.05908 329.80)",
-          "oklch(39% 0.05908 329.80)",
-          "oklch(51% 0.05908 329.80)",
-          "oklch(63% 0.05908 329.80)",
-          "oklch(75% 0.05908 329.80)",
-          "oklch(87% 0.05908 329.80)",
-          "oklch(95% 0.05908 329.80)"
-        ]
-      },
-      "meridian-rail": {
-        "role": "neutral",
-        "displayName": "Meridian Warm Greige",
-        "tonalRamp": [
-          "oklch(15% 0.00911 78.28)",
-          "oklch(27% 0.00911 78.28)",
-          "oklch(39% 0.00911 78.28)",
-          "oklch(51% 0.00911 78.28)",
-          "oklch(63% 0.00911 78.28)",
-          "oklch(75% 0.00911 78.28)",
-          "oklch(87% 0.00911 78.28)",
-          "oklch(95% 0.00911 78.28)"
-        ]
-      },
-      "index-accent": {
-        "role": "primary",
-        "displayName": "Index Accent",
-        "tonalRamp": [
-          "oklch(15% 0.19991 266.05)",
-          "oklch(27% 0.19991 266.05)",
-          "oklch(39% 0.19991 266.05)",
-          "oklch(51% 0.19991 266.05)",
-          "oklch(63% 0.19991 266.05)",
-          "oklch(75% 0.19991 266.05)",
-          "oklch(87% 0.19991 266.05)",
-          "oklch(95% 0.19991 266.05)"
+          "oklch(15% 0.0058 271.18)",
+          "oklch(26% 0.0058 271.18)",
+          "oklch(38% 0.0058 271.18)",
+          "oklch(49% 0.0058 271.18)",
+          "oklch(61% 0.0058 271.18)",
+          "oklch(72% 0.0058 271.18)",
+          "oklch(84% 0.0058 271.18)",
+          "oklch(95% 0.0058 271.18)"
         ]
       },
       "haven-accent": {
         "role": "primary",
         "displayName": "Haven Accent",
+        "canonical": "#6e8d74",
         "tonalRamp": [
-          "oklch(15% 0.05404 153.55)",
-          "oklch(27% 0.05404 153.55)",
-          "oklch(39% 0.05404 153.55)",
-          "oklch(51% 0.05404 153.55)",
-          "oklch(63% 0.05404 153.55)",
-          "oklch(75% 0.05404 153.55)",
-          "oklch(87% 0.05404 153.55)",
-          "oklch(95% 0.05404 153.55)"
+          "oklch(15% 0.0513 150.46)",
+          "oklch(26% 0.0513 150.46)",
+          "oklch(38% 0.0513 150.46)",
+          "oklch(49% 0.0513 150.46)",
+          "oklch(61% 0.0513 150.46)",
+          "oklch(72% 0.0513 150.46)",
+          "oklch(84% 0.0513 150.46)",
+          "oklch(95% 0.0513 150.46)"
         ]
       },
-      "haven-rail": {
+      "haven-paper": {
         "role": "neutral",
-        "displayName": "Haven Pale Sage",
+        "displayName": "Haven Paper",
+        "canonical": "#fbfaf5",
         "tonalRamp": [
-          "oklch(15% 0.01299 141.81)",
-          "oklch(27% 0.01299 141.81)",
-          "oklch(39% 0.01299 141.81)",
-          "oklch(51% 0.01299 141.81)",
-          "oklch(63% 0.01299 141.81)",
-          "oklch(75% 0.01299 141.81)",
-          "oklch(87% 0.01299 141.81)",
-          "oklch(95% 0.01299 141.81)"
+          "oklch(15% 0.0067 97.35)",
+          "oklch(26% 0.0067 97.35)",
+          "oklch(38% 0.0067 97.35)",
+          "oklch(49% 0.0067 97.35)",
+          "oklch(61% 0.0067 97.35)",
+          "oklch(72% 0.0067 97.35)",
+          "oklch(84% 0.0067 97.35)",
+          "oklch(95% 0.0067 97.35)"
+        ]
+      },
+      "haven-ink": {
+        "role": "neutral",
+        "displayName": "Haven Ink",
+        "canonical": "#263d35",
+        "tonalRamp": [
+          "oklch(15% 0.0323 170.51)",
+          "oklch(26% 0.0323 170.51)",
+          "oklch(38% 0.0323 170.51)",
+          "oklch(49% 0.0323 170.51)",
+          "oklch(61% 0.0323 170.51)",
+          "oklch(72% 0.0323 170.51)",
+          "oklch(84% 0.0323 170.51)",
+          "oklch(95% 0.0323 170.51)"
         ]
       },
       "copper-accent": {
         "role": "primary",
         "displayName": "Copper Accent",
+        "canonical": "#c38d65",
         "tonalRamp": [
-          "oklch(15% 0.09427 50.23)",
-          "oklch(27% 0.09427 50.23)",
-          "oklch(39% 0.09427 50.23)",
-          "oklch(51% 0.09427 50.23)",
-          "oklch(63% 0.09427 50.23)",
-          "oklch(75% 0.09427 50.23)",
-          "oklch(87% 0.09427 50.23)",
-          "oklch(95% 0.09427 50.23)"
+          "oklch(15% 0.0856 57.27)",
+          "oklch(26% 0.0856 57.27)",
+          "oklch(38% 0.0856 57.27)",
+          "oklch(49% 0.0856 57.27)",
+          "oklch(61% 0.0856 57.27)",
+          "oklch(72% 0.0856 57.27)",
+          "oklch(84% 0.0856 57.27)",
+          "oklch(95% 0.0856 57.27)"
         ]
       },
-      "copper-rail": {
+      "copper-paper": {
         "role": "neutral",
-        "displayName": "Copper Espresso",
+        "displayName": "Copper Paper",
+        "canonical": "#211c19",
         "tonalRamp": [
-          "oklch(15% 0.02261 46.00)",
-          "oklch(27% 0.02261 46.00)",
-          "oklch(39% 0.02261 46.00)",
-          "oklch(51% 0.02261 46.00)",
-          "oklch(63% 0.02261 46.00)",
-          "oklch(75% 0.02261 46.00)",
-          "oklch(87% 0.02261 46.00)",
-          "oklch(95% 0.02261 46.00)"
+          "oklch(15% 0.0097 52.99)",
+          "oklch(26% 0.0097 52.99)",
+          "oklch(38% 0.0097 52.99)",
+          "oklch(49% 0.0097 52.99)",
+          "oklch(61% 0.0097 52.99)",
+          "oklch(72% 0.0097 52.99)",
+          "oklch(84% 0.0097 52.99)",
+          "oklch(95% 0.0097 52.99)"
+        ]
+      },
+      "copper-ink": {
+        "role": "neutral",
+        "displayName": "Copper Ink",
+        "canonical": "#fff3e4",
+        "tonalRamp": [
+          "oklch(15% 0.0237 73.61)",
+          "oklch(26% 0.0237 73.61)",
+          "oklch(38% 0.0237 73.61)",
+          "oklch(49% 0.0237 73.61)",
+          "oklch(61% 0.0237 73.61)",
+          "oklch(72% 0.0237 73.61)",
+          "oklch(84% 0.0237 73.61)",
+          "oklch(95% 0.0237 73.61)"
         ]
       },
       "noir-accent": {
         "role": "primary",
         "displayName": "Noir Accent",
+        "canonical": "#333c50",
         "tonalRamp": [
-          "oklch(15% 0.04072 257.42)",
-          "oklch(27% 0.04072 257.42)",
-          "oklch(39% 0.04072 257.42)",
-          "oklch(51% 0.04072 257.42)",
-          "oklch(63% 0.04072 257.42)",
-          "oklch(75% 0.04072 257.42)",
-          "oklch(87% 0.04072 257.42)",
-          "oklch(95% 0.04072 257.42)"
+          "oklch(15% 0.0370 265.74)",
+          "oklch(26% 0.0370 265.74)",
+          "oklch(38% 0.0370 265.74)",
+          "oklch(49% 0.0370 265.74)",
+          "oklch(61% 0.0370 265.74)",
+          "oklch(72% 0.0370 265.74)",
+          "oklch(84% 0.0370 265.74)",
+          "oklch(95% 0.0370 265.74)"
         ]
       },
-      "noir-rail": {
+      "noir-ink": {
         "role": "neutral",
-        "displayName": "Noir Charcoal",
+        "displayName": "Noir Ink",
+        "canonical": "#181b20",
         "tonalRamp": [
-          "oklch(15% 0.01020 260.70)",
-          "oklch(27% 0.01020 260.70)",
-          "oklch(39% 0.01020 260.70)",
-          "oklch(51% 0.01020 260.70)",
-          "oklch(63% 0.01020 260.70)",
-          "oklch(75% 0.01020 260.70)",
-          "oklch(87% 0.01020 260.70)",
-          "oklch(95% 0.01020 260.70)"
+          "oklch(15% 0.0108 260.68)",
+          "oklch(26% 0.0108 260.68)",
+          "oklch(38% 0.0108 260.68)",
+          "oklch(49% 0.0108 260.68)",
+          "oklch(61% 0.0108 260.68)",
+          "oklch(72% 0.0108 260.68)",
+          "oklch(84% 0.0108 260.68)",
+          "oklch(95% 0.0108 260.68)"
         ]
       },
       "lumen-accent": {
         "role": "primary",
         "displayName": "Lumen Accent",
+        "canonical": "#8a70c7",
         "tonalRamp": [
-          "oklch(15% 0.10547 293.39)",
-          "oklch(27% 0.10547 293.39)",
-          "oklch(39% 0.10547 293.39)",
-          "oklch(51% 0.10547 293.39)",
-          "oklch(63% 0.10547 293.39)",
-          "oklch(75% 0.10547 293.39)",
-          "oklch(87% 0.10547 293.39)",
-          "oklch(95% 0.10547 293.39)"
+          "oklch(15% 0.1305 296.06)",
+          "oklch(26% 0.1305 296.06)",
+          "oklch(38% 0.1305 296.06)",
+          "oklch(49% 0.1305 296.06)",
+          "oklch(61% 0.1305 296.06)",
+          "oklch(72% 0.1305 296.06)",
+          "oklch(84% 0.1305 296.06)",
+          "oklch(95% 0.1305 296.06)"
+        ]
+      },
+      "lumen-paper": {
+        "role": "neutral",
+        "displayName": "Lumen Paper",
+        "canonical": "#fefcff",
+        "tonalRamp": [
+          "oklch(15% 0.0045 314.81)",
+          "oklch(26% 0.0045 314.81)",
+          "oklch(38% 0.0045 314.81)",
+          "oklch(49% 0.0045 314.81)",
+          "oklch(61% 0.0045 314.81)",
+          "oklch(72% 0.0045 314.81)",
+          "oklch(84% 0.0045 314.81)",
+          "oklch(95% 0.0045 314.81)"
+        ]
+      },
+      "lumen-ink": {
+        "role": "neutral",
+        "displayName": "Lumen Ink",
+        "canonical": "#30263f",
+        "tonalRamp": [
+          "oklch(15% 0.0463 302.00)",
+          "oklch(26% 0.0463 302.00)",
+          "oklch(38% 0.0463 302.00)",
+          "oklch(49% 0.0463 302.00)",
+          "oklch(61% 0.0463 302.00)",
+          "oklch(72% 0.0463 302.00)",
+          "oklch(84% 0.0463 302.00)",
+          "oklch(95% 0.0463 302.00)"
         ]
       },
       "summit-accent": {
         "role": "primary",
         "displayName": "Summit Accent",
+        "canonical": "#cb963d",
         "tonalRamp": [
-          "oklch(15% 0.11374 75.87)",
-          "oklch(27% 0.11374 75.87)",
-          "oklch(39% 0.11374 75.87)",
-          "oklch(51% 0.11374 75.87)",
-          "oklch(63% 0.11374 75.87)",
-          "oklch(75% 0.11374 75.87)",
-          "oklch(87% 0.11374 75.87)",
-          "oklch(95% 0.11374 75.87)"
+          "oklch(15% 0.1219 77.20)",
+          "oklch(26% 0.1219 77.20)",
+          "oklch(38% 0.1219 77.20)",
+          "oklch(49% 0.1219 77.20)",
+          "oklch(61% 0.1219 77.20)",
+          "oklch(72% 0.1219 77.20)",
+          "oklch(84% 0.1219 77.20)",
+          "oklch(95% 0.1219 77.20)"
         ]
       },
-      "summit-rail": {
+      "summit-ink": {
         "role": "neutral",
-        "displayName": "Summit Slate Navy",
+        "displayName": "Summit Ink",
+        "canonical": "#1d2729",
         "tonalRamp": [
-          "oklch(15% 0.04164 253.43)",
-          "oklch(27% 0.04164 253.43)",
-          "oklch(39% 0.04164 253.43)",
-          "oklch(51% 0.04164 253.43)",
-          "oklch(63% 0.04164 253.43)",
-          "oklch(75% 0.04164 253.43)",
-          "oklch(87% 0.04164 253.43)",
-          "oklch(95% 0.04164 253.43)"
+          "oklch(15% 0.0145 211.17)",
+          "oklch(26% 0.0145 211.17)",
+          "oklch(38% 0.0145 211.17)",
+          "oklch(49% 0.0145 211.17)",
+          "oklch(61% 0.0145 211.17)",
+          "oklch(72% 0.0145 211.17)",
+          "oklch(84% 0.0145 211.17)",
+          "oklch(95% 0.0145 211.17)"
+        ]
+      },
+      "haven-panel": {
+        "role": "neutral",
+        "displayName": "Haven Panel",
+        "canonical": "#edf1e7",
+        "tonalRamp": [
+          "oklch(15% 0.0139 124.55)",
+          "oklch(26% 0.0139 124.55)",
+          "oklch(38% 0.0139 124.55)",
+          "oklch(49% 0.0139 124.55)",
+          "oklch(61% 0.0139 124.55)",
+          "oklch(72% 0.0139 124.55)",
+          "oklch(84% 0.0139 124.55)",
+          "oklch(95% 0.0139 124.55)"
+        ]
+      },
+      "copper-panel": {
+        "role": "neutral",
+        "displayName": "Copper Panel",
+        "canonical": "#2b2420",
+        "tonalRamp": [
+          "oklch(15% 0.0129 51.62)",
+          "oklch(26% 0.0129 51.62)",
+          "oklch(38% 0.0129 51.62)",
+          "oklch(49% 0.0129 51.62)",
+          "oklch(61% 0.0129 51.62)",
+          "oklch(72% 0.0129 51.62)",
+          "oklch(84% 0.0129 51.62)",
+          "oklch(95% 0.0129 51.62)"
+        ]
+      },
+      "summit-dark-panel": {
+        "role": "neutral",
+        "displayName": "Summit Dark Panel",
+        "canonical": "#1d2a2d",
+        "tonalRamp": [
+          "oklch(15% 0.0186 213.47)",
+          "oklch(26% 0.0186 213.47)",
+          "oklch(38% 0.0186 213.47)",
+          "oklch(49% 0.0186 213.47)",
+          "oklch(61% 0.0186 213.47)",
+          "oklch(72% 0.0186 213.47)",
+          "oklch(84% 0.0186 213.47)",
+          "oklch(95% 0.0186 213.47)"
         ]
       }
     },
     "typographyMeta": {
       "studio-title": {
-        "displayName": "Studio Title",
-        "purpose": "Context-pane headings."
-      },
-      "studio-label": {
-        "displayName": "Studio Label",
-        "purpose": "Compact control labels."
+        "displayName": "studio title",
+        "purpose": "Compact editor type in the source role."
       },
       "studio-button": {
-        "displayName": "Studio Button",
-        "purpose": "Shell action labels."
+        "displayName": "studio button",
+        "purpose": "Compact editor type in the source role."
       },
       "cv-body": {
-        "displayName": "Cv Body",
-        "purpose": "Shared baseline main CV reading type; templates may override."
+        "displayName": "cv body",
+        "purpose": "Shared default reading type; each world may override size and leading."
       },
-      "cv-sidebar": {
-        "displayName": "Cv Sidebar",
-        "purpose": "Shared baseline sidebar CV reading type; templates may override."
+      "grid-section-label": {
+        "displayName": "grid section label",
+        "purpose": "Technical mono section labels in Grid."
       },
-      "atlas-name": {
-        "displayName": "Atlas Name",
-        "purpose": "Template identity in its documented main, top-band or sidebar position."
+      "orbit-name": {
+        "displayName": "orbit name",
+        "purpose": "Default first-page display in orbit; scoped font and continuation rules may override it."
+      },
+      "grid-name": {
+        "displayName": "grid name",
+        "purpose": "Default first-page display in grid; scoped font and continuation rules may override it."
       },
       "folio-name": {
-        "displayName": "Folio Name",
-        "purpose": "Template identity in its documented main, top-band or sidebar position."
+        "displayName": "folio name",
+        "purpose": "Default first-page display in folio; scoped font and continuation rules may override it."
+      },
+      "vector-name": {
+        "displayName": "vector name",
+        "purpose": "Default first-page display in vector; scoped font and continuation rules may override it."
       },
       "signal-name": {
-        "displayName": "Signal Name",
-        "purpose": "Template identity in its documented main, top-band or sidebar position."
-      },
-      "meridian-name": {
-        "displayName": "Meridian Name",
-        "purpose": "Template identity in its documented main, top-band or sidebar position."
-      },
-      "index-name": {
-        "displayName": "Index Name",
-        "purpose": "Template identity in its documented main, top-band or sidebar position."
+        "displayName": "signal name",
+        "purpose": "Default first-page display in signal; scoped font and continuation rules may override it."
       },
       "haven-name": {
-        "displayName": "Haven Name",
-        "purpose": "Template identity in its documented main, top-band or sidebar position."
+        "displayName": "haven name",
+        "purpose": "Default first-page display in haven; scoped font and continuation rules may override it."
       },
       "copper-name": {
-        "displayName": "Copper Name",
-        "purpose": "Template identity in its documented main, top-band or sidebar position."
+        "displayName": "copper name",
+        "purpose": "Default first-page display in copper; scoped font and continuation rules may override it."
       },
       "noir-name": {
-        "displayName": "Noir Name",
-        "purpose": "Template identity in its documented main, top-band or sidebar position."
+        "displayName": "noir name",
+        "purpose": "Default first-page display in noir; scoped font and continuation rules may override it."
       },
       "lumen-name": {
-        "displayName": "Lumen Name",
-        "purpose": "Template identity in its documented main, top-band or sidebar position."
+        "displayName": "lumen name",
+        "purpose": "Default first-page display in lumen; scoped font and continuation rules may override it."
       },
       "summit-name": {
-        "displayName": "Summit Name",
-        "purpose": "Template identity in its documented main, top-band or sidebar position."
+        "displayName": "summit name",
+        "purpose": "Default first-page display in summit; scoped font and continuation rules may override it."
       }
     },
     "shadows": [
@@ -671,22 +809,6 @@
       "css": ".ds-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:37px;padding:10px 15px;border:1px solid transparent;border-radius:8px;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif;font-size:11px;line-height:1.25;font-weight:550;white-space:nowrap;cursor:pointer;transition:background .18s,color .18s,border-color .18s,box-shadow .18s,transform .18s;color:#cbd5e8;border-color:#ffffff16;background:#ffffff03}.ds-secondary:hover:not(:disabled){border-color:#ffffff28;background:#ffffff09}.ds-secondary:focus-visible{outline:2px solid var(--accent,#b4c7ff);outline-offset:4px;}.ds-secondary:disabled{opacity:.35;cursor:default}@media(prefers-reduced-motion:reduce){.ds-secondary{transition:none}}"
     },
     {
-      "name": "Icon action",
-      "kind": "button",
-      "refersTo": "icon-button",
-      "description": "Labeled line-icon action; shown at its desktop size.",
-      "html": "<button class=\"ds-icon\" type=\"button\" aria-label=\"Eintrag bearbeiten\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m16 3 5 5M4 20l4-1L21 6a2.1 2.1 0 0 0-3-3L5 16z\"/></svg></button>",
-      "css": ".ds-icon{width:33px;height:33px;display:inline-flex;align-items:center;justify-content:center;color:#9cacc5;background:transparent;border:0;border-radius:7px;cursor:pointer;transition:background .18s,color .18s,transform .18s}.ds-icon:hover{background:#ffffff09;color:#edf3ff}.ds-icon:active{transform:scale(.94)}.ds-icon:focus-visible{outline:2px solid var(--accent,#b4c7ff);outline-offset:4px;}@media(prefers-reduced-motion:reduce){.ds-icon{transition:none}}"
-    },
-    {
-      "name": "Icon search",
-      "kind": "input",
-      "refersTo": "icon-search",
-      "description": "German searchable symbol input in the shared icon library.",
-      "html": "<label class=\"ds-search\"><span>Symbole suchen</span><input type=\"search\" placeholder=\"Symbol suchen, z. B. Fahrzeug, Team, Foto …\" /></label>",
-      "css": ".ds-search{display:block;width:360px;max-width:100%;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif;color:#b2bfd5;font-size:11px}.ds-search>span{display:block;margin-bottom:7px}.ds-search input{display:block;box-sizing:border-box;width:100%;min-height:44px;border:1px solid #ffffff1a;border-radius:8px;background:#091324;color:#e1eaff;padding:12px 14px;font:inherit;font-size:12px;line-height:1.5}.ds-search input::placeholder{color:#8fa1bd}.ds-search input:focus-visible{outline:none;border-color:#8da8ef;box-shadow:0 0 0 3px #a8bfff10}"
-    },
-    {
       "name": "Navigation rail item",
       "kind": "nav",
       "refersTo": "nav-item",
@@ -703,70 +825,87 @@
       "css": ".ds-categories{display:flex;flex-wrap:wrap;gap:6px}.ds-chip{padding:7px 9px;min-height:33px;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif;font-size:10px;line-height:1.4;color:#a0b2cc;border:1px solid #ffffff12;border-radius:6px;background:transparent;cursor:pointer}.ds-chip:hover{background:#ffffff08;color:#e4ecfb}.ds-chip-selected{background:#b6c9ff13;border-color:#aec6ff55;color:#ccdaff}.ds-chip:focus-visible{outline:2px solid var(--accent,#b4c7ff);outline-offset:4px;}"
     },
     {
-      "name": "Atlas template card",
-      "kind": "card",
-      "refersTo": "template-card",
-      "description": "A thumbnail preserves the actual sidebar material and name position; selection adds a pale blue border.",
-      "html": "<button class=\"ds-template\" type=\"button\" aria-pressed=\"true\"><span class=\"ds-mini\"><span class=\"ds-mini-side\"><i class=\"ds-mini-photo\"></i><i></i><i></i><i></i><i></i></span><span class=\"ds-mini-main\"><strong>Michael Meier</strong><b></b><i></i><i></i><i></i><i></i><i></i></span></span><span class=\"ds-template-name\">Atlas</span></button>",
-      "css": ".ds-template{width:128px;border:0;padding:0;text-align:left;background:transparent;color:#d2dfff;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif;cursor:pointer}.ds-mini{box-sizing:border-box;position:relative;display:block;width:100%;height:154px;border:3px solid #b6c9ff;border-radius:5px;overflow:hidden;background:#fff;box-shadow:0 0 0 2px #a8bfff0c,0 5px 18px #0003;transition:border-color .18s,transform .18s}.ds-template:hover .ds-mini{transform:translateY(-2px)}.ds-template:focus-visible{outline:2px solid var(--accent,#b4c7ff);outline-offset:4px;}.ds-mini-side{position:absolute;left:0;top:0;bottom:0;width:30.5%;padding:13px 7px;background:#14293d}.ds-mini-side i{display:block;height:1px;margin-top:8px;background:#9cb5c4}.ds-mini-side .ds-mini-photo{width:25px;height:25px;margin:0 auto 12px;border-radius:50%;background:#416074}.ds-mini-main{position:absolute;left:30.5%;right:0;top:0;padding:15px 10px}.ds-mini-main strong{display:block;color:#183044;font-size:12px;font-weight:750;line-height:1.02;letter-spacing:-.035em}.ds-mini-main b{display:block;height:2px;background:#1e6b68;margin:5px 0 14px}.ds-mini-main i{display:block;height:1px;background:#a8b5bc;margin-top:8px}.ds-template-name{display:block;font-size:11px;font-weight:500;margin-top:8px;padding-left:1px}@media(prefers-reduced-motion:reduce){.ds-mini{transition:none}}"
+      "name": "Editor field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Standard labeled editor field with source focus treatment.",
+      "html": "<label class=\"ds-field\"><span>Titel</span><input value=\"Berufserfahrung\" /></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:7px;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif;color:#9aacca;font-size:9px;line-height:1.5}.ds-field input{width:100%;min-width:0;border:1px solid #ffffff12;border-radius:6px;background:#0b1527;color:#c4d1e7;padding:10px 11px;font-family:inherit;font-size:10px;line-height:1.5;transition:border-color .15s}.ds-field input:focus-visible{outline:none;border-color:#8da8ef;box-shadow:0 0 0 3px #a8bfff10}"
     },
     {
-      "name": "Editable section icon",
+      "name": "Orbit gallery card",
+      "kind": "card",
+      "refersTo": "template-card",
+      "description": "Family-specific rounded-board miniature; an outline rather than a live document render.",
+      "html": "<button class=\"ds-template\" type=\"button\" aria-pressed=\"true\"><span class=\"ds-mini\"><span class=\"ds-mini-identity\"><strong>Michael Meier</strong><i></i></span><span class=\"ds-mini-panels\"><i></i><i></i><i></i><i></i></span></span><span class=\"ds-template-name\">Orbit</span></button>",
+      "css": ".ds-template{width:128px;border:0;padding:0;text-align:left;background:transparent;color:#d2dfff;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif;cursor:pointer}.ds-mini{box-sizing:border-box;display:block;height:154px;padding:6%;border:2px solid #b6c9ff;border-radius:5px;background:#eef2f8;color:#172d4a;box-shadow:0 0 0 2px #a8bfff0c,0 5px 18px #0003;transition:border-color .18s,transform .18s}.ds-template:hover .ds-mini{transform:translateY(-2px)}.ds-template:focus-visible{outline:2px solid var(--accent,#b4c7ff);outline-offset:4px}.ds-mini-identity{display:block;min-height:23%;margin:0 0 5%;padding:7% 6% 6% 30%;border:.7px solid #d6e0ed;border-radius:6px;background:#fff}.ds-mini-identity strong{display:block;font-size:7.1px;font-weight:740;line-height:1.02;letter-spacing:-.035em;overflow-wrap:anywhere}.ds-mini-identity i{display:block;width:88%;height:1.8px;margin-top:4px;background:#2667c9;opacity:.75}.ds-mini-panels{display:grid;grid-template-columns:1fr 1fr;gap:4px}.ds-mini-panels>i{display:block;min-height:20px;padding:4px 5px;border:.7px solid #d6e0ed;border-radius:5px;background:#fff}.ds-mini-panels>i:nth-child(-n+2){grid-column:1/-1}.ds-template-name{display:block;font-size:11px;font-weight:500;margin-top:8px;padding-left:1px}@media(prefers-reduced-motion:reduce){.ds-mini{transition:none}}"
+    },
+    {
+      "name": "Orbit document panel",
       "kind": "custom",
-      "refersTo": "printed-icon",
-      "description": "An Atlas section icon is directly actionable in edit mode; SVG inherits wrapper color.",
-      "html": "<div class=\"ds-heading\"><button class=\"ds-printed\" type=\"button\" aria-label=\"Berufserfahrung: Symbol ändern oder entfernen\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.65\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16\"/><rect x=\"2\" y=\"6\" width=\"20\" height=\"14\" rx=\"2\"/></svg></button><span>Berufserfahrung</span><i></i></div>",
-      "css": ".ds-heading{display:flex;align-items:center;gap:10px;min-height:17px;padding:12px;background:#fff;color:#183044;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif;font-size:11px;font-weight:750;line-height:1.4;letter-spacing:.075em;text-transform:uppercase}.ds-heading>i{height:1px;background:#d6e0e5;flex:1;min-width:10px;margin-left:2px}.ds-printed{position:relative;display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;min-width:19px;padding:0;background:transparent;border:0;border-radius:3px;color:var(--cv-accent,#1e6b68);cursor:pointer}.ds-printed svg{width:16px;height:16px;color:inherit;stroke-width:1.8}.ds-printed:hover{background:color-mix(in srgb,var(--cv-accent,#1e6b68) 15%,transparent);box-shadow:0 0 0 4px color-mix(in srgb,var(--cv-accent,#1e6b68) 15%,transparent)}.ds-printed:focus-visible{outline:2px solid var(--cv-accent,#1e6b68);outline-offset:3px}"
+      "refersTo": "orbit-panel",
+      "description": "Rounded real-section material on Orbit board paper.",
+      "html": "<div class=\"ds-orbit-board\"><section class=\"ds-orbit-panel\"><h3>Berufserfahrung</h3><p>Abschnittsinhalt aus dem CV</p></section></div>",
+      "css": ".ds-orbit-board{padding:16px;background:#eef2f8;color:#172d4a;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif}.ds-orbit-panel{padding:19px;border:1px solid color-mix(in srgb,#2667c9 15%,#dfe7ef);border-radius:18px;background:#fff}.ds-orbit-panel h3{margin:0 0 13px;font-size:13px;font-weight:720;line-height:1.35;letter-spacing:-.012em}.ds-orbit-panel p{margin:0;color:#4a607b;font-size:12.2px;line-height:1.48}"
+    },
+    {
+      "name": "Copper document panel",
+      "kind": "custom",
+      "refersTo": "copper-panel",
+      "description": "Cream reading text on the full dark espresso material.",
+      "html": "<div class=\"ds-copper-paper\"><section class=\"ds-copper-panel\"><h3>Qualifikationen</h3><p>Abschnittsinhalt aus dem CV</p></section></div>",
+      "css": ".ds-copper-paper{padding:20px;background:#211c19;color:#fff3e4;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif}.ds-copper-panel{padding:22px;background:#2b2420;border:1px solid color-mix(in srgb,#c38d65 28%,#342b25);border-radius:0}.ds-copper-panel h3{margin:0 0 12px;font-family:\"Instrument Serif\",Georgia,serif;font-size:26px;font-weight:400;line-height:1.13;letter-spacing:-.01em}.ds-copper-panel p{margin:0;color:#dfcfbf;font-size:12.3px;line-height:1.49}"
+    },
+    {
+      "name": "Lumen asymmetric group",
+      "kind": "custom",
+      "refersTo": "lumen-panel",
+      "description": "The source 38/62 portfolio group; real content passes whole-group measurement before use.",
+      "html": "<div class=\"ds-lumen-group\"><section class=\"ds-lumen-context\"><h3>Kurzprofil</h3><p>Kontext aus dem CV</p></section><section class=\"ds-lumen-main\"><h3>Berufserfahrung</h3><p>Hervorgehobener Eintrag</p></section><section class=\"ds-lumen-support\"><h3>Berufserfahrung</h3><p>Weiterer Eintrag</p></section></div>",
+      "css": ".ds-lumen-group{display:grid;grid-template-columns:minmax(0,.38fr) minmax(0,.62fr);grid-template-rows:auto auto;gap:18px 20px;padding:18px;background:#fefcff;color:#30263f;font-family:\"DM Sans Variable\",\"DM Sans\",sans-serif;font-size:12.3px;line-height:1.5}.ds-lumen-group h3{margin:0 0 13px;font-size:12px;font-weight:650;line-height:1.4;letter-spacing:.005em}.ds-lumen-group p{margin:0;color:#5a5066}.ds-lumen-context{grid-column:1;grid-row:1;padding:2px 0 0}.ds-lumen-main{grid-column:2;grid-row:1/span 2;padding:20px;border:1px solid color-mix(in srgb,#8a70c7 14%,#e7e0ed);border-radius:8px;background:#fff}.ds-lumen-support{grid-column:1;grid-row:2;padding:17px 18px;border-radius:8px;background:color-mix(in srgb,#8a70c7 5%,#fbf8ff)}"
     }
   ],
   "narrative": {
-    "northStar": "One real CV, ten distinct document designs",
-    "overview": "The dark navy studio is an Operate surface: a compact working environment around the editable or read-only CV. The document leads visually. Pale blue actions, quiet dividers and tonal panels support editing, selection and export. The ten paper designs have their own identities rather than sharing one recolored composition.\n\nThe binding direction is the user's request for modern, researched CVs with useful sidebars and directly editable icons, followed by the explicit choice of a mixed collection of ten. The direction seed (`9a28fb6a`, reroll `0`) corroborates the workflow; none of its random world cards was selected as the product's visual identity. No build-path preference is inferred. This is a record of implemented source, not a new design choice.",
+    "northStar": "One real CV, ten document worlds",
+    "overview": "The dark navy editor is a compact working studio around the real A4 document. Pale blue actions, tonal panels and fine dividers support editing, comparison and export. The documents carry the expressive design: rounded product boards, a square dashboard, an angular timeline, an open magazine, a poster, organic panels, espresso paper, a horizontal ledger, an asymmetric portfolio and an architectural split.\n\nThis is a descriptive record of the implemented V4 collection, grounded in the user's explicit request for ten genuinely different styles and deliberate second pages. The settled direction was assigned directly in code from the ten briefs. No V4 random FORM seed, user-selected metaphor or approved bitmap composition is claimed. The editor identity is retained; the former collection of similar two-column documents is superseded.",
     "keyCharacteristics": [
-      "A restrained navy shell and a large, real A4 artifact.",
-      "Ten original compositions with distinct identity positions, typography and sidebar materials.",
-      "Genuine contact and section content in the secondary lane.",
-      "Native HTML, CSS and consistent Lucide SVG line icons; real initials until a portrait is uploaded.",
-      "Direct editing with the same measured document geometry in preview, public view and PDF."
+      "A restrained navy editor framing a large, fixed A4 artifact.",
+      "Ten structural families with their own type, geometry and paper material.",
+      "First and qualification pages use related but purposeful compositions.",
+      "Real editable text, local fonts, Lucide SVG icons and uploaded portraits or factual initials.",
+      "Content-aware measurement supports the same paper geometry in preview, public view and native PDF."
     ],
     "rules": [
       {
-        "name": "The Document Palette Rule",
-        "body": "Keep a template's paper, ink and sidebar relationship intact when changing its accent. Index derives its rail from `color-mix(in srgb, var(--cv-accent) 86%, #142d7a)`; Lumen derives its pale planes from the chosen accent. Neither is a fixed extra primitive.",
+        "name": "The Accent Derivation Rule",
+        "body": "Keep each world's paper, ink and material relationship when the accent changes. The source derives accent ink against white or Copper's espresso paper and chooses black or white for accent-filled text; world-specific mixes remain part of that world. This is implementation behavior, not a blanket contrast certification.",
         "section": "colors"
       },
       {
-        "name": "The Inherited Icon Rule",
-        "body": "Section SVGs inherit their surrounding icon wrapper color so sidebar-specific light or dark section colors control contrast. Do not reintroduce a global child SVG color that overrides those wrappers. Contact icon colors have template-specific treatments. Folio contact hover retains its inherited readable text color and adds an underline.",
-        "section": "colors"
-      },
-      {
-        "name": "The Reading Font Rule",
-        "body": "The sans/serif/mono control changes reading typography through `--cv-font` and template overrides. It does not uniformly replace the display face: Folio, Meridian, Copper and Noir retain their editorial identity. Respect each template's overrides rather than globally assigning the selected font to every descendant.",
+        "name": "The Display Identity Rule",
+        "body": "Treat frontmatter name roles as default display values. Reading-font choices and each world's scoped overrides may change them; never flatten all ten identities into one global display rule.",
         "section": "typography"
       },
       {
-        "name": "The Same Paper Rule",
-        "body": "Preview, read-only and PDF use the same rendered A4 DOM and styles. Keep grid behavior inside the page because export enforces `display:block!important` on the outer article. Measure with the same typography, padding and document states used for display. Do not add fixed lane heights or truncate text to meet a page count.",
-        "section": "layout"
+        "name": "The Screen and Paper Rule",
+        "body": "Screen shadows separate paper and editing layers from the studio. Printed composition comes from each world's actual rules, panels and materials; native export removes the surrounding screen paper shadow.",
+        "section": "elevation"
       }
     ],
     "dos": [
-      "**Do** keep the CV artifact visually dominant within the restrained navy working shell.",
-      "**Do** preserve all ten compositions and the original five persistent template IDs.",
-      "**Do** use real content in sidebars and retain editable main/sidebar placement.",
-      "**Do** keep preview, public view, measurement and PDF on the same nested A4 layout.",
-      "**Do** let sidebar section-icon wrappers control inherited glyph color and preserve visible keyboard focus.",
-      "**Do** keep removal, restoration, cleared text and portrait controls consistent across saved documents.",
-      "**Do** use real initials or the user's uploaded portrait and preserve all factual CV content."
+      "Do preserve stored template IDs while using current visible names.",
+      "Do preserve real content and source order through every world, including additional roles and qualification continuations.",
+      "Do measure actual frames, panel padding, borders, gaps and grouped grids before pagination.",
+      "Do keep A4 geometry and local fonts consistent across preview, public view and native PDF.",
+      "Do preserve inherited SVG colors, user photo shape, cleared fields and footer visibility.",
+      "Do keep gallery page silhouettes aligned with their document families."
     ],
     "donts": [
-      "**Don't** reduce the collection to palette variations of one document composition.",
-      "**Don't** place the only document grid on the outer page article or reintroduce a preferred font-format filter.",
-      "**Don't** hide overflow in content lanes, shrink copy to force two pages or pad sidebars with repeated facts.",
-      "**Don't** print editor buttons, upload instructions, restore controls, placeholder copy or invented decorative labels.",
-      "**Don't** invent portraits, qualifications, achievements, skill levels, ratings or progress bars.",
-      "**Don't** treat exploratory world cards, an inferred build path or unverified accessibility claims as approved design truth."
+      "Don't reduce the collection to recolors or left/right swaps of one column layout.",
+      "Don't cap custom CVs at two pages, globally shrink body text to force that count or truncate content.",
+      "Don't add fabricated skills, levels, portraits, claims or decorative printed labels to fill space.",
+      "Don't impose one radius, sidebar, display font or continuation composition on every world.",
+      "Don't promote a task-specific arrangement, synthesized swatch ramp or this survey into a product-wide restriction or quality certification."
     ]
   }
 }

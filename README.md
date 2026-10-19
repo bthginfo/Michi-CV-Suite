@@ -1,13 +1,13 @@
 # Michael Meier · CV Studio
 
-Ein persönlicher Lebenslauf-Editor mit einer dunklen Navy-Oberfläche, zehn gestalteten A4-Vorlagen mit echten Inhaltsspalten und direkter Bearbeitung im Dokument.
+Ein persönlicher Lebenslauf-Editor mit einer dunklen Navy-Oberfläche, zehn strukturell unterschiedlichen A4-Vorlagen und direkter Bearbeitung im Dokument.
 
 **Passwort eingeben → Michaels aktueller CV öffnet sich. Auf jedem Gerät derselbe Stand.** Texte, Bilder, Gestaltung und Abschnitte werden zentral in einer eigenen Neon-Postgres-Datenbank im kostenlosen Tarif gespeichert. Es gibt keine privaten Bearbeitungslinks oder gerätegebundenen Arbeitsplätze.
 
 ## Funktionen
 
-- **Zehn eigenständige Designs:** Atlas, Folio, Signal, Meridian, Index, Haven, Copper, Noir, Lumen und Summit. Dunkle und helle Seitenleisten, große Namenszüge, Serif- und Sans-Typografie sowie anpassbare Akzentfarben, Schrift, Dichte und Fotoform.
-- Echte Haupt- und Seitenleisten-Inhalte mit unabhängig berechneten A4-Seitenumbrüchen. Abschnitte können automatisch platziert oder bewusst einer Spalte zugewiesen werden. Fortsetzungsseiten nutzen den Platz, wenn die Seitenleiste bereits vollständig ist.
+- **Zehn unterschiedliche Dokumentwelten:** Orbit (runde SaaS-Boards), Grid (quadratische Dashboard-Matrix), Folio (Magazin), Vector (kantige Zeitleiste), Signal (Poster), Haven (weiche organische Flächen), Copper (durchgehend dunkles Espressopapier), Noir (horizontales Ledger), Lumen (asymmetrisches Portfolio) und Summit (architektonische Teilung). Akzentfarbe, Leseschrift, Dichte und Fotoform bleiben anpassbar. Die Galerie zeigt eigene Miniaturen für Seite 1 und Seite 2.
+- Inhaltsabhängige A4-Seitenumbrüche messen echte Karten, Tabellenzellen, Zeilen und asymmetrische Gruppen. Abschnitte lassen sich automatisch, im Hauptbereich oder im Zusatzbereich platzieren; der Zusatzbereich ist je nach Vorlage eine Spalte, ein Panel oder ein Inhaltsband. Qualifikationsseiten haben eine eigene Komposition. Der Ausgangs-CV umfasst zwei Seiten pro Vorlage; längere eigene Inhalte können weitere Seiten erzeugen.
 - Direktes Bearbeiten und Leeren von Texten, Kontaktdaten und Bildern; Abschnitte und Einträge ergänzen, verschieben, ausblenden oder löschen.
 - **Icons direkt im Canvas ändern:** Im Modus „Bearbeiten“ ein Kontakt-, Link- oder Abschnittssymbol anklicken, den kategorisierten Lucide-Katalog durchsuchen und ein Symbol auswählen. „Kein Symbol“ entfernt es. Eine Hilfe im Bearbeitungsmodus und der Inhaltsbereich ermöglichen das Wiedereinsetzen. Diese Entscheidungen werden gespeichert und gelten auch für Leselinks und PDFs.
 - **CV vervollständigen:** geführter Inhaltsassistent für Stärken, Projekte und Erfolge, Sprachen, Interessen, Ehrenamt, Zertifikate und Referenzen. Kurze Fragen, Beispiele, Vorschau und bewusste Übernahme; leere Bereiche werden weggelassen. Bereits vorhandene Angaben werden übernommen statt dupliziert.
@@ -60,6 +60,6 @@ Vercel ist mit diesem Repository verbunden und veröffentlicht `main` automatisc
 
 ## Struktur
 
-React, TypeScript und Vite; lokal gehostete Schriften und Lucide-Symbole. `src/model.ts` definiert das Dokumentformat, `src/seed.ts` Michaels Ausgangsdaten. `src/CVCanvas.tsx` rendert Editor, Leseansicht und Export; `src/templates/` enthält die Gestaltungen. `src/ContentAssistant.tsx` und `src/contentModules.ts` führen durch optionale Inhalte. `src/useWorkspace.ts` verwaltet Datenbank-Abgleich, lokalen Entwurf und Verlauf. `server/database.ts` enthält parametrisierte SQL-Abfragen, `server/schema.ts` die Migrationen. Die API-Routen stellen Anmeldung, CV-Daten, Leselinks und PDF-Erzeugung bereit.
+React, TypeScript und Vite; lokal gehostete Schriften und Lucide-Symbole. `src/model.ts` definiert das Dokumentformat, `src/seed.ts` Michaels Ausgangsdaten. `src/CVCanvas.tsx` rendert Editor, Leseansicht und Export; `src/layout.ts` definiert die kompatiblen Vorlagen-IDs, sichtbaren Namen und inhaltsabhängige Seiteneinteilung. `src/templates/` enthält die zehn Gestaltungen. [DESIGN.md](DESIGN.md) und `.impeccable/design.json` dokumentieren die umgesetzten visuellen Regeln und Tokens. `src/ContentAssistant.tsx` und `src/contentModules.ts` führen durch optionale Inhalte. `src/useWorkspace.ts` verwaltet Datenbank-Abgleich, lokalen Entwurf und Verlauf. `server/database.ts` enthält parametrisierte SQL-Abfragen, `server/schema.ts` die Migrationen. Die API-Routen stellen Anmeldung, CV-Daten, Leselinks und PDF-Erzeugung bereit.
 
 Der PDF-Renderer führt kein übermitteltes JavaScript aus und blockiert Netzwerk- und Dateizugriffe. Alle benötigten Schriften und Bilder sind im Druckdokument eingebettet.
