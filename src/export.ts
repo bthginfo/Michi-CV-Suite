@@ -54,7 +54,8 @@ export async function exportRasterPDF(doc: CVDocument): Promise<void> {
   if (!pages.length) throw new Error('Die Vorschau wird noch aufgebaut. Bitte einen Moment warten und erneut versuchen.');
   const pdf = new jsPDF({orientation:'portrait',unit:'mm',format:'a4',compress:true});
   pdf.setProperties({title:`Lebenslauf · ${doc.name}`,subject:doc.title,author:doc.name,creator:'CV Studio'});
-  const fontEmbedCSS = await getFontEmbedCSS(pages[0],{preferredFontFormat:'woff2'});
+  // Keep variable-font formats and all Unicode subsets; the library's format filter drops them.
+  const fontEmbedCSS = await getFontEmbedCSS(pages[0]);
   const capturedLinks: {page:number,x:number,y:number,w:number,h:number,url:string}[] = [];
   for (const [index,page] of pages.entries()) {
     const rect = page.getBoundingClientRect();
@@ -99,7 +100,8 @@ export async function exportPDF(doc:CVDocument):Promise<void>{
   await new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())));
   const pages=Array.from(document.querySelectorAll<HTMLElement>('.cv-page')).filter(page=>page.getBoundingClientRect().width>0 && !page.closest('[aria-hidden="true"]'));
   if(!pages.length)throw new Error('Die Vorschau wird noch aufgebaut. Bitte einen Moment warten.');
-  const fontCSS=await getFontEmbedCSS(pages[0],{preferredFontFormat:'woff2'});
+  // Filtering for "woff2" drops woff2-variations and can omit Latin subset sources.
+  const fontCSS=await getFontEmbedCSS(pages[0]);
   const css=Array.from(document.styleSheets).flatMap(sheet=>{
     try{return Array.from(sheet.cssRules).filter(rule=>rule.type!==CSSRule.FONT_FACE_RULE&&rule.type!==CSSRule.IMPORT_RULE).map(rule=>rule.cssText);}catch{return [];}
   }).join('\n');
