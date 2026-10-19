@@ -3,6 +3,7 @@ import { ArrowDown, ArrowUp, Camera, ImagePlus, Mail, MapPin, Pencil, Phone, Plu
 import type { CVDocument, CVEntry, CVSection } from './model';
 import { safeLink } from './model';
 import { sectionIcons } from './icons';
+import { textLinks } from './textLinks';
 
 type EntryField = 'heading' | 'subheading' | 'period' | 'body';
 type ProfileField = 'name' | 'title' | 'email' | 'phone' | 'address';
@@ -44,7 +45,21 @@ export function Editable({ value, onChange, editing, className = '', placeholder
       event.preventDefault();
       document.execCommand('insertText', false, event.clipboardData.getData('text/plain'));
     }}
-  >{value}</Tag>;
+  >{editing ? value : linkedText(value)}</Tag>;
+}
+
+function linkedText(value: string): ReactNode {
+  const links = textLinks(value);
+  if (!links.length) return value;
+  const nodes: ReactNode[] = [];
+  let cursor = 0;
+  for (const link of links) {
+    nodes.push(value.slice(cursor, link.start));
+    nodes.push(<a key={link.start} className="cv-inline-link" href={link.href} target={link.email ? undefined : '_blank'} rel={link.email ? undefined : 'noopener noreferrer'}>{link.text}</a>);
+    cursor = link.end;
+  }
+  nodes.push(value.slice(cursor));
+  return nodes;
 }
 
 function textChunks(value: string, size = 250): { value: string; start: number; end: number }[] {
@@ -56,7 +71,15 @@ function textChunks(value: string, size = 250): { value: string; start: number; 
     if (end < value.length) {
       const space = value.lastIndexOf(' ', end);
       if (space > start + size / 2) end = space + 1;
+      else {
+        const nextSpace = value.indexOf(' ', end);
+        const tokenEnd = nextSpace === -1 ? value.length : nextSpace;
+        const token = value.slice(start, tokenEnd);
+        if (token.length <= 2048 && /^(?:https?:\/\/|www\.)|^[^\s@]+@[^\s@]+\.[^\s@]+$/i.test(token)) end = tokenEnd;
+      }
     }
+    const crossingLink = textLinks(value).find(link => link.start < end && link.end > end);
+    if (crossingLink) end = crossingLink.start > start ? crossingLink.start : crossingLink.end;
     result.push({ value: value.slice(start, end), start, end });
     start = end;
   }
@@ -117,12 +140,8 @@ function PageFrame({ doc, first, pageIndex, totalPages, editing, onPhoto, onProf
   onProfile: (field: ProfileField, value: string) => void; onLink: (id: string, field: 'label' | 'url', value: string) => void; children: ReactNode; measure?: boolean; readonly?: boolean;
 }) {
   const template = doc.design.template;
-  const sideRail = template === 'editorial' || template === 'executive';
   return <article className={`${measure ? 'cv-measure-page' : 'cv-page'} template-${template} density-${doc.design.density} font-${doc.design.font} ${first ? 'is-first' : 'is-continuation'} ${editing ? 'canvas-editing' : ''}`}
     style={{ '--cv-accent': doc.design.color } as CSSProperties} aria-label={measure ? undefined : `Lebenslauf, Seite ${pageIndex + 1} von ${totalPages}`}>
-    {sideRail && <aside className="cv-side-rail">
-      {first ? <><div className="rail-eyebrow">CURRICULUM VITAE</div><Portrait doc={doc} editing={editing} onPhoto={onPhoto} readonly={readonly} /><div className="rail-title">Kontakt</div><ContactLinks doc={doc} editing={editing} onProfile={onProfile} onLink={onLink} /><div className="rail-bottom"><span>{doc.name}</span></div></> : <><div className="rail-eyebrow">CURRICULUM VITAE</div><div className="rail-continuation-name">{doc.name}</div><div className="rail-page">{String(pageIndex + 1).padStart(2, '0')}</div></>}
-    </aside>}
     <div className="cv-page-inner">
       <header className={`cv-header ${!first ? 'cv-continuation-header' : ''}`}>
         {first ? <>
@@ -130,9 +149,9 @@ function PageFrame({ doc, first, pageIndex, totalPages, editing, onPhoto, onProf
             <div className="cv-eyebrow">{template === 'mono' ? '// CURRICULUM VITAE' : 'CURRICULUM VITAE'}</div>
             <Editable as="h1" className="cv-name" value={doc.name} editing={editing} placeholder="Dein Name" onChange={value => onProfile('name', value)} />
             <Editable as="div" className="cv-role" value={doc.title} editing={editing} placeholder="Berufsbezeichnung" onChange={value => onProfile('title', value)} />
-            {!sideRail && <ContactLinks doc={doc} small editing={editing} onProfile={onProfile} onLink={onLink} />}
+            <ContactLinks doc={doc} small editing={editing} onProfile={onProfile} onLink={onLink} />
           </div>
-          {!sideRail && <Portrait doc={doc} editing={editing} onPhoto={onPhoto} readonly={readonly} />}
+          <Portrait doc={doc} editing={editing} onPhoto={onPhoto} readonly={readonly} />
         </> : <><span>{doc.name}</span><span>{template === 'mono' ? '// ' : ''}Lebenslauf · Fortsetzung</span></>}
       </header>
       <div className="cv-content">{children}</div>
@@ -206,7 +225,7 @@ export default function CVCanvas(props: CanvasProps) {
     if (unit.type === 'field') return <div className={`cv-unit cv-entry-field field-${unit.field} kind-${section.kind}`} key={unit.key} data-unit-index={isMeasure ? index : undefined}>
       <Editable value={unit.value || ''} editing={edit} placeholder={unit.field === 'subheading' ? 'Position oder Abschluss' : 'Text bearbeiten'} onChange={value => patchEntry(section.id, entry.id, unit.field!, value, unit.start, unit.end)} />
     </div>;
-    if (unit.type === 'image') return <div className="cv-unit cv-entry-image" key={unit.key} data-unit-index={isMeasure ? index : undefined}>
+    if (unit.type === 'image') return <div className={`cv-unit cv-entry-image kind-${section.kind}`} key={unit.key} data-unit-index={isMeasure ? index : undefined}>
       <img src={entry.image} alt={`Bild zu ${entry.heading}`} onLoad={() => window.dispatchEvent(new Event('cv-image-load'))} />
       {edit && <button data-editor-only title="Bild ersetzen" onClick={() => props.onEditEntry(section.id, entry.id)}><ImagePlus size={14} /></button>}
     </div>;

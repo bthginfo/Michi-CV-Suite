@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {hasEditorSession,passwordMatches,sessionCookie,clearSessionCookie} from '../server/auth.ts';
 
 process.env.BLOB_READ_WRITE_TOKEN='unit-test-only-not-a-live-credential';
+process.env.SESSION_SECRET='unit-test-only-session-signing-key';
 process.env.EDITOR_PASSWORD='unit-test-only-password';
 test('password checks validate the secret and reject wrong or oversized inputs',()=>{
   assert.equal(passwordMatches('unit-test-only-password'),true);

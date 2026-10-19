@@ -1,0 +1,586 @@
+/* Signal — a technical leadership document, with the hierarchy of a precise
+   engineering publication. Keep these selectors on both A4 render surfaces. */
+.template-studio {
+  --date-width: 113px;
+  --signal-gutter: 46px;
+  --signal-ink: #172a40;
+  --signal-navy: #11263e;
+  --signal-muted: #596976;
+  --signal-accent: color-mix(in srgb, var(--cv-accent) 77%, #143349);
+  --signal-light: color-mix(in srgb, var(--cv-accent) 48%, #9cebdc);
+  --signal-rule: #d9e1e6;
+  width: 794px;
+  height: 1123px;
+  background: #fff;
+  color: var(--signal-ink);
+  font-family: var(--cv-font);
+  font-size: 12.2px;
+  line-height: 1.53;
+  letter-spacing: 0;
+}
+
+.template-studio::before {
+  content: none;
+  display: none;
+}
+
+.template-studio .cv-page-inner {
+  padding: 0 var(--signal-gutter);
+}
+
+.template-studio .cv-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 96px;
+  column-gap: 25px;
+  row-gap: 0;
+  align-items: start;
+  margin: 0 calc(-1 * var(--signal-gutter));
+  padding: 30px var(--signal-gutter) 24px;
+  border: 0;
+  border-bottom: 4px solid var(--signal-light);
+  background: var(--signal-navy);
+  color: #fff;
+}
+
+/* Display contents lets the role and contacts use the entire header width,
+   while the portrait remains aligned with the name above them. */
+.template-studio .cv-header-copy {
+  display: contents;
+}
+
+.template-studio .cv-eyebrow {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: end;
+  margin: 0 0 9px;
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 8px;
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: 2.7px;
+  color: var(--signal-light);
+}
+
+.template-studio .cv-name {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--cv-font);
+  font-size: 53px;
+  font-weight: 750;
+  line-height: 1.04;
+  letter-spacing: -2.5px;
+  text-transform: none;
+  color: #fff;
+}
+
+.template-studio .cv-role {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: block;
+  width: 100%;
+  margin: 17px 0 0;
+  padding: 0;
+  background: transparent;
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: .05px;
+  color: #f0f5fa;
+}
+
+.template-studio .cv-contact,
+.template-studio .cv-contact-small {
+  grid-column: 1 / -1;
+  grid-row: 4;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 19px;
+  margin: 16px 0 0;
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 9.6px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: #d5e0e9;
+}
+
+.template-studio .cv-contact svg {
+  width: 10px;
+  height: 10px;
+  stroke-width: 1.65;
+  color: var(--signal-light);
+}
+
+.template-studio .cv-contact a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.template-studio .cv-link-dot {
+  color: var(--signal-light);
+}
+
+.template-studio .cv-photo {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: start;
+  justify-self: end;
+  width: 90px;
+  height: 104px;
+  margin: 0;
+  background: #213b53;
+  box-shadow: 0 0 0 1px #ffffff1f;
+}
+
+.template-studio .cv-photo.photo-rounded {
+  border-radius: 4px 4px 21px 4px;
+}
+
+.template-studio .cv-photo.photo-circle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+}
+
+.template-studio .cv-photo.photo-square {
+  border-radius: 0;
+}
+
+.template-studio .cv-photo-button,
+.template-studio .cv-photo-empty {
+  color: #deeee9;
+}
+
+.template-studio .cv-photo-empty {
+  border: 1px dashed #a6d8cf8c;
+  background: #ffffff06;
+}
+
+.template-studio .cv-photo-empty svg {
+  height: 22px;
+  width: 22px;
+  margin-bottom: 8px;
+  opacity: 1;
+  color: var(--signal-light);
+}
+
+.template-studio .cv-photo-empty span {
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.template-studio .cv-photo-empty small {
+  margin-top: 4px;
+  font-size: 8px;
+  line-height: 1.4;
+  opacity: .9;
+}
+
+.template-studio .cv-photo.readonly-photo-spacer {
+  box-shadow: none;
+}
+
+.template-studio .cv-content {
+  margin: 0;
+  padding: 0;
+}
+
+.template-studio .cv-summary {
+  padding: 19px 0 2px;
+  font-family: var(--cv-font);
+  font-size: 12.2px;
+  font-weight: 400;
+  line-height: 1.58;
+  letter-spacing: 0;
+  color: #425562;
+}
+
+.template-studio .cv-summary + .cv-summary {
+  padding-top: 0;
+}
+
+.template-studio .cv-section-heading {
+  padding: 23px 0 12px;
+}
+
+.template-studio .section-heading-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 22px;
+  gap: 9px;
+  padding-left: calc(var(--date-width) + 18px);
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 750;
+  line-height: 1.5;
+  letter-spacing: 1.45px;
+  text-transform: uppercase;
+  color: var(--signal-ink);
+}
+
+.template-studio .cv-section-number {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 72px;
+  height: 22px;
+  padding: 0 0 0 9px;
+  border: 0;
+  border-left: 3px solid var(--signal-accent);
+  background: transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: .8px;
+  color: var(--signal-accent);
+}
+
+.template-studio .cv-section-icon {
+  position: absolute;
+  left: 105px;
+  top: 3px;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  color: var(--signal-accent);
+  opacity: 1;
+}
+
+.template-studio .cv-section-icon svg {
+  width: 13px;
+  height: 13px;
+  stroke-width: 1.65;
+}
+
+.template-studio .cv-section-rule {
+  height: 1px;
+  min-width: 15px;
+  margin-left: 6px;
+  background: var(--signal-rule);
+}
+
+.template-studio .cv-cont-label {
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #677c88;
+}
+
+.template-studio .cv-entry-header {
+  display: grid;
+  grid-template-columns: var(--date-width) minmax(0, 1fr);
+  gap: 0 18px;
+  padding: 12px 0 0;
+  line-height: 1.5;
+}
+
+.template-studio .cv-section-heading + .cv-entry-header {
+  padding-top: 0;
+}
+
+.template-studio .cv-period {
+  padding-top: 2px;
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.65;
+  letter-spacing: -.15px;
+  color: #516977;
+}
+
+.template-studio .cv-entry-heading,
+.template-studio .cv-entry-field.field-heading {
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 13.8px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -.14px;
+  color: var(--signal-ink);
+}
+
+.template-studio .cv-entry-field {
+  padding: 1px 0 4px calc(var(--date-width) + 18px);
+  font-family: var(--cv-font);
+  font-size: 12.2px;
+  font-weight: 500;
+  line-height: 1.53;
+  letter-spacing: 0;
+  color: var(--signal-accent);
+}
+
+.template-studio .cv-entry-field.field-period {
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: #516977;
+}
+
+.template-studio .cv-body-line {
+  display: flex;
+  gap: 8px;
+  padding: 0 0 2px calc(var(--date-width) + 18px);
+  font-family: var(--cv-font);
+  font-size: 12.2px;
+  font-weight: 400;
+  line-height: 1.53;
+  letter-spacing: 0;
+  color: #465865;
+}
+
+.template-studio .cv-body-line.kind-experience {
+  padding-left: calc(var(--date-width) + 18px);
+}
+
+.template-studio .cv-body-line.line-continuation.kind-experience {
+  padding-left: calc(var(--date-width) + 29px);
+}
+
+.template-studio .cv-bullet {
+  width: 3px;
+  height: 3px;
+  margin-top: 8px;
+  border-radius: 0;
+  background: var(--signal-accent);
+  opacity: .8;
+}
+
+.template-studio .cv-entry-image {
+  padding: 8px 0 5px calc(var(--date-width) + 18px);
+}
+
+.template-studio .cv-empty-section {
+  padding-left: calc(var(--date-width) + 18px);
+}
+
+.template-studio .cv-footer {
+  left: var(--signal-gutter);
+  right: var(--signal-gutter);
+  bottom: 28px;
+  padding-top: 11px;
+  border-top: 1px solid var(--signal-rule);
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 9px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: #607581;
+}
+
+.template-studio .cv-footer > span:first-child {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  color: #405968;
+}
+
+.template-studio .cv-footer > span:last-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .1px;
+  color: var(--signal-accent);
+}
+
+.template-studio .cv-continuation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 60px;
+  padding: 20px var(--signal-gutter) 17px;
+  border-bottom: 3px solid var(--signal-light);
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.template-studio .cv-continuation-header > span:first-child {
+  font-weight: 650;
+  letter-spacing: -.15px;
+  text-transform: none;
+  color: #fff;
+}
+
+.template-studio .cv-continuation-header > span:last-child {
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: .8px;
+  color: #bed4df;
+}
+
+/* Font and density controls adjust rhythm without shrinking body text below a
+   comfortable print size. Every rule also applies to the measurement frame. */
+.template-studio.font-serif .cv-name {
+  font-size: 59px;
+  font-weight: 400;
+  letter-spacing: -1.4px;
+}
+
+.template-studio.font-serif .cv-body-line,
+.template-studio.font-serif .cv-summary {
+  font-size: 14.2px;
+  line-height: 1.5;
+}
+
+.template-studio.font-mono .cv-name {
+  font-size: 44px;
+  font-weight: 500;
+  letter-spacing: -2px;
+}
+
+.template-studio.font-mono .cv-body-line,
+.template-studio.font-mono .cv-entry-field,
+.template-studio.font-mono .cv-summary {
+  font-size: 12.2px;
+  line-height: 1.53;
+}
+
+.template-studio.density-compact .cv-section-heading {
+  padding-top: 18px;
+  padding-bottom: 9px;
+}
+
+.template-studio.density-compact .cv-entry-header {
+  padding-top: 8px;
+}
+
+.template-studio.density-compact .cv-section-heading + .cv-entry-header {
+  padding-top: 0;
+}
+
+.template-studio.density-compact .cv-entry-field {
+  font-size: 12.2px;
+  padding-top: 0;
+  padding-bottom: 2px;
+}
+
+.template-studio.density-compact .cv-entry-heading {
+  font-size: 13.8px;
+}
+
+.template-studio.density-compact .cv-body-line {
+  font-size: 12.2px;
+  line-height: 1.5;
+  padding-top: 0;
+  padding-bottom: 1px;
+}
+
+.template-studio.density-compact .cv-summary {
+  padding-top: 15px;
+  font-size: 12.2px;
+  line-height: 1.55;
+}
+
+.template-studio.font-serif.density-compact .cv-body-line,
+.template-studio.font-serif.density-compact .cv-summary {
+  font-size: 14.2px;
+  line-height: 1.5;
+}
+
+/* The gallery thumbnail repeats the actual navy header / indexed grid. */
+.mini-studio {
+  background: #fff;
+  color: #172a40;
+}
+
+.mini-studio .mini-main {
+  position: relative;
+  padding: 13px 10px 9px;
+  background: linear-gradient(#11263e 0 62px, #fff 62px);
+}
+
+.mini-studio .mini-eyebrow {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 2.6px;
+  letter-spacing: .8px;
+  color: color-mix(in srgb, var(--mini-accent) 48%, #9cebdc);
+}
+
+.mini-studio .mini-name {
+  max-width: 80%;
+  font-family: 'DM Sans Variable', sans-serif;
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1.05;
+  letter-spacing: -.45px;
+  text-transform: none;
+  color: #fff;
+}
+
+.mini-studio .mini-role {
+  margin-top: 5px;
+  padding: 0;
+  background: transparent;
+  font-size: 2.5px;
+  color: #dce9ef;
+}
+
+.mini-studio .mini-top-photo {
+  top: 11px;
+  right: 8px;
+  left: auto;
+  width: 14px;
+  height: 18px;
+  border-radius: 1px 1px 4px 1px;
+  background: #2c4b61;
+}
+
+.mini-studio .mini-rule {
+  height: 1.5px;
+  margin: 9px -10px 6px;
+  opacity: 1;
+  background: color-mix(in srgb, var(--mini-accent) 48%, #9cebdc);
+}
+
+.mini-studio .mini-section {
+  margin-top: 8px;
+}
+
+.mini-studio .mini-section-title {
+  display: block;
+  padding: 0 0 0 17px;
+  background: transparent;
+  font-size: 2.8px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: .35px;
+  color: #172a40;
+}
+
+.mini-studio .mini-section-title::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  width: 5px;
+  height: 3px;
+  border-left: 1px solid var(--mini-accent);
+  background: color-mix(in srgb, var(--mini-accent) 17%, #fff);
+}
+
+.mini-studio .mini-text-lines {
+  padding-left: 17px;
+}
+
+.mini-studio .mini-text-lines i {
+  background: #d1dbe0;
+}
+
+.mini-studio .mini-text-lines i:first-child {
+  background: #8496a3;
+}

@@ -3,7 +3,7 @@ import {existsSync} from 'node:fs';
 import {join} from 'node:path';
 import {hasEditorSession} from '../server/auth.js';
 import {isSameOrigin,uuidPattern} from '../server/security.js';
-import {get,BlobNotFoundError} from '@vercel/blob';
+import {shareExists} from '../server/database.js';
 import type {Browser} from 'puppeteer-core';
 
 export const config={maxDuration:60};
@@ -24,9 +24,7 @@ export default async function handler(req:VercelRequest,res:VercelResponse){
   try{
     if(!hasEditorSession(req)){
       if(typeof body.shareId!=='string'||!uuidPattern.test(body.shareId))return res.status(401).json({error:'Bitte zuerst anmelden.',code:'AUTH_REQUIRED'});
-      const shared=await get(`shares/${body.shareId}.json`,{access:'private'});
-      if(!shared)return res.status(404).json({error:'Diese Freigabe ist nicht mehr verfügbar.'});
-      await shared.stream?.cancel();
+      if(!await shareExists(body.shareId))return res.status(404).json({error:'Diese Freigabe ist nicht mehr verfügbar.'});
     }
     const [{default:puppeteer},{default:chromium}]=await Promise.all([import('puppeteer-core'),import('@sparticuz/chromium')]);
     let executablePath:string;
@@ -50,7 +48,6 @@ export default async function handler(req:VercelRequest,res:VercelResponse){
     res.setHeader('Content-Type','application/pdf');res.setHeader('Content-Disposition','attachment; filename="Lebenslauf.pdf"');
     res.status(200);return res.end(Buffer.from(pdf));
   }catch(error){
-    if(error instanceof BlobNotFoundError)return res.status(404).json({error:'Diese Freigabe ist nicht mehr verfügbar.'});
     console.error('pdf-render',error instanceof Error?error.name:'UnknownError');
     return res.status(503).json({error:'Das PDF konnte gerade nicht erstellt werden. Bitte in einem Moment erneut versuchen.'});
   }finally{await browser?.close().catch(()=>{});}

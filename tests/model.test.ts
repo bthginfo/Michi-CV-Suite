@@ -2,8 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { documentSchema, safeLink } from '../src/model.ts';
 import { initialDocument } from '../src/seed.ts';
-import { documentPath,isSameOrigin,parseCredential } from '../server/security.ts';
-import { randomUUID,randomBytes } from 'node:crypto';
+import { isSameOrigin,uuidPattern } from '../server/security.ts';
+import { randomUUID } from 'node:crypto';
 
 test('provided CV survives validation with all four jobs and five training entries',()=>{
   const doc=documentSchema.parse(initialDocument);
@@ -22,15 +22,11 @@ test('web link helper rejects executable protocols and handles normal domains',(
   assert.equal(safeLink('data:text/html,<script>'),undefined);
   assert.equal(safeLink('www.linkedin.com/in/michael'),'https://www.linkedin.com/in/michael');
 });
-test('read-only IDs and malformed credentials never grant editing access',()=>{
-  assert.equal(parseCredential(undefined),null);
-  assert.equal(parseCredential(`Bearer ${randomUUID()}`),null);
-  assert.equal(parseCredential('Bearer ../../etc/passwd.short'),null);
-  const id=randomUUID(),secret=randomBytes(32).toString('base64url');
-  const parsed=parseCredential(`Bearer ${id}.${secret}`);
-  assert.ok(parsed);assert.equal(parsed.id,id);
-  assert.ok(!documentPath(parsed).includes(secret));
-  assert.notEqual(documentPath(parsed),documentPath({...parsed,secret:randomBytes(32).toString('base64url')}));
+test('public snapshot identifiers reject paths and malformed IDs',()=>{
+  assert.equal(uuidPattern.test(randomUUID()),true);
+  assert.equal(uuidPattern.test('../../etc/passwd'),false);
+  assert.equal(uuidPattern.test('michael'),false);
+  assert.equal(uuidPattern.test('00000000-0000-0000-0000-000000000000'),false);
 });
 test('cross-origin state changes are rejected',()=>{
   assert.equal(isSameOrigin('https://michi-cv-suite.vercel.app','michi-cv-suite.vercel.app'),true);

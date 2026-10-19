@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState, type ChangeEvent, type CSSPro
 import {
   ArrowDown, ArrowRight, ArrowUp, Camera, Check, ChevronDown, ChevronRight, Cloud, CloudCheck,
   CloudOff, Copy, Download, ExternalLink, Eye, EyeOff, FileDown, FileText, Image, ImagePlus,
-  Keyboard, Link, LoaderCircle, LockKeyhole, LogOut, Mail, Maximize2, Menu, MoreHorizontal,
+  Keyboard, Layers, Link, LoaderCircle, LockKeyhole, LogOut, Mail, Maximize2, Menu, MoreHorizontal,
   Paintbrush, Pencil, Phone, Plus, Redo2, RotateCcw, Settings2, Share2, ShieldCheck, Sparkles,
   Trash2, Type, Undo2, Upload, X, ZoomIn, ZoomOut, type LucideIcon,
 } from 'lucide-react';
@@ -12,23 +12,32 @@ import { iconNames, newId, safeLink, type CVDocument, type CVEntry, type CVSecti
 import { iconLabels, sectionIcons } from './icons';
 import CVCanvas from './CVCanvas';
 import Onboarding, { TOUR_KEY } from './Onboarding';
+import ContentAssistant from './ContentAssistant';
+import { contentModules, moduleIsPresent } from './contentModules';
 import './styles.css';
+import './templates/base.css';
+import './templates/atlas.css';
+import './templates/folio.css';
+import './templates/signal.css';
+import './templates/meridian.css';
+import './templates/index.css';
+import './templates/modules.css';
 
 type Pane = 'design' | 'content' | 'photo' | 'settings';
 type Toast = { message: string; error?: boolean } | null;
 const templateOptions: { id: TemplateId; name: string; description: string; color: string; category: string }[] = [
-  { id: 'nordic', name: 'Nordic', description: 'Klar. Souverän. Zeitlos.', color: '#1e6b68', category: 'DER KLASSIKER' },
-  { id: 'editorial', name: 'Editorial', description: 'Eine starke Persönlichkeit.', color: '#8c4149', category: 'MIT CHARAKTER' },
-  { id: 'studio', name: 'Studio', description: 'Mutig auf den Punkt.', color: '#3159d8', category: 'DAS STATEMENT' },
-  { id: 'executive', name: 'Executive', description: 'Erfahrung mit Präsenz.', color: '#a07a36', category: 'DIE SIGNATUR' },
-  { id: 'mono', name: 'Mono', description: 'Präzision in jeder Zeile.', color: '#41745f', category: 'DER PURIST' },
+  { id: 'nordic', name: 'Atlas', description: 'Präzision mit Persönlichkeit.', color: '#215f54', category: 'SWISS ENGINEERING' },
+  { id: 'editorial', name: 'Folio', description: 'Eine Geschichte mit Charakter.', color: '#9b5d49', category: 'EDITORIAL WARMTH' },
+  { id: 'studio', name: 'Signal', description: 'Klarheit. Mit Präsenz.', color: '#227b85', category: 'TECHNICAL LEADERSHIP' },
+  { id: 'executive', name: 'Meridian', description: 'Souverän, bis ins Detail.', color: '#9a7b45', category: 'QUIET EXECUTIVE' },
+  { id: 'mono', name: 'Index', description: 'Eine klare Struktur für Erfahrung.', color: '#53675d', category: 'ARCHITECTURAL CLARITY' },
 ];
 const colors = ['#1e6b68', '#3159d8', '#6155a6', '#8c4149', '#a07a36', '#334155', '#41745f'];
 const paneMeta: Record<Pane, { icon: LucideIcon; name: string; title: string; description: string }> = {
   design: { icon: Paintbrush, name: 'Design', title: 'Dein Stil. Dein CV.', description: 'Der erste Eindruck gehört dir.' },
   content: { icon: FileText, name: 'Inhalte', title: 'Deine Geschichte.', description: 'Alles, was dich ausmacht.' },
   photo: { icon: Image, name: 'Foto', title: 'Zeig Persönlichkeit.', description: 'Ein Foto macht den Unterschied.' },
-  settings: { icon: Settings2, name: 'Mehr', title: 'Dein Workspace.', description: 'Gespeichert. Gesichert. Bei dir.' },
+  settings: { icon: Settings2, name: 'Mehr', title: 'Dein Studio.', description: 'Ein CV. Auf allen Geräten.' },
 };
 
 function IconButton({ icon: Icon, label, onClick, disabled, className = '' }: {
@@ -68,7 +77,7 @@ function TemplateThumbnail({ template, selected, doc, onClick }: { template: typ
   return <button className={`template-option ${selected ? 'is-selected' : ''}`} onClick={onClick} aria-pressed={selected} title={`${template.name} – ${template.description}`}>
     <div className={`template-mini mini-${template.id}`} style={{ '--mini-accent': template.color } as CSSProperties}>
       <div className="mini-sidebar"><div className="mini-portrait" /><div className="mini-line" /><div className="mini-line short" /><div className="mini-line" /><div className="mini-line short" /></div>
-      <div className="mini-main"><div className="mini-eyebrow">CURRICULUM VITAE</div><div className="mini-name">{doc.name.split(' ')[0] || 'Michael'}<br />{doc.name.split(' ').slice(1).join(' ') || 'Meier'}</div><div className="mini-role">SYSTEM DEVELOPMENT ENGINEER</div><div className="mini-rule" />
+      <div className="mini-main"><div className="mini-eyebrow">CURRICULUM VITAE</div><div className="mini-name">{doc.name.split(' ')[0] || 'Michael'}<br />{doc.name.split(' ').slice(1).join(' ') || 'Meier'}</div><div className="mini-role">{doc.title.toUpperCase()}</div><div className="mini-rule" />
         {[0, 1, 2].map(number => <div className="mini-section" key={number}><span className="mini-section-title">{['ERFAHRUNG', 'AUSBILDUNG', 'KENNTNISSE'][number]}</span><div className="mini-text-lines"><i /><i /><i /><i /></div></div>)}
       </div><div className="mini-top-photo" />
     </div>
@@ -85,40 +94,28 @@ function Field({ label, value, onChange, textarea = false, placeholder, type = '
   return <label className="field"><span>{label}</span>{textarea ? <textarea value={value} onChange={event => onChange(event.target.value)} placeholder={placeholder} rows={4} /> : <input value={value} onChange={event => onChange(event.target.value)} placeholder={placeholder} type={type} />}</label>;
 }
 
-function ShareDialog({ initialPrivate, share, editorLink, onClose, notify }: { initialPrivate: boolean; share: () => Promise<string>; editorLink: () => Promise<string>; onClose: () => void; notify: (message: string, error?: boolean) => void }) {
-  const [privateMode, setPrivateMode] = useState(initialPrivate);
+function ShareDialog({ share, name, onClose, notify }: { share: () => Promise<string>; name: string; onClose: () => void; notify: (message: string, error?: boolean) => void }) {
   const [link, setLink] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [attempt, setAttempt] = useState(0);
-  const cache = useRef<Record<string, string>>({});
   const input = useRef<HTMLInputElement>(null);
   const shareRef = useRef(share); shareRef.current = share;
-  const editorRef = useRef(editorLink); editorRef.current = editorLink;
   useEffect(() => {
-    let active = true;
-    const key = privateMode ? 'private' : 'public';
-    setError('');
-    if (cache.current[key]) { setLink(cache.current[key]); setLoading(false); return; }
-    setLoading(true); setLink('');
-    void (privateMode ? editorRef.current() : shareRef.current()).then(value => {
-      if (active) { cache.current[key] = value; setLink(value); setLoading(false); }
-    }).catch((cause: unknown) => { if (active) { setError(cause instanceof Error ? cause.message : 'Der Link konnte nicht erstellt werden.'); setLoading(false); } });
+    let active = true; setError(''); setLoading(true);
+    void shareRef.current().then(value => { if (active) { setLink(value); setLoading(false); } }).catch((cause: unknown) => { if (active) { setError(cause instanceof Error ? cause.message : 'Der Link konnte nicht erstellt werden.'); setLoading(false); } });
     return () => { active = false; };
-  }, [privateMode, attempt]);
+  }, [attempt]);
   const copy = async () => {
     try { await navigator.clipboard.writeText(link); notify('Link in die Zwischenablage kopiert.'); }
     catch { input.current?.select(); notify('Link markiert – mit Strg/Cmd + C kopieren.'); }
   };
-  return <Modal title="Gute Arbeit verdient Sichtbarkeit." eyebrow="DEIN CV, GUT VERBUNDEN" onClose={onClose} className="share-modal">
-    <div className="share-tabs"><button className={!privateMode ? 'active' : ''} onClick={() => setPrivateMode(false)}><Eye size={15} /> Leseansicht teilen</button><button className={privateMode ? 'active' : ''} onClick={() => setPrivateMode(true)}><LockKeyhole size={15} /> Bearbeitungslink</button></div>
-    <div className="share-illustration"><div className="share-paper"><span>Michael<br /><b>Meier.</b></span><i /><i /><i /></div><div className="share-badge">{privateMode ? <LockKeyhole size={23} /> : <Link size={23} />}</div></div>
-    <h3>{privateMode ? 'Auf einem anderen Gerät weiterarbeiten.' : 'Dein Lebenslauf. Ein schöner Link.'}</h3>
-    <p className="modal-description">{privateMode ? 'Dieser persönliche Link öffnet deinen aktuellen Workspace mit allen Änderungen und Bildern.' : 'Eine unveränderliche Momentaufnahme deines CVs. Mit klickbaren Kontaktdaten und PDF-Download – ohne Bearbeitungszugriff.'}</p>
-    {privateMode && <div className="private-note"><LockKeyhole size={17} /><span>Nur für dich: Jeder mit diesem Link kann deinen CV bearbeiten. Bewahre ihn sicher auf und verschicke ihn nicht an Arbeitgeber.</span></div>}
-    {loading ? <div className="share-link-loading"><LoaderCircle size={18} className="spin" /> {privateMode ? 'Workspace wird gesichert …' : 'Leseansicht wird erstellt …'}</div> : error ? <div className="inline-error"><p>{error}</p><button className="button secondary" onClick={() => setAttempt(value => value + 1)}>Erneut versuchen</button></div> : <div className="share-link-field"><input ref={input} readOnly value={link} aria-label={privateMode ? 'Privater Bearbeitungslink' : 'Öffentlicher Leselink'} onFocus={event => event.target.select()} /><button className="button primary" onClick={() => void copy()}><Copy size={16} /> Kopieren</button></div>}
-    {!!link && !loading && <a className="text-link share-open-link" href={link} target="_blank" rel="noreferrer">{privateMode ? 'Workspace' : 'Leseansicht'} öffnen <ExternalLink size={13} /></a>}
-    <div className="modal-bottom-note"><ShieldCheck size={14} /> {privateMode ? 'Der Link führt immer zum neuesten Stand.' : 'Spätere Änderungen bleiben in deinem privaten Workspace.'}</div>
+  return <Modal title="Dein Lebenslauf. Ein schöner Link." eyebrow="LESEANSICHT TEILEN" onClose={onClose} className="share-modal">
+    <div className="share-illustration"><div className="share-paper"><span>{name.split(' ')[0]}<br /><b>{name.split(' ').slice(1).join(' ')}</b></span><i /><i /><i /></div><div className="share-badge"><Link size={23} /></div></div>
+    <h3>Bereit für neue Möglichkeiten.</h3><p className="modal-description">Teile eine feste Momentaufnahme mit klickbaren Kontaktdaten und PDF-Download. Die Empfänger können deinen Lebenslauf lesen, aber nicht bearbeiten.</p>
+    {loading ? <div className="share-link-loading"><LoaderCircle size={18} className="spin" /> Leseansicht wird erstellt …</div> : error ? <div className="inline-error"><p>{error}</p><button className="button secondary" onClick={() => setAttempt(value => value + 1)}>Erneut versuchen</button></div> : <div className="share-link-field"><input ref={input} readOnly value={link} aria-label="Öffentlicher Leselink" onFocus={event => event.target.select()} /><button className="button primary" onClick={() => void copy()}><Copy size={16} /> Kopieren</button></div>}
+    {!!link && !loading && <a className="text-link share-open-link" href={link} target="_blank" rel="noreferrer">Leseansicht öffnen <ExternalLink size={13} /></a>}
+    <div className="modal-bottom-note"><ShieldCheck size={14} /> Spätere Änderungen an deinem CV verändern diesen Link nicht.</div>
   </Modal>;
 }
 
@@ -165,12 +162,12 @@ function Status({ status, error, small = false }: { status: string; error: strin
   const isBusy = status === 'saving' || status === 'loading';
   const isError = status === 'error' || status === 'offline';
   const Icon = isBusy ? LoaderCircle : isError ? CloudOff : CloudCheck;
-  return <div className={`save-status ${isError ? 'save-error' : ''} ${small ? 'small' : ''}`} title={error || (status === 'saved' ? 'Alle Änderungen sind in der Cloud gespeichert.' : 'Deine Änderungen werden gesichert.')}><Icon size={small ? 13 : 15} className={isBusy ? 'spin' : ''} /><span>{status === 'loading' ? 'Workspace wird geladen' : status === 'saving' ? 'Wird gespeichert …' : status === 'offline' ? 'Lokal gespeichert' : status === 'error' ? 'Synchronisierung prüfen' : 'Alle Änderungen gespeichert'}</span></div>;
+  return <div className={`save-status ${isError ? 'save-error' : ''} ${small ? 'small' : ''}`} title={error || (status === 'saved' ? 'Alle Änderungen sind in der Cloud gespeichert.' : 'Deine Änderungen werden gesichert.')}><Icon size={small ? 13 : 15} className={isBusy ? 'spin' : ''} /><span>{status === 'loading' ? 'CV wird geladen' : status === 'saving' ? 'Wird gespeichert …' : status === 'offline' ? 'Lokal gespeichert' : status === 'error' ? 'Synchronisierung prüfen' : 'Alle Änderungen gespeichert'}</span></div>;
 }
 
 export default function App() {
   const workspace = useWorkspace();
-  const { doc, update, undo, redo, canUndo, canRedo, status, error, ready, isReadonly, share, editorLink, reset, replace, retry } = workspace;
+  const { doc, update, undo, redo, canUndo, canRedo, status, error, ready, isReadonly, share, reset, replace, retry } = workspace;
   const [pane, setPane] = useState<Pane>('design');
   const [paneOpen, setPaneOpen] = useState(() => window.innerWidth >= 750);
   const [editing, setEditing] = useState(false);
@@ -180,7 +177,8 @@ export default function App() {
   const [toast, setToast] = useState<Toast>(null);
   const [exporting, setExporting] = useState(false);
   const [uploading, setUploading] = useState(false);
-  const [shareModal, setShareModal] = useState<'public' | 'private' | null>(null);
+  const [shareModal, setShareModal] = useState(false);
+  const [assistantOpen, setAssistantOpen] = useState(false);
   const [entryEditor, setEntryEditor] = useState<{ sectionId: string; entryId?: string } | null>(null);
   const [sectionDialog, setSectionDialog] = useState(false);
   const [iconSection, setIconSection] = useState<string | null>(null);
@@ -228,8 +226,9 @@ export default function App() {
     const visibility = () => { if (document.visibilityState === 'hidden') flushEditable(); };
     window.addEventListener('pagehide', flushEditable, true);
     window.addEventListener('beforeunload', flushEditable, true);
+    window.addEventListener('blur', flushEditable, true);
     document.addEventListener('visibilitychange', visibility, true);
-    return () => { window.removeEventListener('pagehide', flushEditable, true); window.removeEventListener('beforeunload', flushEditable, true); document.removeEventListener('visibilitychange', visibility, true); };
+    return () => { window.removeEventListener('pagehide', flushEditable, true); window.removeEventListener('beforeunload', flushEditable, true); window.removeEventListener('blur', flushEditable, true); document.removeEventListener('visibilitychange', visibility, true); };
   }, []);
   useEffect(() => {
     if (!ready || isReadonly || tourInitialized.current) return;
@@ -243,6 +242,7 @@ export default function App() {
     if (next) setPane(next);
     setPaneOpen(sidebar);
   }, []);
+  useEffect(() => { document.querySelector<HTMLElement>('.context-pane .pane-scroll')?.scrollTo({ top: 0, behavior: 'instant' }); }, [pane]);
 
   const design = (patch: Partial<CVDocument['design']>) => update(current => ({ ...current, design: { ...current.design, ...patch } }));
   const selectTemplate = (template: typeof templateOptions[number]) => {
@@ -293,7 +293,7 @@ export default function App() {
   const switchPane = (next: Pane) => { if (pane === next) setPaneOpen(value => !value); else { setPane(next); setPaneOpen(true); } };
   const activeEntrySection = entryEditor ? doc.sections.find(section => section.id === entryEditor.sectionId) : undefined;
 
-  if (!ready) return <div className="app-loading"><div className="loading-brand"><Brand /><span>Dein nächster Schritt beginnt hier.</span></div><div className="loading-layout"><div className="loading-sidebar"><i /><i /><i /></div><div className="loading-paper"><LoaderCircle size={24} className="spin" /><span>Dein Workspace wird geladen …</span></div></div></div>;
+  if (!ready) return <div className="app-loading"><div className="loading-brand"><Brand /><span>Dein nächster Schritt beginnt hier.</span></div><div className="loading-layout"><div className="loading-sidebar"><i /><i /><i /></div><div className="loading-paper"><LoaderCircle size={24} className="spin" /><span>Dein CV wird geladen …</span></div></div></div>;
   if (isReadonly && error) return <main className="not-found"><Brand /><div className="not-found-art"><FileText size={42} /><span>?</span></div><p className="eyebrow">LESEANSICHT</p><h1>Dieser CV ist gerade<br />nicht erreichbar.</h1><p>{error}</p><button className="button primary" onClick={retry}>Erneut versuchen <ArrowRight size={16} /></button></main>;
 
   const canvas = <CVCanvas doc={doc} editing={editing && !isReadonly} readonly={isReadonly} update={update}
@@ -305,7 +305,7 @@ export default function App() {
     {!isReadonly && <><input type="file" accept="image/jpeg,image/png,image/webp" className="visually-hidden" ref={photoInput} aria-label="Profilfoto auswählen" onChange={event => { void uploadPhoto(event.target.files?.[0]); event.target.value = ''; }} />
     <input type="file" accept=".json,application/json" className="visually-hidden" ref={backupInput} aria-label="CV-Sicherung importieren" onChange={event => void importFile(event)} /></>}
     {isReadonly ? <header className="readonly-topbar"><a href="#cv-document" className="readonly-identity"><div className="brand-mark">{doc.name.split(' ').map(part => part[0]).slice(0, 2).join('')}</div><div><strong>{doc.name}</strong><span>CURRICULUM VITAE</span></div></a><div className="readonly-contact-actions">{doc.phone && <a href={`tel:${doc.phone.replace(/[^+\d]/g, '')}`} className="readonly-phone" aria-label="Michael anrufen"><Phone size={16} /><span>Anrufen</span></a>}{doc.email && <a className="button secondary" href={`mailto:${doc.email}`} aria-label="Kontakt per E-Mail aufnehmen" title="Kontakt per E-Mail aufnehmen"><Mail size={16} /><span>Kontakt aufnehmen</span></a>}<button className="button primary" aria-label={exporting ? 'PDF wird erstellt' : 'PDF herunterladen'} title="PDF herunterladen" disabled={exporting} onClick={() => void pdf()}>{exporting ? <LoaderCircle size={16} className="spin" /> : <Download size={16} />}<span>PDF herunterladen</span></button></div></header> : <>
-      <header className="app-topbar"><Brand /><div className="topbar-divider" /><div className="document-identity"><span className="document-breadcrumb">Persönlicher Workspace <ChevronRight size={11} /></span><strong>{doc.name.split(' ')[0] || 'Mein'}s Lebenslauf <ChevronDown size={12} /></strong></div><div className="topbar-save"><Status status={status} error={error} /></div><div className="topbar-actions"><div className="history-actions"><IconButton icon={Undo2} label="Rückgängig (Strg/Cmd + Z)" disabled={!canUndo} onClick={undo} /><IconButton icon={Redo2} label="Wiederholen (Strg/Cmd + Umschalt + Z)" disabled={!canRedo} onClick={redo} /></div><span className="action-divider" /><button className="button secondary share-top-button" onClick={() => { (document.activeElement as HTMLElement | null)?.blur(); setShareModal('public'); }}><Share2 size={15} /><span>Teilen</span></button><button className="button primary pdf-button" onClick={() => void pdf()} disabled={exporting}>{exporting ? <LoaderCircle size={16} className="spin" /> : <Download size={16} />}<span>{exporting ? 'PDF wird erstellt …' : 'PDF herunterladen'}</span></button></div></header>
+      <header className="app-topbar"><Brand /><div className="topbar-divider" /><div className="document-identity"><span className="document-breadcrumb">Zentral gespeichert <ChevronRight size={11} /></span><strong>{doc.name.split(' ')[0] || 'Mein'}s Lebenslauf <ChevronDown size={12} /></strong></div><div className="topbar-save"><Status status={status} error={error} /></div><div className="topbar-actions"><button className="button secondary complete-top-button" data-tour="assistant" aria-label="CV vervollständigen" title="CV vervollständigen" onClick={() => { (document.activeElement as HTMLElement | null)?.blur(); setAssistantOpen(true); }}><Sparkles size={15} /><span>CV vervollständigen</span></button><div className="history-actions"><IconButton icon={Undo2} label="Rückgängig (Strg/Cmd + Z)" disabled={!canUndo} onClick={undo} /><IconButton icon={Redo2} label="Wiederholen (Strg/Cmd + Umschalt + Z)" disabled={!canRedo} onClick={redo} /></div><span className="action-divider" /><button className="button secondary share-top-button" onClick={() => { (document.activeElement as HTMLElement | null)?.blur(); setShareModal(true); }}><Share2 size={15} /><span>Teilen</span></button><button className="button primary pdf-button" onClick={() => void pdf()} disabled={exporting}>{exporting ? <LoaderCircle size={16} className="spin" /> : <Download size={16} />}<span>{exporting ? 'PDF wird erstellt …' : 'PDF herunterladen'}</span></button></div></header>
       <nav className="navigation-rail" aria-label="Workspace-Navigation"><div className="rail-main-nav">{(Object.keys(paneMeta) as Pane[]).map(key => { const item = paneMeta[key]; const Icon = item.icon; return <button key={key} className={`rail-nav-item ${pane === key && paneOpen ? 'active' : ''}`} onClick={() => switchPane(key)} title={item.name} aria-expanded={pane === key && paneOpen}><Icon size={21} strokeWidth={1.6} /><span>{item.name}</span></button>; })}</div><div className="rail-bottom-nav"><IconButton icon={Keyboard} label="Tipps & Tastaturkürzel" onClick={() => setHelp(true)} /><div className="rail-avatar" title={doc.name}>{doc.name.split(' ').map(part => part[0]).slice(0, 2).join('')}</div></div></nav>
       {paneOpen && <aside className="context-pane"><header className="pane-header"><div className="pane-eyebrow">DEIN LEBENSLAUF, WEITERGEDACHT</div><h1>{paneMeta[pane].title}</h1><p>{paneMeta[pane].description}</p><button className="pane-close" aria-label="Seitenleiste schließen" onClick={() => setPaneOpen(false)}><X size={15} /></button></header><div className="pane-scroll">
         {pane === 'design' && <>
@@ -316,6 +316,7 @@ export default function App() {
           <div className="pane-tip"><Sparkles size={15} /><p>Dein Design. Deine Inhalte.<br /><span>Ein Wechsel übernimmt alles.</span></p></div>
         </>}
         {pane === 'content' && <>
+          <button className="content-assistant-card" data-tour="assistant-content" onClick={() => setAssistantOpen(true)}><span><Layers size={13} /> DEINE BAUSTEINE</span><strong>CV vervollständigen</strong><p>Stärken, Projekte und alles, was dich außerdem ausmacht. Schritt für Schritt.</p><ArrowRight size={16} /></button><div className="module-checklist">{contentModules.map(module => <div key={module.id}><span className={moduleIsPresent(doc, module) ? 'complete' : ''}>{moduleIsPresent(doc, module) && <Check size={8} />}</span><span>{module.title}</span><small>{moduleIsPresent(doc, module) ? 'vorhanden' : 'optional'}</small></div>)}</div>
           <div className="content-intro"><Pencil size={15} /><p>Am schönsten direkt auf dem Papier.<button onClick={() => { setEditing(true); if (window.innerWidth < 750) setPaneOpen(false); }}>Im Canvas bearbeiten <ArrowRight size={12} /></button></p></div>
           <section className={`content-accordion ${openSections.includes('profile') ? 'open' : ''}`}><button className="accordion-trigger" onClick={() => toggleSection('profile')}><span className="accordion-icon"><Type size={15} /></span><span>Persönliche Angaben<small>Name, Kontakt & Kurzprofil</small></span><ChevronDown size={15} /></button>{openSections.includes('profile') && <div className="accordion-body"><Field label="Vollständiger Name" value={doc.name} onChange={value => profile('name', value)} /><Field label="Berufsbezeichnung" value={doc.title} onChange={value => profile('title', value)} /><Field label="E-Mail" value={doc.email} onChange={value => profile('email', value)} type="email" /><Field label="Telefon" value={doc.phone} onChange={value => profile('phone', value)} type="tel" /><Field label="Adresse" value={doc.address} onChange={value => profile('address', value)} /><Field label="Kurzprofil" value={doc.summary} onChange={value => profile('summary', value)} textarea />
             <div className="field-label link-label">Links & Profile</div>{doc.links.map(link => <div className="profile-link-item" key={link.id}><input value={link.label} placeholder="Bezeichnung, z. B. LinkedIn" aria-label="Link-Bezeichnung" onChange={event => update(current => ({ ...current, links: current.links.map(item => item.id === link.id ? { ...item, label: event.target.value } : item) }))} /><div><input value={link.url} placeholder="https://…" aria-label="Link-Adresse" onChange={event => update(current => ({ ...current, links: current.links.map(item => item.id === link.id ? { ...item, url: event.target.value } : item) }))} /><IconButton icon={Trash2} label="Link entfernen" onClick={() => update(current => ({ ...current, links: current.links.filter(item => item.id !== link.id) }))} /></div>{link.url && !safeLink(link.url) && <span className="field-error">Bitte eine gültige Webadresse eingeben.</span>}</div>)}<button className="add-text-button" disabled={doc.links.length >= 20} onClick={() => update(current => ({ ...current, links: [...current.links, { id: newId(), label: '', url: '' }] }))}><Plus size={14} /> Link hinzufügen</button>
@@ -332,11 +333,11 @@ export default function App() {
         </>}
         {pane === 'settings' && <>
           <div className="workspace-status-card"><div className="cloud-symbol"><Cloud size={24} strokeWidth={1.4} /><span className={status === 'saved' ? 'connected' : ''} /></div><h3>Dein CV bleibt bei dir.</h3><Status status={status} error={error} /><p>Änderungen und Bilder werden automatisch in der Cloud und zusätzlich auf diesem Gerät gespeichert.</p>{(status === 'offline' || status === 'error') && <><p className="settings-error">{error || 'Die Cloud ist gerade nicht erreichbar. Lokale Änderungen bleiben erhalten.'}</p><button className="button secondary" onClick={retry}>Verbindung erneut versuchen</button></>}</div>
-          <div className="settings-group"><span className="control-label">ÜBERALL WEITERARBEITEN</span><button className="settings-action" data-tour="recovery" onClick={() => setShareModal('private')}><LockKeyhole size={18} /><span>Privater Bearbeitungslink<small>Dein Workspace auf jedem Gerät</small></span><ChevronRight size={15} /></button><button className="settings-action" onClick={() => setConfirmation({ title: 'Stand aus der Cloud laden?', description: 'Der Stand auf diesem Gerät wird durch die zuletzt in der Cloud gespeicherte Version ersetzt. Lade vorher eine Sicherung herunter, wenn du lokale Änderungen behalten möchtest.', action: 'Cloud-Version laden', run: () => { void workspace.reloadCloud().then(() => notify('Der gespeicherte Cloud-Stand ist geladen.')).catch((cause: unknown) => notify(cause instanceof Error ? cause.message : 'Die Cloud-Version konnte nicht geladen werden.', true)); } })}><Cloud size={18} /><span>Cloud-Version laden<small>Zuletzt gespeicherten Stand abrufen</small></span><ChevronRight size={15} /></button></div>
+          <div className="central-sync-note" data-tour="central-save"><CloudCheck size={19} /><p><strong>Ein CV. Auf allen Geräten.</strong>Melde dich einfach mit dem Passwort an. Dein aktueller Lebenslauf und deine Bilder werden überall automatisch geladen.</p></div><div className="settings-group"><span className="control-label">ZENTRALER SPEICHER</span><button className="settings-action" onClick={() => setConfirmation({ title: 'Zentral gespeicherten Stand laden?', description: 'Dieser CV wird auf allen Geräten geteilt. Lade eine Sicherung herunter, wenn du lokale Änderungen behalten möchtest.', action: 'Gespeicherten CV laden', run: () => { void workspace.reloadCloud().then(() => notify('Der zentral gespeicherte CV ist geladen.')).catch((cause: unknown) => notify(cause instanceof Error ? cause.message : 'Der CV konnte nicht geladen werden.', true)); } })}><Cloud size={18} /><span>Gespeicherten CV laden<small>Aktuellen Stand erneut abrufen</small></span><ChevronRight size={15} /></button></div>
           <div className="settings-group"><span className="control-label">DEINE DATEN</span><button className="settings-action" onClick={() => { downloadBackup(doc); notify('Deine CV-Sicherung wurde heruntergeladen.'); }}><FileDown size={18} /><span>Sicherung herunterladen<small>Alle Inhalte & Bilder als JSON</small></span><Download size={15} /></button><button className="settings-action" onClick={() => backupInput.current?.click()}><Upload size={18} /><span>Sicherung importieren<small>Einen gespeicherten Stand laden</small></span><ChevronRight size={15} /></button></div>
-          <div className="settings-group"><span className="control-label">NEU ANFANGEN</span><button className="settings-action reset-action" onClick={() => setConfirmation({ title: 'Zur ursprünglichen Version zurück?', description: 'Deine aktuellen Inhalte, das Foto und das Design werden durch Michaels ursprünglichen Lebenslauf ersetzt. Lade vorher eine Sicherung herunter, wenn du den Stand behalten möchtest.', action: 'Ursprünglichen CV laden', run: () => { reset(); notify('Der ursprüngliche Lebenslauf ist wiederhergestellt.'); } })}><RotateCcw size={18} /><span>Ausgangsversion wiederherstellen<small>Michaels ursprünglicher Lebenslauf</small></span><ChevronRight size={15} /></button></div><div className="settings-group"><span className="control-label">DEIN ZUGANG & HILFE</span><button className="settings-action" onClick={() => { setHelp(false); setTourOpen(true); }}><Sparkles size={18} /><span>Tour erneut starten<small>Dein Studio in sieben Schritten</small></span><ChevronRight size={15} /></button><button className="settings-action" onClick={() => window.dispatchEvent(new Event('cv-studio-lock'))}><LogOut size={18} /><span>Studio sperren<small>Abmelden und Passwortschutz aktivieren</small></span><LockKeyhole size={15} /></button></div><div className="settings-privacy"><ShieldCheck size={15} /><p>Dein Bearbeitungslink ist dein Schlüssel. Teile mit Arbeitgebern die separate Leseansicht.</p></div><p className="settings-billing">Cloud-Speicherung über Vercel Blob. Die Nutzung wird über deinen Vercel-Pro-Tarif abgerechnet.</p>
+          <div className="settings-group"><span className="control-label">NEU ANFANGEN</span><button className="settings-action reset-action" onClick={() => setConfirmation({ title: 'Zur ursprünglichen Version zurück?', description: 'Deine aktuellen Inhalte, das Foto und das Design werden durch Michaels ursprünglichen Lebenslauf ersetzt. Lade vorher eine Sicherung herunter, wenn du den Stand behalten möchtest.', action: 'Ursprünglichen CV laden', run: () => { reset(); notify('Der ursprüngliche Lebenslauf ist wiederhergestellt.'); } })}><RotateCcw size={18} /><span>Ausgangsversion wiederherstellen<small>Michaels ursprünglicher Lebenslauf</small></span><ChevronRight size={15} /></button></div><div className="settings-group"><span className="control-label">DEIN ZUGANG & HILFE</span><button className="settings-action" onClick={() => { setHelp(false); setTourOpen(true); }}><Sparkles size={18} /><span>Tour erneut starten<small>Dein Studio in sieben Schritten</small></span><ChevronRight size={15} /></button><button className="settings-action" onClick={() => window.dispatchEvent(new Event('cv-studio-lock'))}><LogOut size={18} /><span>Studio sperren<small>Abmelden und Passwortschutz aktivieren</small></span><LockKeyhole size={15} /></button></div><div className="settings-privacy"><ShieldCheck size={15} /><p>Dein CV bleibt passwortgeschützt. Arbeitgeber erhalten ausschließlich die separate Leseansicht.</p></div><p className="settings-billing">Deine Änderungen werden zentral gesichert. Eine lokale Sicherung hilft dir zusätzlich, frühere Stände aufzubewahren.</p>
         </>}
-      </div><footer className="pane-footer"><div className="footer-avatar">{doc.name.split(' ').map(part => part[0]).slice(0, 2).join('')}</div><div><strong>{doc.name}</strong><span>Dein persönlicher CV-Workspace</span></div><span className={`presence-dot ${status === 'error' || status === 'offline' ? 'is-offline' : ''}`} /></footer></aside>}
+      </div><footer className="pane-footer"><div className="footer-avatar">{doc.name.split(' ').map(part => part[0]).slice(0, 2).join('')}</div><div><strong>{doc.name}</strong><span>Auf allen deinen Geräten.</span></div><span className={`presence-dot ${status === 'error' || status === 'offline' ? 'is-offline' : ''}`} /></footer></aside>}
     </>}
     <main className="workspace-main" id="cv-document" ref={viewport}>
       <div className="workspace-toolbar"><div className="workspace-toolbar-left">{!isReadonly && <button className="sidebar-toggle" title={paneOpen ? 'Seitenleiste schließen' : 'Seitenleiste öffnen'} aria-label={paneOpen ? 'Seitenleiste schließen' : 'Seitenleiste öffnen'} onClick={() => setPaneOpen(value => !value)}><Menu size={16} /></button>}<span className="document-format">A4 <span>PORTRAIT</span></span><span className="toolbar-dot" /><span className="page-count">{pageCount} {pageCount === 1 ? 'Seite' : 'Seiten'}</span></div>{!isReadonly && <div className="mode-switch"><button className={!editing ? 'active' : ''} onClick={() => { (document.activeElement as HTMLElement | null)?.blur(); setEditing(false); }}><Eye size={14} /> Vorschau</button><button className={editing ? 'active' : ''} onClick={() => { setEditing(true); if (window.innerWidth < 750) setPaneOpen(false); }}><Pencil size={14} /> Bearbeiten</button></div>}<div className="zoom-controls"><IconButton icon={ZoomOut} label="Verkleinern" disabled={zoom <= 0.25} onClick={() => { setFit(false); setZoom(value => Math.max(0.2, +(value - 0.1).toFixed(2))); }} /><span>{Math.round(zoom * 100)}%</span><IconButton icon={ZoomIn} label="Vergrößern" disabled={zoom >= 1.4} onClick={() => { setFit(false); setZoom(value => Math.min(1.5, +(value + 0.1).toFixed(2))); }} /><span className="zoom-divider" /><IconButton icon={Maximize2} label="An Fensterbreite anpassen" onClick={() => { setFit(true); calculateZoom(); }} /></div></div>
@@ -350,12 +351,13 @@ export default function App() {
     {toast && <div className={`toast ${toast.error ? 'toast-error' : ''}`} role="status" aria-live="polite">{toast.error ? <CloudOff size={17} /> : <Check size={17} />}<span>{toast.message}</span><button onClick={() => setToast(null)} aria-label="Meldung schließen"><X size={14} /></button></div>}
     {uploading && <div className="upload-progress" role="status"><LoaderCircle size={18} className="spin" /> Dein Foto wird vorbereitet …</div>}
     {tourOpen && !isReadonly && <Onboarding onClose={() => { setTourOpen(false); if (window.innerWidth < 750) setPaneOpen(false); }} prepare={prepareTour} />}
-    {shareModal && <ShareDialog initialPrivate={shareModal === 'private'} share={share} editorLink={editorLink} onClose={() => setShareModal(null)} notify={notify} />}
+    {shareModal && <ShareDialog share={share} name={doc.name} onClose={() => setShareModal(false)} notify={notify} />}
+    {assistantOpen && <ContentAssistant doc={doc} onSave={update} onClose={() => setAssistantOpen(false)} />}
     {entryEditor && activeEntrySection && <EntryDialog key={`${entryEditor.sectionId}-${entryEditor.entryId || 'new'}`} section={activeEntrySection} entry={activeEntrySection.entries.find(entry => entry.id === entryEditor.entryId)} onClose={() => setEntryEditor(null)} notify={notify} onSave={entry => { update(current => ({ ...current, sections: current.sections.map(section => section.id !== entryEditor.sectionId ? section : { ...section, entries: entryEditor.entryId ? section.entries.map(item => item.id === entry.id ? entry : item) : [...section.entries, entry] }) })); setEntryEditor(null); notify('Eintrag übernommen.'); }} />}
     {sectionDialog && <SectionDialog onClose={() => setSectionDialog(false)} onSave={section => { update(current => ({ ...current, sections: [...current.sections, section] })); setSectionDialog(false); setEntryEditor({ sectionId: section.id }); }} />}
     {iconSection && <Modal title="Kleine Details. Deine Handschrift." eyebrow="ABSCHNITTSSYMBOL" onClose={() => setIconSection(null)}><p className="modal-description">Wähle das passende Symbol für diesen Abschnitt.</p><div className="icon-picker large-icon-picker">{iconNames.map(name => { const Icon = sectionIcons[name]; return <button type="button" key={name} className={doc.sections.find(section => section.id === iconSection)?.icon === name ? 'selected' : ''} onClick={() => { update(current => ({ ...current, sections: current.sections.map(section => section.id === iconSection ? { ...section, icon: name } : section) })); setIconSection(null); }}><Icon size={23} /><span>{iconLabels[name]}</span></button>; })}</div></Modal>}
     {confirmation && <Modal title={confirmation.title} eyebrow="DEIN WORKSPACE" onClose={() => setConfirmation(null)}><p className="modal-description confirmation-description">{confirmation.description}</p><div className="modal-actions"><button className="button secondary" onClick={() => setConfirmation(null)}>Abbrechen</button><button className="button danger" onClick={() => { confirmation.run(); setConfirmation(null); }}>{confirmation.action}</button></div></Modal>}
-    {help && <Modal title="Kleine Handgriffe. Großer Unterschied." eyebrow="DEIN CV STUDIO" onClose={() => setHelp(false)}><button className="button primary restart-tour" onClick={() => { setHelp(false); setTourOpen(true); }}><Sparkles size={15} /> Tour erneut starten <ArrowRight size={14} /></button><div className="help-items"><div><Pencil size={20} /><p><strong>Direkt auf dem Papier bearbeiten</strong><span>Wähle „Bearbeiten“ und klicke auf einen Text. Änderungen werden übernommen, sobald du den Text verlässt.</span></p></div><div><Camera size={20} /><p><strong>Dein Foto, mit einem Klick</strong><span>Klicke auf den Fotoplatzhalter oder ziehe dein Bild in den Foto-Bereich.</span></p></div><div><Share2 size={20} /><p><strong>Teilen mit gutem Gefühl</strong><span>Die Leseansicht ist eine feste Momentaufnahme. Deinen privaten Bearbeitungslink behältst du für dich.</span></p></div><div><Keyboard size={20} /><p><strong>Zurück geht immer</strong><span><kbd>Strg / ⌘</kbd> + <kbd>Z</kbd> Rückgängig<br /><kbd>Strg / ⌘</kbd> + <kbd>⇧</kbd> + <kbd>Z</kbd> Wiederholen</span></p></div></div></Modal>}
+    {help && <Modal title="Kleine Handgriffe. Großer Unterschied." eyebrow="DEIN CV STUDIO" onClose={() => setHelp(false)}><button className="button primary restart-tour" onClick={() => { setHelp(false); setTourOpen(true); }}><Sparkles size={15} /> Tour erneut starten <ArrowRight size={14} /></button><div className="help-items"><div><Pencil size={20} /><p><strong>Direkt auf dem Papier bearbeiten</strong><span>Wähle „Bearbeiten“ und klicke auf einen Text. Änderungen werden übernommen, sobald du den Text verlässt.</span></p></div><div><Camera size={20} /><p><strong>Dein Foto, mit einem Klick</strong><span>Klicke auf den Fotoplatzhalter oder ziehe dein Bild in den Foto-Bereich.</span></p></div><div><Share2 size={20} /><p><strong>Teilen mit gutem Gefühl</strong><span>Die Leseansicht ist eine feste Momentaufnahme. Dein aktueller CV wird zentral gespeichert und nach der Anmeldung automatisch geladen.</span></p></div><div><Keyboard size={20} /><p><strong>Zurück geht immer</strong><span><kbd>Strg / ⌘</kbd> + <kbd>Z</kbd> Rückgängig<br /><kbd>Strg / ⌘</kbd> + <kbd>⇧</kbd> + <kbd>Z</kbd> Wiederholen</span></p></div></div></Modal>}
   </div>;
 }
 

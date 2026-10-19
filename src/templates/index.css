@@ -1,0 +1,379 @@
+/* Index — an architectural folio. The reading face is a generous sans;
+   monospaced type is reserved for the document's navigational details. */
+.template-mono {
+  --date-width: 122px;
+  --cv-font: 'DM Sans Variable', 'DM Sans', sans-serif;
+  --index-ink: #232d2a;
+  --index-muted: #54635d;
+  --index-accent: color-mix(in srgb, var(--cv-accent) 65%, #43554a);
+  --index-rule: #d8ded9;
+  --index-paper: #f0f3f0;
+  width: 794px;
+  height: 1123px;
+  background: #fff;
+  color: var(--index-ink);
+  font-family: var(--cv-font);
+  font-size: 12.2px;
+  line-height: 1.53;
+  letter-spacing: 0;
+}
+
+.template-mono::before {
+  content: '';
+  position: absolute;
+  top: 39px;
+  bottom: 64px;
+  left: 24px;
+  width: 1px;
+  height: auto;
+  background: #e1e7e1;
+  pointer-events: none;
+}
+
+.template-mono::after {
+  content: '';
+  position: absolute;
+  top: 39px;
+  left: 23px;
+  width: 3px;
+  height: 29px;
+  background: var(--index-accent);
+  pointer-events: none;
+}
+
+.template-mono .cv-side-rail { display: none; }
+.template-mono .cv-page-inner { padding: 39px 45px 0; }
+.template-mono .cv-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 95px;
+  column-gap: 27px;
+  row-gap: 0;
+  align-items: start;
+  padding: 0 0 19px;
+  margin: 0;
+  border: 0;
+  border-bottom: 1px solid var(--index-ink);
+  background: transparent;
+}
+.template-mono .cv-header-copy { display: contents; }
+.template-mono .cv-eyebrow {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  padding: 0 0 12px;
+  margin: 0 0 17px;
+  border-bottom: 1px solid var(--index-rule);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 1.1px;
+  color: var(--index-accent);
+}
+.template-mono .cv-name {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: end;
+  padding: 0;
+  margin: 0;
+  max-width: none;
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 54px;
+  font-weight: 650;
+  line-height: 1.02;
+  letter-spacing: -2.7px;
+  color: var(--index-ink);
+  text-transform: none;
+}
+.template-mono .cv-role {
+  grid-column: 1;
+  grid-row: 3;
+  align-self: start;
+  display: block;
+  padding: 0;
+  margin: 12px 0 0;
+  background: transparent;
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 12.8px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: .05px;
+  color: #3f5248;
+}
+.template-mono .cv-contact,
+.template-mono .cv-contact-small {
+  grid-column: 1 / -1;
+  grid-row: 4;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 6px 17px;
+  margin: 17px 0 0;
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--index-muted);
+}
+.template-mono .cv-contact svg {
+  width: 10px;
+  height: 10px;
+  stroke-width: 1.6;
+  color: var(--index-accent);
+}
+.template-mono .cv-contact a:hover {
+  color: var(--index-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.template-mono .cv-photo {
+  grid-column: 2;
+  grid-row: 2 / 4;
+  align-self: start;
+  justify-self: end;
+  width: 89px;
+  height: 105px;
+  margin: 0;
+  background: #eff2ed;
+}
+.template-mono .cv-photo.photo-rounded { border-radius: 3px 3px 20px 3px; }
+.template-mono .cv-photo.photo-circle { width: 98px; height: 98px; border-radius: 50%; }
+.template-mono .cv-photo.photo-square { border-radius: 0; }
+.template-mono .cv-photo-empty {
+  border: 1px dashed color-mix(in srgb, var(--cv-accent) 42%, #bcc9be);
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--cv-accent) 4%, #fff);
+  color: #506456;
+}
+.template-mono .cv-photo-empty svg { width: 22px; height: 22px; opacity: .9; }
+.template-mono .cv-photo-empty span { font-size: 10px; }
+.template-mono .cv-photo-empty small { font-size: 8px; opacity: .9; }
+.template-mono .cv-content { margin: 0; padding: 0; }
+.template-mono .cv-summary {
+  padding: 18px 0 1px;
+  font-family: var(--cv-font);
+  font-size: 12.2px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: #4a5a50;
+}
+.template-mono .cv-summary + .cv-summary { padding-top: 0; }
+
+/* A quiet indexed strip gives each optional module the same clear hierarchy. */
+.template-mono .cv-section-heading { padding: 18px 0 9px; }
+.template-mono .section-heading-inner {
+  display: flex;
+  align-items: center;
+  min-height: 27px;
+  gap: 9px;
+  padding: 5px 11px;
+  border-top: 1px solid #e5e9e4;
+  border-bottom: 1px solid #e5e9e4;
+  background: var(--index-paper);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #2d3d33;
+}
+.template-mono .cv-section-number {
+  display: inline-block;
+  min-width: 31px;
+  padding: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--index-accent);
+}
+.template-mono .cv-section-number::before { content: '['; }
+.template-mono .cv-section-number::after { content: ']'; }
+.template-mono .cv-section-icon {
+  display: flex;
+  width: 14px;
+  height: 16px;
+  color: var(--index-accent);
+  opacity: 1;
+}
+.template-mono .cv-section-icon svg { width: 12px; height: 12px; stroke-width: 1.5; }
+.template-mono .cv-section-rule {
+  display: block;
+  height: 1px;
+  min-width: 20px;
+  margin-left: 7px;
+  background: #d7ded7;
+}
+.template-mono .cv-cont-label {
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 8px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #657468;
+}
+
+/* Right-aligned metadata frees the whole page width for the actual experience. */
+.template-mono .cv-entry-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--date-width);
+  align-items: baseline;
+  gap: 0 20px;
+  margin: 0;
+  padding: 10px 0 0;
+  line-height: 1.5;
+}
+.template-mono .cv-section-heading + .cv-entry-header { padding-top: 0; }
+.template-mono .cv-period {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.6;
+  letter-spacing: -.25px;
+  text-align: right;
+  color: #657368;
+}
+.template-mono .cv-entry-heading,
+.template-mono .cv-entry-field.field-heading {
+  grid-column: 1;
+  grid-row: 1;
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 13.7px;
+  font-weight: 650;
+  line-height: 1.5;
+  letter-spacing: -.12px;
+  color: var(--index-ink);
+}
+.template-mono .cv-entry-field {
+  padding: 1px 0 4px;
+  font-family: var(--cv-font);
+  font-size: 12.2px;
+  font-weight: 500;
+  line-height: 1.53;
+  letter-spacing: 0;
+  color: #495f50;
+}
+.template-mono .cv-entry-field.field-heading { padding: 0 142px 1px 0; }
+.template-mono .cv-entry-field.field-period {
+  padding: 0 0 2px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -.25px;
+  text-align: right;
+  color: #657368;
+}
+.template-mono .cv-body-line,
+.template-mono .cv-body-line.kind-experience {
+  display: flex;
+  gap: 9px;
+  margin: 0;
+  padding: 1px 0;
+  font-family: var(--cv-font);
+  font-size: 12.2px;
+  font-weight: 400;
+  line-height: 1.53;
+  letter-spacing: 0;
+  color: #46564b;
+}
+.template-mono .cv-body-line > .editable { min-width: 0; flex: 1; }
+.template-mono .cv-body-line.line-continuation.kind-experience { padding-left: 12px; }
+.template-mono .cv-bullet {
+  width: 3px;
+  height: 3px;
+  margin-top: 8px;
+  border-radius: 0;
+  background: var(--index-accent);
+  opacity: 1;
+}
+.template-mono .cv-entry-image { padding: 9px 0 5px; }
+.template-mono .cv-empty-section { padding-left: 0; }
+.template-mono .cv-footer {
+  left: 45px;
+  right: 45px;
+  bottom: 28px;
+  padding-top: 11px;
+  border-top: 1px solid var(--index-ink);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: .4px;
+  color: #596c5e;
+}
+.template-mono .cv-footer > span:first-child {
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+.template-mono .footer-slash { color: #99a49a; }
+.template-mono .cv-continuation-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  min-height: 31px;
+  padding: 0 0 13px;
+  font-family: 'DM Sans Variable', 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: -.2px;
+  color: var(--index-ink);
+}
+.template-mono .cv-continuation-header > span:first-child { font-weight: 600; }
+.template-mono .cv-continuation-header > span:last-child {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: .1px;
+  color: #627569;
+}
+
+.template-mono.font-serif { --cv-font: 'Instrument Serif', Georgia, serif; }
+.template-mono.font-serif .cv-name { font-family: 'Instrument Serif', Georgia, serif; font-size: 62px; font-weight: 400; letter-spacing: -1.5px; }
+.template-mono.font-serif .cv-body-line,
+.template-mono.font-serif .cv-summary,
+.template-mono.font-serif .cv-entry-field { font-size: 14.2px; line-height: 1.5; }
+.template-mono.font-mono { --cv-font: 'IBM Plex Mono', monospace; }
+.template-mono.font-mono .cv-name { font-family: 'IBM Plex Mono', monospace; font-size: 44px; font-weight: 500; letter-spacing: -2.2px; }
+.template-mono.font-mono .cv-body-line,
+.template-mono.font-mono .cv-summary,
+.template-mono.font-mono .cv-entry-field { font-size: 12.2px; line-height: 1.53; }
+.template-mono.density-compact .cv-section-heading { padding-top: 18px; padding-bottom: 9px; }
+.template-mono.density-compact .cv-entry-header { padding-top: 9px; }
+.template-mono.density-compact .cv-section-heading + .cv-entry-header { padding-top: 0; }
+.template-mono.density-compact .cv-body-line { font-size: 12.2px; line-height: 1.5; padding-top: 0; padding-bottom: 1px; }
+.template-mono.density-compact .cv-entry-field { font-size: 12.2px; line-height: 1.5; padding-top: 0; padding-bottom: 2px; }
+.template-mono.density-compact .cv-entry-heading,
+.template-mono.density-compact .cv-entry-field.field-heading { font-size: 13.7px; line-height: 1.5; }
+.template-mono.density-compact .cv-summary { padding-top: 14px; font-size: 12.2px; line-height: 1.55; }
+.template-mono.font-serif.density-compact .cv-body-line,
+.template-mono.font-serif.density-compact .cv-summary,
+.template-mono.font-serif.density-compact .cv-entry-field { font-size: 14.2px; line-height: 1.5; }
+.template-mono.font-serif .cv-entry-field.field-period,
+.template-mono.font-mono .cv-entry-field.field-period,
+.template-mono.density-compact .cv-entry-field.field-period { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; line-height: 1.6; }
+
+/* The miniature preserves the sans nameplate, soft indexed bands and wide text. */
+.mini-mono { background: #fff; color: #232d2a; }
+.mini-mono .mini-main { padding: 13px 11px 9px; border-left: 1px solid #e0e5df; margin-left: 5px; }
+.mini-mono .mini-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 2.2px; line-height: 1.4; letter-spacing: .5px; margin-bottom: 6px; color: #637568; }
+.mini-mono .mini-name { font-family: 'DM Sans Variable', 'DM Sans', sans-serif; font-size: 12.5px; font-weight: 650; line-height: 1; letter-spacing: -.7px; color: #232d2a; }
+.mini-mono .mini-role { font-family: 'DM Sans Variable', sans-serif; font-size: 2.4px; line-height: 1.4; margin-top: 5px; color: #55695c; }
+.mini-mono .mini-rule { height: 1px; margin: 7px 0; background: #35443a; opacity: 1; }
+.mini-mono .mini-top-photo { width: 16px; height: 21px; top: 23px; right: 10px; border-radius: 2px 2px 5px 2px; background: #e0e7df; }
+.mini-mono .mini-section { margin-top: 7px; }
+.mini-mono .mini-section-title { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 2.5px; line-height: 1.4; font-weight: 500; letter-spacing: .3px; padding: 1px 3px; background: #eef2ec; color: #354a3b; }
+.mini-mono .mini-section-title::before { content: '[01] '; color: #788e7b; }
+.mini-mono .mini-text-lines { padding-left: 0; }
+.mini-mono .mini-text-lines i { margin-top: 2.4px; background: #d0d9d0; }
+.mini-mono .mini-text-lines i:first-child { background: #849887; width: 73%; }

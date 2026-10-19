@@ -114,7 +114,7 @@ export async function exportPDF(doc:CVDocument):Promise<void>{
     for(const element of clone.querySelectorAll<HTMLElement>('[contenteditable],.is-editable')){
       element.removeAttribute('contenteditable');element.classList.remove('is-editable');element.style.outline='none';element.style.boxShadow='none';
     }
-    for(const element of clone.querySelectorAll<HTMLElement>('.cv-photo.is-empty')){element.style.border='none';element.style.background='transparent';}
+    for(const element of clone.querySelectorAll<HTMLElement>('.cv-photo.is-empty')){element.style.border='none';element.style.background='transparent';element.style.boxShadow='none';}
     for(const anchor of clone.querySelectorAll<HTMLAnchorElement>('a[href]')){
       if(!/^(https?:|mailto:|tel:)/i.test(anchor.getAttribute('href')??''))anchor.removeAttribute('href');
     }

@@ -4,7 +4,7 @@ import type { IncomingMessage } from 'node:http';
 export const SESSION_COOKIE = 'michi_editor';
 const SESSION_SECONDS=60*60*24*7;
 function signingKey(){
-  const key=process.env.BLOB_READ_WRITE_TOKEN;
+  const key=process.env.SESSION_SECRET??process.env.BLOB_READ_WRITE_TOKEN;
   if(!key)throw new Error('Server authentication is not configured.');
   return createHmac('sha256',key).update(`michi-cv-editor-session-v1:${process.env.EDITOR_PASSWORD??''}`).digest();
 }

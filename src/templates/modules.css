@@ -1,0 +1,7 @@
+/* Personal modules get an open reading measure rather than an unused date rail. */
+:is(.cv-page,.cv-measure-page) .cv-entry-header:is(.kind-skills,.kind-custom){grid-template-columns:minmax(0,1fr) 108px;column-gap:20px;align-items:baseline}
+:is(.cv-page,.cv-measure-page) .cv-entry-header:is(.kind-skills,.kind-custom) .cv-entry-heading{grid-column:1;grid-row:1}
+:is(.cv-page,.cv-measure-page) .cv-entry-header:is(.kind-skills,.kind-custom) .cv-period{grid-column:2;grid-row:1;text-align:right}
+:is(.cv-page,.cv-measure-page) .cv-entry-header:is(.kind-skills,.kind-custom) .cv-period:empty{display:none}
+:is(.cv-page,.cv-measure-page) .cv-entry-field:is(.kind-skills,.kind-custom),:is(.cv-page,.cv-measure-page) .cv-body-line:is(.kind-skills,.kind-custom){padding-left:0;padding-right:0}
+:is(.cv-page,.cv-measure-page) .cv-entry-image:is(.kind-skills,.kind-custom){padding-left:0}

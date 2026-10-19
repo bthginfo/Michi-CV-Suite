@@ -1,61 +1,63 @@
 # Michael Meier · CV Studio
 
-Ein persönlicher Lebenslauf-Editor mit einer dunklen Navy-Oberfläche, fünf eigenständigen A4-Vorlagen und direkter Bearbeitung auf dem Dokument. Michaels Angaben aus dem bereitgestellten CV sind als editierbare Ausgangsbasis übernommen. Das Kurzprofil fasst die vorhandenen Tätigkeiten zusammen; zusätzliche Qualifikationen wurden nicht ergänzt.
+Ein persönlicher Lebenslauf-Editor mit einer dunklen Navy-Oberfläche, fünf gestalteten A4-Vorlagen und direkter Bearbeitung im Dokument.
+
+**Passwort eingeben → Michaels aktueller CV öffnet sich. Auf jedem Gerät derselbe Stand.** Texte, Bilder, Gestaltung und Abschnitte werden zentral in einer eigenen Neon-Postgres-Datenbank im kostenlosen Tarif gespeichert. Es gibt keine privaten Bearbeitungslinks oder gerätegebundenen Arbeitsplätze.
 
 ## Funktionen
 
-- Nordic, Editorial, Studio, Executive und Mono: unterschiedliche Layouts mit frei wählbarer Akzentfarbe, Schrift, Dichte und Fotoform.
-- Live-Vorschau mit automatischen Seitenumbrüchen. Texte, Kontaktdaten, Abschnittssymbole, Einträge und Bilder lassen sich bearbeiten; Abschnitte und Einträge hinzufügen, ausblenden, verschieben und löschen.
-- Foto-Upload mit lokaler Größenoptimierung; Bilder bleiben Teil des gespeicherten CV.
-- Passwortgeschützter Editor. Das Passwort steht ausschließlich in einer serverseitigen Vercel-Umgebungsvariable. Sitzungen sind signierte HttpOnly-Cookies mit einer Laufzeit von sieben Tagen.
-- Sofortige lokale Sicherung plus automatische Cloud-Speicherung nach einer kurzen Bearbeitungspause. Gleichzeitige Änderungen auf mehreren Geräten werden über ETags gegen unbeabsichtigtes Überschreiben geschützt.
-- Privater Bearbeitungslink, um denselben Arbeitsplatz auf einem anderen Gerät wieder zu öffnen.
-- Öffentliche, unveränderliche Leseansichten mit klickbaren E-Mail-, Telefon-, Karten- und Weblinks und direkter Kontaktaufnahme.
-- PDF-Download aus denselben gerenderten Seiten einschließlich eingebetteter Schriften, auswählbarem Text und klickbaren Links.
-- JSON-Backup und Wiederherstellung; Rückgängig/Wiederholen; mobile Oberfläche; überspringbare Tour beim ersten Login auf einem Gerät.
+- **Atlas, Folio, Signal, Meridian und Index:** fünf eigenständige Designs mit anpassbaren Akzentfarben, Schrift, Dichte und Fotoform.
+- Direktes Bearbeiten von Texten, Kontaktdaten, Abschnittssymbolen und Bildern; Abschnitte und Einträge ergänzen, verschieben, ausblenden oder löschen.
+- **CV vervollständigen:** geführter Inhaltsassistent für Stärken, Projekte und Erfolge, Sprachen, Interessen, Ehrenamt, Zertifikate und Referenzen. Kurze Fragen, Beispiele, Vorschau und bewusste Übernahme; leere Bereiche werden weggelassen. Bereits vorhandene Angaben werden übernommen statt dupliziert.
+- Michaels Angaben aus den bereitgestellten CV-Abbildungen sind als editierbare Ausgangsbasis enthalten. Das Kurzprofil fasst die vorhandenen Tätigkeiten zusammen. Zusätzliche Stärken, Leistungen oder Qualifikationen werden nicht erfunden.
+- Ein-Klick-Foto-Upload mit Optimierung für JPG, PNG und WebP. Kein künstliches Portrait: der Editor zeigt einen klaren Fotoplatzhalter, bis ein Bild hochgeladen wird.
+- Sofortige lokale Entwurfssicherung plus automatische Speicherung in Postgres nach einer kurzen Bearbeitungspause. Gleichzeitige Änderungen werden gegen unbeabsichtigtes Überschreiben geschützt. Bei erneutem Öffnen und beim Zurückkehren auf ein inaktives Fenster wird ein neuerer zentraler Stand geladen, solange keine eigenen Änderungen offen sind.
+- Passwortschutz mit signierten HttpOnly-/SameSite-Cookies für sieben Tage. Das Passwort und die Datenbankzugänge bleiben auf dem Server.
+- Öffentliche, unveränderliche Leselinks mit klickbaren E-Mail-, Telefon-, Karten- und Weblinks und direkter Kontaktaufnahme. Nur diese öffentlichen Links werden geteilt.
+- PDF-Download aus denselben gerenderten A4-Seiten mit eingebetteten Schriften, auswählbarem Text und klickbaren Links.
+- Rückgängig/Wiederholen, JSON-Backup und Wiederherstellung, mobile Vergrößerung und eine überspringbare, erneut startbare Tour beim ersten Login pro Gerät.
 
-## Speicherung und Zugriff
+## Speicherung
 
-Die Anwendung verwendet einen **privaten Vercel-Blob-Store in Frankfurt**. Eine zusätzliche Datenbank und ein separates Datenbank-Abo sind nicht erforderlich. Vercel Blob wird auf dem Pro-Tarif nach Nutzung abgerechnet. Automatische Speicherung, Freigaben und PDF-Erstellung nutzen die Infrastruktur des verbundenen Vercel-Kontos.
+Die dedizierte Datenbank `michi-cv-db` befindet sich in Frankfurt und wurde im **Neon-Free-Tarif** über das verbundene Vercel-Konto eingerichtet. Es wurde kein kostenpflichtiger Datenbanktarif aktiviert. Vercel-Hosting und PDF-Funktionen nutzen den bestehenden Pro-Tarif.
 
-Ein neuer Browser startet mit Michaels Ausgangs-CV und einem eigenen, zufällig erzeugten Arbeitsplatzschlüssel. **Den privaten Bearbeitungslink sichern**, um nach einem Gerätewechsel oder nach dem Löschen von Browserdaten wieder denselben Cloud-Stand zu öffnen. Das Editor-Passwort allein wählt keinen bestehenden Arbeitsplatz aus. Wer sowohl Passwort als auch privaten Link besitzt, kann diesen Arbeitsplatz bearbeiten.
+`cv_documents` enthält Michaels zentralen CV inklusive Bildern als validiertes JSONB-Dokument. `cv_shares` enthält feste öffentliche Momentaufnahmen. ETags werden bei Änderungen atomar geprüft; ein älterer Gerätestand überschreibt keinen neueren. In Produktion ist der Dokument-Identifier fest `michael`. Eine Gerätekennung ist nicht erforderlich.
 
-Öffentliche Leselinks enthalten einen zufälligen Freigabe-Identifier und benötigen kein Passwort. Sie zeigen einen festen Stand, der sich durch spätere Bearbeitungen nicht verändert. Ein Bearbeitungslink enthält seinen geheimen Schlüssel ausschließlich im URL-Fragment; nach dem Öffnen übernimmt der Browser ihn und entfernt ihn aus der Adresszeile. Bearbeitungsschlüssel werden getrennt von öffentlichen Freigaben behandelt.
+Der Browser bewahrt zusätzlich einen lokalen Entwurf auf, falls die Verbindung ausfällt. Die Datenbank ist die gemeinsame Quelle. Bereits auf dem Gerät vorhandene Entwürfe der ersten App-Version werden einmalig automatisch übernommen, solange der neue zentrale CV noch unverändert ist. Bereits bearbeitete zentrale Daten werden dabei niemals ersetzt.
 
-Fotos werden im Browser als WebP auf maximal 960 Pixel Kantenlänge optimiert und gemeinsam mit dem CV gespeichert. Unterstützt werden JPG, PNG und WebP bis 15 MB vor Optimierung. Ein gesamter gespeicherter CV darf höchstens 2,5 MB groß sein. SVG und externe Bild-URLs werden beim Import abgewiesen. Backups enthalten auch die Bilder und sollten privat aufbewahrt werden.
+Neue CV-Daten, Bilder und Leselinks werden in Postgres gespeichert. Der zuvor verbundene private Blob-Store bleibt ausschließlich für die Kompatibilität mit bereits erzeugten alten Leselinks verfügbar. Fotos werden im Browser auf maximal 960 Pixel Kantenlänge optimiert. Unterstützte Originaldateien: JPG/PNG/WebP bis 15 MB; gesamter CV maximal 2,5 MB. SVG und externe Bild-URLs sind beim Import ausgeschlossen.
 
-## Lokal starten
+## Lokale Entwicklung
 
-Voraussetzung: Node.js 24. Die Abhängigkeiten sind im Lockfile fixiert.
+Voraussetzung: Node.js 24.
 
 ```sh
 npm ci
-vercel link
-vercel env pull .env.local
-npm run dev
 ```
 
-Den richtigen Vercel-Workspace und das Projekt `michi-cv-suite` auswählen. Die Datei `.env.local` wird nicht eingecheckt. Sie benötigt die serverseitigen Werte `BLOB_READ_WRITE_TOKEN` und `EDITOR_PASSWORD`. Niemals mit `VITE_` präfixieren oder in den Browser-Build übernehmen. Der lokale Vite-Server bedient auch die API-Routen; für PDF-Tests muss lokal Google Chrome installiert sein. Alternativ lässt sich dessen Pfad über `CHROME_EXECUTABLE_PATH` angeben. In Produktion wird das paketierte Serverless-Chromium verwendet.
+Die serverseitigen Werte aus `.env.example` in einer ignorierten `.env.local` setzen. `DATABASE_URL` ist die gepoolte Neon-Verbindung, `DATABASE_URL_UNPOOLED` die direkte Verbindung für Migrationen. Die Werte stehen im geschützten Quickstart der Datenbank. Für lokale Tests einen eigenen `CV_DOCUMENT_ID` mit Präfix `qa-` verwenden; diesen Wert **nicht** in Produktion setzen. `SESSION_SECRET` ist ein zufälliges serverseitiges Signiergeheimnis. Niemals echte Zugänge einchecken oder mit `VITE_` präfixieren.
+
+```sh
+node --env-file=.env.local --import tsx scripts/migrate-db.ts
+npm run dev -- --port 5174
+```
+
+Die Migration erstellt die Tabellen additiv und verändert keine bestehenden CV-Daten. Der lokale Vite-Server bedient auch die API-Routen. Für lokale PDF-Tests Google Chrome installieren oder `CHROME_EXECUTABLE_PATH` setzen. In Produktion wird das paketierte Serverless-Chromium verwendet.
 
 ## Prüfen und veröffentlichen
 
 ```sh
 npm test
 npm run build
-```
-
-`tests/` prüft Datenvalidierung, gefährliche Importwerte, Bearbeitungsschlüssel und signierte Sitzungen. `scripts/smoke-api.ts` prüft gegen den realen privaten Store Anmeldung, Daten und Bilder, falsche Schlüssel, Schreibkonflikte und unveränderliche öffentliche Freigaben. Der Test erstellt ausschließlich zufällige eigene Testobjekte und entfernt diese danach.
-
-```sh
 node --env-file=.env.local --import tsx scripts/smoke-api.ts
 ```
 
-Für einen anderen Testserver `TEST_ORIGIN` setzen. Standard ist `http://127.0.0.1:5174`.
+Die Unit-Tests prüfen Dokumentvalidierung, sichere Imports, Weblinks und signierte Sitzungen. Der API-Test prüft gegen die echte Datenbank zwei unabhängige Anmeldungen, gemeinsamen Stand, Bilder, Schreibkonflikte, sichere Altentwurfsübernahme und unveränderliche Leselinks. Schreibtests sind auf einen lokalen Server mit `qa-`-Dokument-Identifier beschränkt; danach wird der Ausgangsstand wiederhergestellt. Mit `TEST_ORIGIN=https://michi-cv-suite.vercel.app` prüft er die Produktion lesend und verändert Michaels CV nicht.
 
-Das Vercel-Projekt ist mit diesem Repository verbunden. Die produktive Veröffentlichung erfolgt aus `main`. `vercel.json` konfiguriert Build, API-Funktionen, Sicherheitsheader und das Chromium-Binärpaket für die PDF-Funktion. Öffentliche Leseansichten sind auf der produktiven Domain erreichbar; Vercel-Vorschauen können separat durch Vercel geschützt bleiben.
+Vercel ist mit diesem Repository verbunden und veröffentlicht `main` automatisch. `vercel.json` konfiguriert Build, Sicherheitsheader, API-Funktionen und das Chromium-Paket. Öffentliche Leselinks sind auf der Produktionsdomain erreichbar; Vercel-Vorschauen können separat geschützt bleiben.
 
-## Technische Struktur
+## Struktur
 
-React, TypeScript und Vite; selbst gehostete Schriftdateien; Lucide-Symbole. `src/model.ts` definiert das validierte Dokumentformat, `src/seed.ts` die CV-Ausgangsdaten. `src/CVCanvas.tsx` ist die gemeinsame Darstellung für Editor, Leseansicht und Export. `src/useWorkspace.ts` verwaltet lokale Sicherung, Cloud-Abgleich, Rückgängig und Freigaben. `api/auth.ts`, `api/workspace.ts` und `api/pdf.ts` stellen Anmeldung, privaten Speicher und PDF-Erzeugung bereit.
+React, TypeScript und Vite; lokal gehostete Schriften und Lucide-Symbole. `src/model.ts` definiert das Dokumentformat, `src/seed.ts` Michaels Ausgangsdaten. `src/CVCanvas.tsx` rendert Editor, Leseansicht und Export; `src/templates/` enthält die Gestaltungen. `src/ContentAssistant.tsx` und `src/contentModules.ts` führen durch optionale Inhalte. `src/useWorkspace.ts` verwaltet Datenbank-Abgleich, lokalen Entwurf und Verlauf. `server/database.ts` enthält parametrisierte SQL-Abfragen, `server/schema.ts` die Migrationen. Die API-Routen stellen Anmeldung, CV-Daten, Leselinks und PDF-Erzeugung bereit.
 
-Die PDF-Funktion führt kein übermitteltes JavaScript aus und blockiert Netzwerk- und Dateizugriffe beim Rendern. Der normale PDF-Download behält Texte und Links bei; die Bibliothek enthält zusätzlich einen optionalen Raster-Export für eine mögliche spätere Offline-Funktion.
+Der PDF-Renderer führt kein übermitteltes JavaScript aus und blockiert Netzwerk- und Dateizugriffe. Alle benötigten Schriften und Bilder sind im Druckdokument eingebettet.
