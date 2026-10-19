@@ -269,7 +269,7 @@ The studio is compact; document names provide expressive scale. Default CV body 
 
 The desktop editor has a navigation rail (76 px), context pane (304 px) and flexible workspace beneath a header (78 px). From 1550 px the pane is 330 px. At 1190 px and below it is 275 px and the rail is 67 px. At 749 px and below the header is 67 px, navigation runs horizontally beneath it, and the context pane is a fixed overlay up to 330 px or 86 vw wide. The 960 px breakpoint simplifies toolbar and authentication layouts. Read-only view occupies one full-width workspace track.
 
-The gallery is a two-column grid with **Seite 1 / Seite 2** controls. Miniatures are family-specific silhouettes, not scaled live document renders. They show the actual name and selected accent; Grid's qualification miniature uses a denser entry board. Base miniature height in the document-family layer is 154 px.
+The gallery is a two-column grid with one first-page miniature per template. Miniatures are family-specific silhouettes, not scaled live document renders. They show the actual name and selected accent. The full CV canvas scrolls through all document pages. Base miniature height in the document-family layer is 154 px.
 
 Pages are 794 x 1123 CSS px, corresponding to A4 portrait. The outer article remains a block; composition grids live inside it. Paper scales to the viewport, while internal document typography does not reflow to phone width. There is no shared permanent rail or universal document spacing scale. The following defaults can be overridden by phase, font and density rules.
 
@@ -325,7 +325,7 @@ Fields use a navy fill, thin border and compact corners. Focus changes the borde
 
 ### Gallery and document fragments
 
-Gallery cards use a selection border/check and slight hover lift. Their two page silhouettes follow each family. Selected cards use the current document accent; others use registry defaults. The page selector changes the miniature view without changing CV data.
+Gallery cards use a selection border/check and slight hover lift. Their first-page silhouettes follow each family. Selected cards use the current document accent; others use registry defaults. Select a card to change the template, then scroll the full CV canvas to inspect every page.
 
 Document fragments contain real sections or entry cards. Sidecar specimens demonstrate reused editor primitives and signature paper materials. These specimens are not extra CV content or a mandate to apply document composition to the editor.
 
@@ -348,7 +348,7 @@ Use the uploaded portrait or initials derived from the actual name. An editor ca
 - **Do** measure actual frames, panel padding, borders, gaps and grouped grids before pagination.
 - **Do** keep A4 geometry and local fonts consistent across preview, public view and native PDF.
 - **Do** preserve inherited SVG colors, user photo shape, cleared fields and footer visibility.
-- **Do** keep gallery page silhouettes aligned with their document families.
+- **Do** keep gallery first-page silhouettes aligned with their document families.
 
 ### Don't:
 

@@ -898,7 +898,7 @@
       "Do measure actual frames, panel padding, borders, gaps and grouped grids before pagination.",
       "Do keep A4 geometry and local fonts consistent across preview, public view and native PDF.",
       "Do preserve inherited SVG colors, user photo shape, cleared fields and footer visibility.",
-      "Do keep gallery page silhouettes aligned with their document families."
+      "Do keep gallery first-page silhouettes aligned with their document families."
     ],
     "donts": [
       "Don't reduce the collection to recolors or left/right swaps of one column layout.",

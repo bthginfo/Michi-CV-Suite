@@ -18,7 +18,7 @@ Michael edits his CV without technical knowledge. Recruiters and professional co
 
 ## Current redesign request
 
-The user rejected the previous ten document variants as too similar and found their second pages insufficiently designed. The replacement collection has ten structural worlds: rounded SaaS boards, a square dashboard matrix, an open magazine, an angular timeline, a Swiss poster, soft organic panels, full dark espresso paper, a horizontal ledger, an asymmetric portfolio and an architectural split. First and qualification pages must both be deliberate. The gallery offers first/second-page miniature views. The editor's dark navy identity and working persistence remain.
+The user rejected the previous ten document variants as too similar and found their second pages insufficiently designed. The replacement collection has ten structural worlds: rounded SaaS boards, a square dashboard matrix, an open magazine, an angular timeline, a Swiss poster, soft organic panels, full dark espresso paper, a horizontal ledger, an asymmetric portfolio and an architectural split. First and qualification pages must both be deliberate. The gallery offers one characteristic miniature per template; the full CV canvas scrolls through all document pages. The editor's dark navy identity and working persistence remain.
 
 Every visible CV content icon remains directly replaceable or removable in edit mode, with a way to restore it. Text remains editable and removable. Main/additional placement stays meaningful across compositions; an additional area need not be a literal sidebar. Real measured content determines pagination. The supplied two-page baseline is not a limit for longer custom content.
 
